@@ -216,7 +216,31 @@ unified-toolbar global-search-bar .kbd-container kbd {
 /* Get Messages: sageata de reimprospatare Fluent (ca in Outlook), in locul norului;
    culoarea textului vine prin context-stroke */
 #folderPaneGetMessages {
-  background-image: url("Icons/refresh.svg") !important;
+  background-image: none !important;
+  position: relative !important;
+}
+/* Iconita pe un pseudo-element, ca sa se roteasca doar ea, nu si fundalul de hover.
+   La click: cat e apasat sare la -360deg fara tranzitie, la eliberare revine la 0
+   in 0.6s, deci face o tura in sensul acelor de ceas dupa fiecare click. */
+#folderPaneGetMessages::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: url("Icons/refresh.svg") center / var(--icon-size, 16px) no-repeat !important;
+  -moz-context-properties: fill, stroke;
+  stroke: currentColor;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#folderPaneGetMessages:hover::before {
+  transform: rotate(30deg);
+}
+#folderPaneGetMessages:active::before {
+  transform: rotate(-360deg);
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  #folderPaneGetMessages::before { transition: none !important; }
+  #folderPaneGetMessages:hover::before { transform: none; }
 }
 #threadPane,
 #messagePane,
