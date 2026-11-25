@@ -17,3 +17,17 @@
     padding-inline: 64px 12px !important;
   }
 }
+
+/* Agenda (about:addressbook) si Setarile (about:preferences) sunt documente
+   separate, la care userChrome.css nu ajunge: butoanele principale si conturul de focus foloseau culoarea de accent
+   Windows. Le trecem pe albastrul temei (Light: #0f6cbd, Dark: #2886de). */
+@-moz-document url-prefix("about:addressbook"), url-prefix("about:preferences") {
+  :root {
+    --selected-item-color: light-dark(#0f6cbd, #2886de) !important;
+    --selected-item-text-color: #ffffff !important;
+    --color-accent-primary: light-dark(#0f6cbd, #2886de) !important;
+    --color-accent-primary-hover: light-dark(#115ea3, #1f6fc0) !important;
+    --color-accent-primary-active: light-dark(#0f548c, #1a5ea6) !important;
+    --focus-outline-color: light-dark(#0f6cbd, #479ef5) !important;
+  }
+}

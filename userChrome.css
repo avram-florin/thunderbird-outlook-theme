@@ -702,3 +702,32 @@ notification-message[type="warning"] {
 #header-view-toolbar #hdrReplyListButton .toolbarbutton-icon { mask-image: url("Icons/list-reply.svg") !important; background-color: #1e8bcd !important; }
 #header-view-toolbar #hdrForwardButton .toolbarbutton-icon { mask-image: url("Icons/forward.svg") !important; background-color: #1e8bcd !important; }
 #header-view-toolbar #otherActionsButton .toolbarbutton-icon { mask-image: url("Icons/more.svg") !important; background-color: var(--ol-text-2) !important; }
+
+/* --- 12. Calendar, Tasks, Agenda: aceeasi tema ca restul --------------------
+   Thunderbird pune "color-scheme: light dark" pe containerul filelor, pe filele
+   de sus si pe meniu, deci acestea urmeaza tema Windows, nu tema aleasa aici
+   (in Light, calendarul si lista de sarcini ramaneau pe jumatate intunecate).
+   Le fixam pe schema paletei active (--ol-scheme). */
+#tabpanelcontainer,
+#tabs-toolbar,
+.tabmail-tab,
+#mail-menubar {
+  color-scheme: var(--ol-scheme) !important;
+}
+/* Ziua selectata in calendar: doar o nuanta discreta, nu toata coloana
+   albastra (in Outlook coloana ramane aproape alba). */
+:root {
+  --viewDayBoxSelectedBackground: color-mix(in srgb, var(--ol-accent) 7%, var(--viewBackground)) !important;
+  --viewDayBoxOffSelectedBackground: color-mix(in srgb, var(--ol-accent) 7%, var(--viewTodayOffBackground)) !important;
+}
+/* Unele butoane principale din fereastra principala (ex. Calendar, Tasks) folosesc
+   culoarea de accent Windows (AccentColor); le trecem pe albastrul temei.
+   Agenda si Setarile sunt documente separate: vezi userContent.css. */
+:root {
+  --color-accent-primary: var(--ol-accent) !important;
+  --color-accent-primary-hover: color-mix(in srgb, var(--ol-accent) 85%, black) !important;
+  --color-accent-primary-active: color-mix(in srgb, var(--ol-accent) 75%, black) !important;
+  --color-primary-default: var(--ol-accent) !important;
+  --color-primary-hover: color-mix(in srgb, var(--ol-accent) 85%, black) !important;
+  --color-primary-pressed: color-mix(in srgb, var(--ol-accent) 75%, black) !important;
+}

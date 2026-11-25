@@ -1,6 +1,7 @@
 /* Outlook 365 - Light. Doar culori; geometria este in userChrome.css. */
 :root {
   color-scheme: light !important;          /* Thunderbird alege varianta deschisa din light-dark() */
+  --ol-scheme: light;                      /* folosit si pe filele care altfel urmeaza Windows */
 
   --ol-canvas:        #f0f0f0;             /* fundalul ferestrei, intre panouri */
   --ol-toolbar:       #f0f0f0;             /* bara de sus, Spaces, bara de stare */

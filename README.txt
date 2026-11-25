@@ -62,6 +62,9 @@ Ce schimbă
   „adaugă în agendă” e în meniul de la click pe adresă.
 - Pagina de start Thunderbird (când nu e selectat niciun mesaj): rămâne doar
   ilustrația de fundal; textul, Donate și cardurile sunt ascunse (userContent.css).
+- Calendar, Tasks și Agenda urmează tema aleasă (Light/Dark), nu tema din Windows;
+  ziua selectată din calendar are doar o nuanță discretă, ca în Outlook;
+  butoanele principale din Agendă și Setări sunt albastre, nu în culoarea Windows.
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
 
 Lista de mesaje ca în Outlook (3 rânduri)
