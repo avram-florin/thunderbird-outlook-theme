@@ -769,6 +769,18 @@ notification-message[type="warning"] {
 #composeToolbar2 {
   background-color: var(--ol-toolbar) !important;
 }
+/* To/Cc/Subject: campurile urmau tema intunecata a Windows (prefers-color-scheme),
+   nu color-scheme-ul temei; le dam culorile temei */
+.address-container,
+#msgSubject,
+.address-container :is(.address-input, .autocomplete-input) {
+  background-color: var(--ol-field) !important;
+  color: var(--ol-text) !important;
+}
+.address-container,
+#msgSubject {
+  border-color: var(--ol-border-strong) !important;
+}
 /* Send: buton albastru plin, ca in Outlook */
 #button-send {
   --toolbarbutton-icon-fill: var(--ol-accent-text) !important;
