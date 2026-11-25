@@ -66,8 +66,8 @@ Ce schimbă
   ziua selectată din calendar are doar o nuanță discretă, ca în Outlook;
   butoanele principale din Agendă și Setări sunt albastre, nu în culoarea Windows.
 - Logo în colțul din stânga sus: logo-ul Outlook 2024, refăcut în Figma de comunitate
-  („Full logo”), cu T în loc de O. Folosit: Icons	hunderbird-t-mare.svg (pătratul și
-  T-ul mărite, ca să se vadă la 32px; T cu colțuri rotunjite). Varianta apropiată de
+  („Full logo”), cu T în loc de O. Folosit: Icons	hunderbird-t-mare.svg (pătratul mărit
+  și coborât pe mijlocul plicului, T-ul și mai mare, cu colțuri rotunjite, ca să se vadă la 32px). Varianta apropiată de
   original: Icons	hunderbird-t.svg (se schimbă numele în secțiunea 2 din userChrome.css).
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
 

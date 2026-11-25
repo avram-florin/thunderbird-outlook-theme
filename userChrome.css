@@ -147,7 +147,8 @@ unified-toolbar global-search-bar {
 }
 /* Logo-ul din coltul din stanga sus: logo-ul Outlook (2024) refacut, cu T in
    loc de O, din fisierul Figma "Full logo". Varianta folosita: patratul si T-ul
-   marite 1.35x, T cu colturi rotunjite (Icons/thunderbird-t-mare.svg); varianta
+   marit 1.35x si coborat pe mijlocul plicului, T-ul inca 1.2x, cu colturi
+   rotunjite (Icons/thunderbird-t-mare.svg); varianta
    apropiata de original e Icons/thunderbird-t.svg. */
 #spacesToolbar::before {
   content: "";

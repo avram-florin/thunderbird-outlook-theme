@@ -44,7 +44,7 @@
 <g id="Vector_10" filter="url(#filter13_f_0_1)" style="mix-blend-mode:soft-light">
 <path d="M614 681C596.485 680.816 578.97 676.207 563.299 667.082L517.022 640.261L470.745 613.439C470.745 613.439 434.24 592.24 397.643 571.041C361.046 549.841 324.357 528.55 323.988 528.366C310.437 520.07 299.467 508.549 292 495" stroke-width="3" stroke-linecap="round" stroke="url(#paint6_linear_0_1)"/>
 </g>
-<g transform="translate(131 746) scale(1.35) translate(-131 -746)">
+<g transform="translate(131 816) scale(1.35) translate(-131 -746)">
 <g id="Vector_11" filter="url(#filter14_dd_0_1)">
 <use xlink:href="#stroke0_0_1" fill="#0F76D5" shape-rendering="crispEdges"/>
 <mask id="stroke1_0_1" fill="white">
@@ -52,6 +52,7 @@
 </mask>
 <path d="M167.515 336.721H503.859C524.026 336.721 540.374 353.07 540.374 373.236V709.58C540.374 729.747 524.026 746.096 503.859 746.096H167.515C147.348 746.096 131 729.747 131 709.58V373.236C131 353.07 147.348 336.721 167.515 336.721Z" stroke-width="4" stroke="black" stroke-opacity="0.1" shape-rendering="crispEdges" mask="url(#stroke1_0_1)"/>
 </g>
+<g transform="translate(335.5 540) scale(1.2) translate(-335.5 -540)">
 <g id="Vector_12" filter="url(#filter15_dd_0_1)">
 <path d="M236 421H435Q445 421 445 431V458Q445 468 435 468H365.5Q359.5 468 359.5 474V649Q359.5 659 349.5 659H321.5Q311.5 659 311.5 649V474Q311.5 468 305.5 468H236Q226 468 226 458V431Q226 421 236 421Z" fill="#E7EBF1"/>
 </g>
@@ -60,6 +61,7 @@
 <path d="M236 421H435Q445 421 445 431V458Q445 468 435 468H365.5Q359.5 468 359.5 474V649Q359.5 659 349.5 659H321.5Q311.5 659 311.5 649V474Q311.5 468 305.5 468H236Q226 468 226 458V431Q226 421 236 421Z"/>
 </mask>
 <path d="M236 421H435Q445 421 445 431V458Q445 468 435 468H365.5Q359.5 468 359.5 474V649Q359.5 659 349.5 659H321.5Q311.5 659 311.5 649V474Q311.5 468 305.5 468H236Q226 468 226 458V431Q226 421 236 421Z" stroke-width="6" stroke="white" mask="url(#stroke2_0_1)"/>
+</g>
 </g>
 <g id="Vector_14" filter="url(#filter17_f_0_1)" style="mix-blend-mode:hard-light">
 <path d="M140 362C141.787 358.033 144.379 354.562 147.595 351.587C150.812 348.612 154.655 346.215 158.855 344.562C163.055 342.909 167.791 342 172.705 342H500.295C505.209 342 509.856 342.909 514.145 344.562C518.435 346.215 522.188 348.612 525.405 351.587C528.621 354.562 531.213 358.116 533 362" stroke-width="3" stroke-linecap="round" stroke="url(#paint7_linear_0_1)"/>
