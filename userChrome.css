@@ -1,10 +1,13 @@
 /* ==========================================================================
    Thunderbird 161 - stil Outlook 365 (New Outlook), Windows 11
-   Punct unic de intrare. Pentru a schimba tema, modifica DOAR linia de mai jos
-   si reporneste Thunderbird. @import trebuie sa ramana prima regula din fisier.
+   Punct unic de intrare. Tema se schimba din comutatorul luna/soare din antetul
+   mesajului (preferinta Thunderbird mail.dark-reader.enabled), pe loc, fara
+   repornire: Light e baza, Dark se aplica peste ea cand comutatorul e pe
+   intunecat (si corpul mesajelor devine intunecat). @import trebuie sa ramana
+   primele reguli din fisier.
    ========================================================================== */
-/* @import url("userChrome-light.css"); */
-@import url("userChrome-dark.css");
+@import url("userChrome-light.css");
+@import url("userChrome-dark.css") -moz-pref("mail.dark-reader.enabled");
 
 /* Selectorii provin din about3Pane.xhtml, messenger.xhtml si aboutMessage.xhtml
    din omni.ja (Thunderbird 161.0) si au fost verificati pe ecran. Culorile vin

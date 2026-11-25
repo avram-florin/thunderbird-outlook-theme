@@ -36,7 +36,7 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 3. Add-ons and Themes → rotița → **Install Add-on From File** → `outlook-cards.xpi`.
 4. Repornește Thunderbird.
 
-Tema se schimbă dintr-o singură linie (`@import`) la începutul `userChrome.css`. Detaliile, selectorii verificați și ce nu se poate face sunt în `README.txt`.
+Tema se schimbă pe loc din comutatorul lună/soare din antetul mesajului (Light/Dark în toată aplicația, fără repornire). Detaliile, selectorii verificați și ce nu se poate face sunt în `README.txt`.
 
 ## Confidențialitate
 

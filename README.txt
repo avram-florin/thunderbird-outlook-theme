@@ -22,15 +22,15 @@ Instalare
 
 Schimbarea temei
 ----------------
-Deschide userChrome.css. Primele linii active sunt:
-
-    /* @import url("userChrome-light.css"); */
-    @import url("userChrome-dark.css");
-
-Lasă activă (fără /* */) doar linia temei dorite, salvează, repornește
-Thunderbird. @import trebuie să rămână ÎNAINTEA oricărei alte reguli din
-fișier; altfel e ignorat (aceasta era cauza pentru care temele vechi nu se
-aplicau).
+Din comutatorul lună/soare din dreapta sus a antetului mesajului: tema se schimbă
+pe loc în toată aplicația, fără repornire, iar corpul mesajelor devine întunecat
+odată cu Dark (comutatorul e cel al Thunderbird, preferința mail.dark-reader.enabled).
+Același lucru: Setări > General > „Dark mode” pentru mesaje.
+În userChrome.css, Light e baza, iar Dark se aplică peste ea doar când preferința e
+activă (@import ... -moz-pref("mail.dark-reader.enabled")). @import trebuie să rămână
+ÎNAINTEA oricărei alte reguli din fișier; altfel e ignorat.
+Dacă comutatorul nu apare: meniul ⋯ More din antet > Customize > „Show dark mode toggle”.
+Un mesaj deja deschis își schimbă corpul la următoarea deschidere.
 
 Ce schimbă
 ----------
