@@ -41,7 +41,7 @@ Ce schimbă
 - Panourile listă și citire sunt suprafețe rotunjite pe fundal comun, ca în New Outlook.
 - Bara de sus (căutare, butoanele ferestrei): albastră în Light, aproape neagră în Dark.
 - Căutarea ca în Outlook: lupa în stânga, text mai mare, scurtătura CTRL+K în colțul din dreapta.
-- Butonul Get Messages (lângă New Message) are săgeata de reîmprospătare din Outlook (Iconsefresh.svg, Fluent, MIT) în locul norului.
+- Butonul Get Messages (lângă New Message) are săgeata de reîmprospătare din Outlook (Icons\refresh.svg, Fluent, MIT) în locul norului.
 - Lista de mesaje (vizualizarea Carduri), ca în New Outlook: rânduri plate cu
   separator fin; citit = expeditor normal, data în culoarea textului;
   necitit = bară albastră în stânga, expeditor îngroșat, subiect și dată albastre;
