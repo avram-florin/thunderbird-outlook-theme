@@ -19,6 +19,7 @@
   --ol-radius-sm: 4px;
   --ol-gap: 8px;
   --ol-pane-gap: 12px;   /* spatiul din jurul listei, cardului de start si foii mesajului */
+  --ol-list-header-h: 42px;   /* antetul listei = zona subiectului (fara spatiul de sus) */
 
   --layout-background-0: var(--ol-panel) !important;
   --layout-background-1: var(--ol-panel) !important;
@@ -225,6 +226,10 @@ unified-toolbar global-search-bar {
 #threadPaneHeaderBar {
   background-color: var(--ol-panel) !important;
   border-block-end: 1px solid var(--ol-row-sep) !important;
+  /* inaltime fixa, aceeasi cu zona subiectului din panoul de citire, ca
+     foaia mesajului sa inceapa la aceeasi inaltime cu primul mesaj din lista */
+  box-sizing: border-box !important;
+  block-size: var(--ol-list-header-h) !important;
 }
 #threadPaneFolderName {
   font-weight: 600 !important;
@@ -586,8 +591,12 @@ unified-toolbar global-search-bar {
   row-gap: 0 !important;
   border-block-end: none !important;
 }
+/* Zona subiectului: spatiul de sus al listei + inaltimea antetului listei;
+   un subiect lung pe doua randuri o mareste (min-block-size). */
 #headerSubjectSecurityContainer {
-  padding: 12px 6px 12px !important;
+  box-sizing: border-box !important;
+  min-block-size: calc(var(--ol-pane-gap) + var(--ol-list-header-h)) !important;
+  padding: var(--ol-pane-gap) 6px 0 !important;
   margin: 0 !important;
 }
 #messageHeader > :not(#headerSubjectSecurityContainer) {
