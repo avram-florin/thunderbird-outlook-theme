@@ -562,6 +562,12 @@ unified-toolbar global-search-bar {
   background-color: var(--ol-canvas) !important;
   padding: 0 10px var(--ol-gap) !important;
 }
+/* Pagina de start si rezumatul la selectie multipla raman carduri rotunjite. */
+#messagePane > browser:is(#webBrowser, #multiMessageBrowser) {
+  margin-block-end: var(--ol-gap) !important;
+  border-radius: var(--ol-radius) !important;
+  overflow: clip !important;
+}
 #messageHeader {
   background-color: transparent !important;
   padding: 0 !important;
