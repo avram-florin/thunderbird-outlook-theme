@@ -230,6 +230,8 @@ unified-toolbar global-search-bar {
      foaia mesajului sa inceapa la aceeasi inaltime cu primul mesaj din lista */
   box-sizing: border-box !important;
   block-size: var(--ol-list-header-h) !important;
+  /* "Inbox" are in stanga acelasi spatiu ca deasupra si dedesubt (~16px, masurat) */
+  padding-inline-start: calc(var(--thread-pane-header-padding) + 6px) !important;
 }
 #threadPaneFolderName {
   font-weight: 600 !important;
