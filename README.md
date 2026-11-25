@@ -56,4 +56,8 @@ Iconițele din `extensie/tema/Icons/` provin din [FluentBird](https://github.com
 
 ## Licență
 
-Codul (CSS, extensia, scripturile) e sub licența MIT, în `LICENSE`. Logo-ul (pasărea cu pătratul cu T) nu e inclus: pornește de la logo-ul Thunderbird și e doar pentru uz personal. „Thunderbird” e marcă Mozilla, iar „Outlook” e marcă Microsoft; ThunderLook e un proiect independent, fără legătură cu ele.
+Codul (CSS, extensia, scripturile) e sub licența MIT, în `LICENSE`. Logo-ul (pasărea cu pătratul cu T) nu e inclus: pornește de la logo-ul Thunderbird și e doar pentru uz personal. „Outlook” e marcă Microsoft.
+
+Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by, sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity. ThunderLook is not affiliated with or endorsed by Microsoft either.
+
+Mozilla a acceptat numele ThunderLook cu această declarație în descrierea extensiei (răspunsul e în `docs/mozilla-trademark-raspuns-2026-11.md`). Pe addons.thunderbird.net, descrierea trebuie să conțină textul de mai sus.

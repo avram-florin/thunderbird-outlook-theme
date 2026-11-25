@@ -91,7 +91,10 @@ Ce schimbă
   Gemini, decupată pe fundal transparent): extensie\tema\Icons\thunderbird-t-pasare.png.
   Logo-urile anterioare, din Figma (Outlook 2024 cu T în loc de O), nu mai sunt în
   extensie de la 2.3; rămân în istoricul git (thunderbird-t-mare.svg, thunderbird-t.svg).
-  Pasărea pornește de la logo-ul Thunderbird (marcă Mozilla): doar pentru uz personal.
+  Pasărea pornește de la logo-ul Thunderbird: doar pentru uz personal. Mozilla nu permite
+  logo-ul la publicare; trebuie înlocuit înainte (docs\mozilla-trademark-raspuns-2026-11.md).
+  Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by,
+  sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity.
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
 
 Lista de mesaje ca în Outlook (3 rânduri)
