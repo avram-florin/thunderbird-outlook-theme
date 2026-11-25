@@ -3,12 +3,14 @@
 Temă pentru **Thunderbird 161** pe Windows 11 care aduce aspectul **New Outlook / Microsoft 365**:
 variantele Light și Dark, plus o extensie proprie, **Outlook Cards**, pentru ce nu se poate face doar din CSS.
 
-| Dark | Light |
+| Light | Dark |
 |---|---|
-| ![Dark: lista și pagina de start](capturi/demo/dark-lista-start.jpg) | ![Light: lista și pagina de start](capturi/demo/light-lista-start.jpg) |
-| ![Dark: mesaj deschis](capturi/demo/dark-mesaj.jpg) | ![Light: mesaj deschis și butoane la hover](capturi/demo/light-mesaj-hover.jpg) |
+| ![Light: lista și pagina de start](capturi/demo/light-lista-start.jpg) | ![Dark: lista și pagina de start](capturi/demo/dark-lista-start.jpg) |
+| ![Light: mesaj deschis și butoane la hover](capturi/demo/light-mesaj-hover.jpg) | ![Dark: mesaj deschis și butoane la hover](capturi/demo/dark-mesaj.jpg) |
 
 Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`).
+
+<img src="capturi/demo/logo.png" width="96" alt="Logo-ul temei: plicul Outlook cu T"> Logo-ul din colțul din stânga sus și iconița ferestrelor.
 
 ## Ce conține
 
@@ -27,6 +29,9 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 - **Interfața**: bara de sus albastră, iconițele colorate ale aplicațiilor în bara din stânga, iconițe de foldere monocrome, panouri rotunjite, accent albastru Microsoft, foldere și fonturi la mărimile din Outlook (măsurate pe ecran).
 - **Lista de mesaje** (extensia): avatar cu inițiale, numele expeditorului, subiectul cu dată scurtă în format de 24 de ore, primul rând din mesaj. Butoane la hover pentru citit/necitit, arhivează și șterge.
 - **Panoul de citire**: mesajul ca o foaie separată (subiectul pe fundalul ferestrei, antetul și conținutul pe o pagină cu colțuri rotunjite), avatarul lângă expeditor, butoane plate, buton „✕ Închide”.
+- **Teme Light și Dark** schimbate pe loc din comutatorul lună/soare din antetul mesajului, în toată aplicația (și corpul mesajelor).
+- **Aranjare**: lista, pagina de start și mesajul sunt carduri cu umbră difuză și spații egale de 12px; mesajul începe la aceeași înălțime cu primul rând din listă.
+- **Logo** în colțul din stânga sus (logo-ul Outlook 2024 refăcut în Figma, cu T în loc de O) și același logo ca iconiță a ferestrelor (extensia).
 - **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), mesajele necitite, fundal din Wallhaven (fără cont), Unsplash (cu cheia ta) sau ilustrația Thunderbird.
 
 ## Instalare pe scurt
