@@ -52,7 +52,8 @@ Ce schimbă
 - Bara galbenă (conținut extern blocat, spam etc.) devine bara de informare
   bleu din Outlook.
 - Fereastra de scriere: buton Send albastru, corpul mesajului încadrat pe fond gri;
-  To, Cc, Subject și From în culorile temei (nu mai urmează tema întunecată a Windows).
+  To, Cc, Subject, From și adresele introduse (capsule gri deschis) în culorile temei
+  (nu mai urmează tema întunecată a Windows).
 - Bara de formatare după modelul Brainly Text Area din Figma (Frame 47753): bara și
   textul într-un singur câmp cu chenar, paragraful și fontul în căsuțe gri, mărimea
   ca număr în capsula „− 13 +”, culoarea de fundal ca pătrat, culoarea textului ca
@@ -176,7 +177,7 @@ Selectori (verificați în Thunderbird 161.0, din omni.ja, și pe ecran)
   Bare de avertizare    notification-message[type="warning"] (--message-bar-*)
   Fereastra de scriere  #compose-toolbar-menubar2, #composeToolbar2, #button-send,
                         #messageArea, #messageEditor, .address-container, #msgSubject,
-                        #msgIdentity, #FormatToolbar, #ColorButtons,
+                        #msgIdentity, .address-pill, #FormatToolbar, #ColorButtons,
                         #AbsoluteFontSizeButton[ol-size] (pus de extensie)
 Nu mai există în 161: arborii XUL (::-moz-tree-row) pentru foldere și mesaje.
 

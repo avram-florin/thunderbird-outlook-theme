@@ -781,6 +781,27 @@ notification-message[type="warning"] {
 #msgSubject {
   border-color: var(--ol-border-strong) !important;
 }
+/* Adresele introduse (pastilele din To/Cc/Bcc): gri inchis din tema Windows;
+   le facem ca in Outlook: capsula gri deschis, text normal, punctul (adresa
+   care nu e in Agenda) mic si discret */
+.address-pill:not(.editing, .invalid-address, .key-issue, [selected]) {
+  background-color: var(--ol-hover) !important;
+  color: var(--ol-text) !important;
+  box-shadow: inset 0 0 0 1px var(--ol-border) !important;
+}
+.address-pill:not(.editing) {
+  border-radius: 999px !important;
+  padding-inline: 10px !important;
+  margin-block: 3px !important;
+}
+.address-pill:not(.editing, .invalid-address, .key-issue, [selected]):is(:hover, :focus) {
+  background-color: var(--ol-border) !important;
+  box-shadow: inset 0 0 0 1px var(--ol-border-strong) !important;
+}
+.address-pill .pill-indicator {
+  fill: var(--ol-muted) !important;
+  stroke: var(--ol-hover) !important;
+}
 /* From (lista de identitati): la hover devenea intunecat din acelasi motiv */
 #msgIdentity:is(:hover, [open]) {
   background-color: var(--ol-hover) !important;
