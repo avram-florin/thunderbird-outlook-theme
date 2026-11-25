@@ -1,6 +1,14 @@
 [
   {
     "namespace": "outlookCards",
+    "events": [
+      {
+        "name": "onFlaggedChanged",
+        "type": "function",
+        "description": "Un mesaj a primit sau a pierdut steluta.",
+        "parameters": []
+      }
+    ],
     "functions": [
       {
         "name": "init",

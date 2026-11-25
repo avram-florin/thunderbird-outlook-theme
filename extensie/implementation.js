@@ -29,6 +29,9 @@ const { MailUtils } = ChromeUtils.importESModule(
 const { MessageArchiver } = ChromeUtils.importESModule(
   "resource:///modules/MessageArchiver.sys.mjs"
 );
+const { ExtensionCommon } = ChromeUtils.importESModule(
+  "resource://gre/modules/ExtensionCommon.sys.mjs"
+);
 
 /* ---- Data scurta, ca in Outlook, cu ora in format de 24 de ore ----
    azi: "13:07"; ieri: "Ieri 13:07"; ultimele 6 zile: "mar. 13:07";
@@ -856,9 +859,28 @@ this.outlookCards = class extends ExtensionAPI {
     startFontSize();
   }
 
-  getAPI() {
+  getAPI(context) {
     return {
       outlookCards: {
+        // pagina de start isi reface caseta cu stelute cand o steluta e pusa sau scoasa
+        onFlaggedChanged: new ExtensionCommon.EventManager({
+          context,
+          name: "outlookCards.onFlaggedChanged",
+          register(fire) {
+            const listener = {
+              onFolderPropertyFlagChanged(item, property, oldFlag, newFlag) {
+                if ((oldFlag ^ newFlag) & Ci.nsMsgMessageFlags.Marked) {
+                  fire.async();
+                }
+              },
+            };
+            MailServices.mailSession.AddFolderListener(
+              listener,
+              Ci.nsIFolderListener.propertyFlagChanged
+            );
+            return () => MailServices.mailSession.RemoveFolderListener(listener);
+          },
+        }).api(),
         async init(url) {
           start(url);
         },

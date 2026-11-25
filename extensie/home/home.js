@@ -371,6 +371,12 @@ async function main() {
   loadBackground(false);
   loadMail();
   setInterval(loadMail, 60 * 1000);
+  // steluta pusa sau scoasa: caseta se reface imediat (o data pentru mai multe schimbari la rand)
+  let flagTimer = 0;
+  browser.outlookCards.onFlaggedChanged?.addListener(() => {
+    clearTimeout(flagTimer);
+    flagTimer = setTimeout(loadMail, 300);
+  });
   // la revenirea pe pagina (dupa "Inchide"), lista e actualizata imediat
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {

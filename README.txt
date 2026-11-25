@@ -138,6 +138,8 @@ Pagina de start (extensia, versiunea 1.4)
 Când nu e selectat niciun mesaj, panoul de citire arată pagina extensiei:
 ora, data, vremea, prognoza pe 3 zile, câte mesaje cu steluță sunt în Inbox și
 ultimele 3 dintre ele, citite sau nu (click pe unul îl deschide), peste o fotografie de fundal.
+Caseta cu steluțe se reface imediat ce o steluță e pusă sau scoasă (versiunea 2.1,
+evenimentul outlookCards.onFlaggedChanged); în rest, o dată pe minut.
 - Butonul „✕ Închide” din antetul mesajului deselectează mesajul și readuce pagina.
 - Rotița ⚙ (dreapta jos) deschide setările; click pe numele orașului face la fel:
     Oraș pentru vreme     implicit București; scrii alt oraș și apeși Salvează
