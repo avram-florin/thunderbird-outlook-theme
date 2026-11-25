@@ -10,7 +10,7 @@ variantele Light și Dark, plus o extensie proprie, **Outlook Cards**, pentru ce
 
 Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`).
 
-<img src="capturi/demo/logo.png" width="96" alt="Logo-ul temei: plicul Outlook cu T"> Logo-ul din colțul din stânga sus și iconița ferestrelor.
+<img src="capturi/demo/logo.png" width="96" alt="Logo-ul temei: pasărea care îmbrățișează pătratul cu T"> Logo-ul din colțul din stânga sus și iconița ferestrelor (doar pentru uz personal: pasărea pornește de la logo-ul Thunderbird).
 
 ## Ce conține
 

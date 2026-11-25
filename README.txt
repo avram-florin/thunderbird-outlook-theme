@@ -67,10 +67,11 @@ Ce schimbă
 - Calendar, Tasks și Agenda urmează tema aleasă (Light/Dark), nu tema din Windows;
   ziua selectată din calendar are doar o nuanță discretă, ca în Outlook;
   butoanele principale din Agendă și Setări sunt albastre, nu în culoarea Windows.
-- Logo în colțul din stânga sus: logo-ul Outlook 2024, refăcut în Figma de comunitate
-  („Full logo”), cu T în loc de O. Folosit: Icons	hunderbird-t-mare.svg (pătratul mărit
-  și coborât pe mijlocul plicului, T-ul și mai mare, cu colțuri rotunjite, ca să se vadă la 32px). Varianta apropiată de
-  original: Icons	hunderbird-t.svg (se schimbă numele în secțiunea 2 din userChrome.css).
+- Logo în colțul din stânga sus: pasărea care îmbrățișează pătratul cu T (generată în
+  Gemini, decupată pe fundal transparent): Icons\thunderbird-t-pasare.png. Logo-urile
+  anterioare, din Figma (Outlook 2024 cu T în loc de O): Icons\thunderbird-t-mare.svg și
+  Icons\thunderbird-t.svg (se schimbă numele în secțiunea 2 din userChrome.css).
+  Pasărea pornește de la logo-ul Thunderbird (marcă Mozilla): doar pentru uz personal.
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
 
 Lista de mesaje ca în Outlook (3 rânduri)
@@ -97,15 +98,18 @@ Tot din extensie (versiunea 1.2):
   șterge (mută în Deleted/Trash; Ctrl+Z anulează). Acționează pe acel mesaj fără
   să-l deschidă și fără să-l marcheze citit.
 
-Iconița aplicației (extensia, versiunea 1.3)
+Iconița aplicației (extensia, versiunea 1.5)
 -------------------------------------------
 Ferestrele Thunderbird (Alt+Tab, bara de titlu, butonul din taskbar când Thunderbird
-nu e fixat) primesc logo-ul temei în loc de pasăre. Iconița pusă în profil
-(chrome\icons\default) nu ajunge, pentru că Thunderbird o găsește întâi pe a lui,
-în folderul aplicației; de aceea o pune extensia, direct pe fiecare fereastră.
-La dezactivarea extensiei revine pasărea.
+nu e fixat) primesc logo-ul temei în loc de pasăre: logo-ul întreg la mărimi mari,
+doar pătratul cu T la 16 px, unde pasărea nu se mai distinge (extensie\icons\app-256.png
+și app-32.png). Iconița pusă în profil (chrome\icons\default) nu ajunge, pentru că
+Thunderbird o găsește întâi pe a lui, în folderul aplicației; de aceea o pune extensia,
+direct pe fiecare fereastră. La dezactivarea extensiei revine pasărea.
 Butonul fixat în taskbar și scurtăturile păstrează iconița scurtăturii: click dreapta
-pe scurtătură > Proprietăți > Schimbare pictogramă > Icons\thunderbird-t.ico.
+pe scurtătură > Proprietăți > Schimbare pictogramă > Icons\thunderbird-t-pasare.ico
+(16-24 px: pătratul cu T; 32-256 px: logo-ul întreg). Windows 11 ia iconița butonului
+fixat din scurtătura din meniul Start (ProgramData), care cere drepturi de administrator.
 
 Pagina de start (extensia, versiunea 1.4)
 -----------------------------------------

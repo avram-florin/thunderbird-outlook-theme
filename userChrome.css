@@ -178,18 +178,17 @@ unified-toolbar global-search-bar .kbd-container kbd {
 #spacesToolbar {
   border-inline-end: none !important;
 }
-/* Logo-ul din coltul din stanga sus: logo-ul Outlook (2024) refacut, cu T in
-   loc de O, din fisierul Figma "Full logo". Varianta folosita: patratul si T-ul
-   marit 1.35x si coborat pe mijlocul plicului, T-ul inca 1.2x, cu colturi
-   rotunjite (Icons/thunderbird-t-mare.svg); varianta
-   apropiata de original e Icons/thunderbird-t.svg. */
+/* Logo-ul din coltul din stanga sus: pasarea care imbratiseaza patratul cu T
+   (generat in Gemini, decupat pe fundal transparent): Icons/thunderbird-t-pasare.png.
+   Logo-urile anterioare, din Figma (Outlook 2024 cu T): Icons/thunderbird-t-mare.svg
+   si Icons/thunderbird-t.svg. */
 #spacesToolbar::before {
   content: "";
   display: block;
   flex-shrink: 0;
   block-size: 44px;
   margin-block-start: -5px;   /* bara Spaces are padding sus; centrat pe bara albastra */
-  background: url("Icons/thunderbird-t-mare.svg") center / 32px 32px no-repeat;
+  background: url("Icons/thunderbird-t-pasare.png") center / 32px 32px no-repeat;
 }
 .spaces-toolbar-button {
   border-radius: var(--ol-radius-sm) !important;

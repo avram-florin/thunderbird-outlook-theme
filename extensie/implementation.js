@@ -673,6 +673,7 @@ function inboxSummary(limit) {
    doar din Proprietati > Schimbare pictograma pe scurtatura. */
 const ICON_LISTENER = ID + "-icon";
 let windowIcon = null;
+let windowIconSmall = null; // 16 px: doar patratul cu T, pasarea nu se distinge la marimea asta
 
 function loadWindowIcon(url) {
   const { NetUtil } = ChromeUtils.importESModule("resource://gre/modules/NetUtil.sys.mjs");
@@ -691,18 +692,19 @@ function windowsUI() {
 
 function setIcon(win) {
   try {
-    windowsUI()?.setWindowIcon(win, windowIcon, windowIcon);
+    windowsUI()?.setWindowIcon(win, windowIconSmall || windowIcon, windowIcon);
   } catch (e) {
     console.error("Outlook Cards: iconita ferestrei", e);
   }
 }
 
-function startWindowIcons(url) {
+function startWindowIcons(url, smallUrl) {
   if (windowIcon || !windowsUI()) {
     return;
   }
   try {
     windowIcon = loadWindowIcon(url);
+    windowIconSmall = smallUrl ? loadWindowIcon(smallUrl) : null;
   } catch (e) {
     console.error("Outlook Cards: nu pot citi iconita", e);
     return;
@@ -715,6 +717,7 @@ function stopWindowIcons() {
     return;
   }
   windowIcon = null;
+  windowIconSmall = null;
   ExtensionSupport.unregisterWindowListener(ICON_LISTENER);
   const exe = Services.dirsvc.get("XREExeF", Ci.nsIFile).path;
   for (const win of Services.wm.getEnumerator(null)) {
@@ -729,7 +732,10 @@ this.outlookCards = class extends ExtensionAPI {
   // scriptul de fundal, ca adresa paginii de start sa fie cunoscuta din prima.
   onStartup() {
     start(this.extension.baseURI.resolve("home/home.html"));
-    startWindowIcons(this.extension.baseURI.resolve("icons/app-256.png"));
+    startWindowIcons(
+      this.extension.baseURI.resolve("icons/app-256.png"),
+      this.extension.baseURI.resolve("icons/app-32.png")
+    );
   }
 
   getAPI() {
