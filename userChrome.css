@@ -18,6 +18,7 @@
   --ol-radius: 8px;
   --ol-radius-sm: 4px;
   --ol-gap: 8px;
+  --ol-pane-gap: 12px;   /* spatiul din jurul listei, cardului de start si foii mesajului */
 
   --layout-background-0: var(--ol-panel) !important;
   --layout-background-1: var(--ol-panel) !important;
@@ -173,6 +174,10 @@ unified-toolbar global-search-bar {
   background-color: var(--ol-panel) !important;
   box-shadow: var(--ol-shadow) !important;
   overflow: hidden !important;
+}
+/* Lista are acelasi spatiu sus ca cardul de start si foaia mesajului. */
+#threadPane {
+  margin-block-start: var(--ol-pane-gap) !important;
 }
 /* Separatoarele au o zona de prindere mai lata decat spatiul ocupat si stau
    peste panouri (z-index 1): raman transparente ca sa nu acopere marginile. */
@@ -557,21 +562,19 @@ unified-toolbar global-search-bar {
   box-shadow: none !important;
   margin-block-end: 0 !important;
   border-radius: 0 !important;
-  /* Panoul se lateste ca cardul de start sa stea la ~6px de lista si de
-     marginea ferestrei (30% din cele ~18px de inainte). Umbra nu poate iesi
-     din panou, asa ca spatiul de 6px e: 2px ai listei (umbra ei) + 4px in
-     panou (umbra cardului). Foaia mesajului ramane pe loc prin padding-ul
-     de 16px din #messagepanebox. */
-  margin-inline: -6px 2px !important;
+  /* Spatiul de 12px (--ol-pane-gap) fata de lista si de marginea ferestrei:
+     8px in afara panoului (--ol-gap) + 4px in interior, unde are loc umbra
+     cardului de start sau a foii mesajului (umbra nu poate iesi din panou). */
+  margin-inline: 0 var(--ol-gap) !important;
 }
 #messagepanebox {
   background-color: var(--ol-canvas) !important;
-  padding: 0 16px var(--ol-gap) !important;
+  padding: 0 calc(var(--ol-pane-gap) - var(--ol-gap)) var(--ol-gap) !important;
 }
 /* Pagina de start si rezumatul la selectie multipla: carduri rotunjite, cu
-   umbra foii mesajului, strânsă in cei 4px de margine. */
+   umbra foii mesajului, stransa in cei 4px de margine. */
 #messagePane > browser:is(#webBrowser, #multiMessageBrowser) {
-  margin: 0 4px var(--ol-gap) !important;
+  margin: var(--ol-pane-gap) calc(var(--ol-pane-gap) - var(--ol-gap)) var(--ol-gap) !important;
   box-shadow: 0 0 2px light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.6)),
               0 0 4px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.4)) !important;
   border-radius: var(--ol-radius) !important;
@@ -630,7 +633,7 @@ browser#messagepane {
 browser#messagepane,
 #attachmentView {
   box-shadow: 0 0 2px light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.6)),
-              0 0 6px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.4)) !important;
+              0 0 4px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.4)) !important;
   clip-path: inset(0 -12px -200px) !important;
 }
 /* primul rand nu e taiat deloc (umbra lui in jos o acopera randul urmator);
