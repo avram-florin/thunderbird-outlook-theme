@@ -146,7 +146,6 @@ unified-toolbar global-search-bar {
   --search-buttons-padding: 8px !important;
   --search-bar-background: transparent !important;
   --search-bar-focus-background: transparent !important;
-  --focus-outline-color: transparent !important;
   box-sizing: border-box !important;
   block-size: 32px !important;
   padding-inline-start: 30px !important;
