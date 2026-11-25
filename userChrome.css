@@ -137,6 +137,37 @@ unified-toolbar .search-bar,
 unified-toolbar global-search-bar {
   color: var(--ol-header-field-text) !important;
 }
+/* Cautarea ca in Outlook: lupa in stanga, text mai mare, CTRL+K in dreapta.
+   Campul e intr-un shadow DOM; din afara lui se pot muta doar textul si
+   scurtatura (slot "placeholder"). Lupa e desenata pe element, in spatiul
+   lasat de padding, iar butonul cu lupa din dreapta e ascuns. */
+unified-toolbar global-search-bar {
+  --search-button-show: none !important;
+  --search-buttons-padding: 8px !important;
+  --search-bar-background: transparent !important;
+  --search-bar-focus-background: transparent !important;
+  --focus-outline-color: transparent !important;
+  box-sizing: border-box !important;
+  block-size: 32px !important;
+  padding-inline-start: 30px !important;
+  border-radius: var(--ol-radius-sm) !important;
+  background: var(--ol-header-field) var(--icon-search) no-repeat 10px center / 16px 16px !important;
+  -moz-context-properties: fill, stroke !important;
+  fill: transparent !important;
+  stroke: currentColor !important;
+}
+unified-toolbar global-search-bar .kbd-container {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 1.17rem !important;
+}
+/* prima tasta (CTRL) impinge scurtatura in coltul din dreapta */
+unified-toolbar global-search-bar .kbd-container kbd:first-of-type {
+  margin-inline-start: auto !important;
+}
+unified-toolbar global-search-bar .kbd-container kbd {
+  font-size: 0.75rem !important;
+}
 #tabs-toolbar { box-shadow: none !important; }
 #status-bar {
   border-block-start: none !important;

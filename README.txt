@@ -40,6 +40,7 @@ Ce schimbă
 - Accentul e albastrul Microsoft în loc de culoarea de accent Windows.
 - Panourile listă și citire sunt suprafețe rotunjite pe fundal comun, ca în New Outlook.
 - Bara de sus (căutare, butoanele ferestrei): albastră în Light, aproape neagră în Dark.
+- Căutarea ca în Outlook: lupa în stânga, text mai mare, scurtătura CTRL+K în colțul din dreapta.
 - Lista de mesaje (vizualizarea Carduri), ca în New Outlook: rânduri plate cu
   separator fin; citit = expeditor normal, data în culoarea textului;
   necitit = bară albastră în stânga, expeditor îngroșat, subiect și dată albastre;
