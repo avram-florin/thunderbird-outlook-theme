@@ -550,13 +550,17 @@ unified-toolbar global-search-bar {
 /* "Foaia" mesajului, ca in Outlook: subiectul sta pe fundalul ferestrei, iar
    antetul (fara subiect), notificarile si continutul formeaza o pagina separata,
    cu colturile de sus rotunjite. Fundalul panoului = fundalul comun (--ol-canvas). */
+/* Panoul nu mai are margine jos si colturi: spatiul de jos (--ol-gap) e mutat
+   in interior, ca umbra foii sa aiba loc, iar foaia se termina odata cu lista. */
 #messagePane {
   background-color: var(--ol-canvas) !important;
   box-shadow: none !important;
+  margin-block-end: 0 !important;
+  border-radius: 0 !important;
 }
 #messagepanebox {
   background-color: var(--ol-canvas) !important;
-  padding: 0 10px 0 !important;   /* foaia are margini laterale; jos se termina odata cu lista */
+  padding: 0 10px var(--ol-gap) !important;
 }
 #messageHeader {
   background-color: transparent !important;
