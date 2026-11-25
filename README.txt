@@ -1,9 +1,9 @@
-THUNDERBIRD 161 - TEMA OUTLOOK 365 (LIGHT / DARK)
-=================================================
+THUNDERLOOK - THUNDERBIRD 161 ÎN STIL OUTLOOK 365 (LIGHT / DARK)
+===============================================================
 
 Fișiere
 -------
-  tema-outlook.xpi      tema completă, într-un singur fișier (de la versiunea 2.0)
+  thunderlook.xpi      tema completă, într-un singur fișier (de la versiunea 2.0)
   extensie\             sursa: implementation.js, home\ (pagina de start), tema\
   extensie\tema\tema.css            punctul de intrare: Light, Dark peste el, apoi geometria
   extensie\tema\userChrome.css      geometria comună
@@ -16,7 +16,7 @@ Fișiere
 Instalare
 ---------
 1. Thunderbird > meniu ≡ > Add-ons and Themes > rotița > Install Add-on From File >
-   tema-outlook.xpi (sau trage fișierul peste fereastra Add-ons) și confirmă „Add”
+   thunderlook.xpi (sau trage fișierul peste fereastra Add-ons) și confirmă „Add”
    (cere acces complet, ca orice extensie „Experiment”).
 2. Tema se aplică după instalare; dacă nu, repornește Thunderbird.
 Nu mai trebuie copiat nimic în profil și nici preferința
@@ -98,12 +98,12 @@ Lista de mesaje ca în Outlook (3 rânduri)
 -----------------------------------------
 Doar cu CSS, cardul are 2 rânduri: numele (mai mare) și subiectul cu data în
 dreapta. Rândul 3 (începutul mesajului), avatarul cu inițiale și numele fără
-adresă vin din codul extensiei (extensie\implementation.js), aceeași tema-outlook.xpi.
+adresă vin din codul extensiei (extensie\implementation.js), aceeași thunderlook.xpi.
 Ce face extensia: completează cardurile din listă. Textul de previzualizare îl
 citește din copia locală a mesajului, cu parserul MIME al Thunderbird, fără
 descărcare din rețea, și îl ține doar în memorie (nu scrie în mesaje sau în
 baza de date). Mesajele care nu sunt păstrate local rămân fără rândul 3.
-Dezactivare: Add-ons and Themes > Extensions > Tema Outlook pentru Thunderbird >
+Dezactivare: Add-ons and Themes > Extensions > ThunderLook >
 dezactivează; atunci dispare toată tema, nu doar cardurile.
 Funcționează în vizualizarea Carduri cu 3 rânduri (meniul ≡ din antetul listei
 > Cards View, implicit în 161).

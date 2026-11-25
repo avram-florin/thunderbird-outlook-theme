@@ -1,4 +1,4 @@
-/* Outlook Cards - Experiment API (Thunderbird 140+, verificat pe 161).
+/* ThunderLook - Experiment API (Thunderbird 140+, verificat pe 161).
  *
  * Completeaza cardurile din lista de mesaje (element <tr is="thread-card"> din
  * about:3pane) cu:
@@ -697,7 +697,7 @@ function setIcon(win) {
   try {
     windowsUI()?.setWindowIcon(win, windowIconSmall || windowIcon, windowIcon);
   } catch (e) {
-    console.error("Outlook Cards: iconita ferestrei", e);
+    console.error("ThunderLook: iconita ferestrei", e);
   }
 }
 
@@ -709,7 +709,7 @@ function startWindowIcons(url, smallUrl) {
     windowIcon = loadWindowIcon(url);
     windowIconSmall = smallUrl ? loadWindowIcon(smallUrl) : null;
   } catch (e) {
-    console.error("Outlook Cards: nu pot citi iconita", e);
+    console.error("ThunderLook: nu pot citi iconita", e);
     return;
   }
   ExtensionSupport.registerWindowListener(ICON_LISTENER, { onLoadWindow: setIcon });
@@ -766,7 +766,7 @@ function hookComposeWindow(cwin) {
         button.setAttribute("ol-size", "true");
       }
     } catch (e) {
-      console.error("Outlook Cards: marimea fontului", e);
+      console.error("ThunderLook: marimea fontului", e);
     }
   };
   // dupa -, + sau alegerea din lista, Thunderbird schimba marimea fara selectionchange
@@ -832,7 +832,7 @@ function startTheme(rootURI) {
       }
     }
   } catch (e) {
-    console.error("Outlook Cards: nu pot incarca tema", e);
+    console.error("ThunderLook: nu pot incarca tema", e);
   }
 }
 

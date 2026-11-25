@@ -1,4 +1,4 @@
-/* Pagina de start "Outlook Cards": ora, data, vremea (Open-Meteo) si,
+/* Pagina de start ThunderLook: ora, data, vremea (Open-Meteo) si,
  * optional, o fotografie de fundal de pe Unsplash (cu cheia utilizatorului).
  * Setarile stau in browser.storage.local al extensiei. */
 "use strict";

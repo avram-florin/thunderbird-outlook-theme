@@ -422,7 +422,7 @@ unified-toolbar global-search-bar .kbd-container kbd {
   padding-inline-start: 12px !important;
 }
 
-/* Cu extensia "Outlook Cards" (clasa ol-cards pe about:3pane):
+/* Cu extensia ThunderLook (clasa ol-cards pe about:3pane):
    avatar cu initiale in stanga si randul 3 = inceputul mesajului. */
 .ol-cards #threadTree .card-layout:not([data-properties~="dummy"]) .card-container {
   grid-template-columns: auto auto minmax(0, 1fr) !important;
@@ -575,7 +575,7 @@ unified-toolbar global-search-bar .kbd-container kbd {
   font-size: 15px !important;
   font-weight: 600 !important;
 }
-/* Cu extensia Outlook Cards: initiale + aceeasi culoare ca in lista */
+/* Cu extensia ThunderLook: initiale + aceeasi culoare ca in lista */
 .ol-msg #expandedfromBox .recipient-avatar:not(.has-avatar) {
   background-color: var(--ol-avatar-color, var(--ol-accent)) !important;
   color: #ffffff !important;
@@ -882,7 +882,7 @@ notification-message[type="warning"] {
 #FormatToolbar > #AbsoluteFontSizeButton {
   border-inline: none !important;
 }
-/* marimea ca numar (eticheta pusa de extensia Outlook Cards, 1.6) in locul iconitei */
+/* marimea ca numar (eticheta pusa de extensia ThunderLook, 1.6) in locul iconitei */
 #FormatToolbar > #AbsoluteFontSizeButton[ol-size] {
   min-inline-size: 30px !important;
   justify-content: center;

@@ -1,4 +1,4 @@
-# Thunderbird în stil Outlook 365
+# ThunderLook: Thunderbird în stil Outlook 365
 
 Temă pentru **Thunderbird 161** pe Windows 11 care aduce aspectul **New Outlook / Microsoft 365**:
 variantele Light și Dark, lista de mesaje cu avatare, pagina de start și bara de formatare. Totul e într-o singură extensie: se instalează dintr-un fișier, fără copiat foldere.
@@ -16,7 +16,7 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 
 | Fișier | Rol |
 |---|---|
-| `tema-outlook.xpi` | tema gata de instalat (un singur fișier) |
+| `thunderlook.xpi` | tema gata de instalat (un singur fișier) |
 | `extensie/` | sursa: `implementation.js` (Experiment API), pagina de start (`home/`) și tema (`tema/`) |
 | `extensie/tema/tema.css` | punctul de intrare al temei: Light, Dark peste el când e pornit, apoi geometria |
 | `extensie/tema/userChrome*.css` | geometria (`userChrome.css`) și paletele de culori (`-light`, `-dark`) |
@@ -38,7 +38,7 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 
 ## Instalare pe scurt
 
-1. În Thunderbird: **Add-ons and Themes** → rotița → **Install Add-on From File** → `tema-outlook.xpi` (sau trage fișierul peste fereastra Add-ons).
+1. În Thunderbird: **Add-ons and Themes** → rotița → **Install Add-on From File** → `thunderlook.xpi` (sau trage fișierul peste fereastra Add-ons).
 2. Tema se aplică după instalare (dacă nu, repornește Thunderbird). Dezinstalarea din Add-ons readuce aspectul Thunderbird.
 3. Opțional, logo-ul pe scurtăturile Windows și în taskbar: dublu clic pe `iconita-windows.cmd`.
 
@@ -53,3 +53,7 @@ Previzualizarea mesajelor se citește local, din copia offline, fără cereri î
 ## Credite
 
 Iconițele din `extensie/tema/Icons/` provin din [FluentBird](https://github.com/Deathbyteacup/fluentbird) de Danny King (MIT) și sunt iconițele Fluent UI de la Microsoft (MIT). Licența e în `extensie/tema/Icons/LICENSE.txt`.
+
+## Licență
+
+Codul (CSS, extensia, scripturile) e sub licența MIT, în `LICENSE`. Logo-ul (pasărea cu pătratul cu T) nu e inclus: pornește de la logo-ul Thunderbird și e doar pentru uz personal. „Thunderbird” e marcă Mozilla, iar „Outlook” e marcă Microsoft; ThunderLook e un proiect independent, fără legătură cu ele.
