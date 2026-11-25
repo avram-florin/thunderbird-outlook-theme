@@ -213,6 +213,11 @@ unified-toolbar global-search-bar .kbd-container kbd {
 #folderPaneHeaderBar {
   background-color: var(--ol-nav) !important;
 }
+/* Get Messages: sageata de reimprospatare Fluent (ca in Outlook), in locul norului;
+   culoarea textului vine prin context-stroke */
+#folderPaneGetMessages {
+  background-image: url("Icons/refresh.svg") !important;
+}
 #threadPane,
 #messagePane,
 #accountCentralBrowser {
