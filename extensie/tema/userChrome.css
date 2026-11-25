@@ -177,8 +177,8 @@ unified-toolbar global-search-bar .kbd-container kbd {
 }
 /* Logo-ul din coltul din stanga sus: pasarea care imbratiseaza patratul cu T
    (generat in Gemini, decupat pe fundal transparent): Icons/thunderbird-t-pasare.png.
-   Logo-urile anterioare, din Figma (Outlook 2024 cu T): Icons/thunderbird-t-mare.svg
-   si Icons/thunderbird-t.svg. */
+   Logo-urile anterioare, din Figma (Outlook 2024 cu T), sunt in istoricul git
+   (thunderbird-t-mare.svg, thunderbird-t.svg), scoase din extensie la 2.3. */
 #spacesToolbar::before {
   content: "";
   display: block;
@@ -208,6 +208,24 @@ unified-toolbar global-search-bar .kbd-container kbd {
 #folderPane,
 #folderPaneHeaderBar {
   background-color: var(--ol-nav) !important;
+}
+/* New Message: textul nu se mai taie ("New Mess..."); cand panoul de foldere e
+   ingust, butonul ramane doar cu "+" (eticheta are font-size 0, iconita e fundal) */
+#folderPaneHeaderBar {
+  container-type: inline-size;
+}
+#folderPaneWriteMessage {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+@container (max-width: 215px) {
+  #folderPaneWriteMessage {
+    font-size: 0 !important;
+    inline-size: 32px !important;
+    min-inline-size: 32px !important;
+    padding-inline: 0 !important;
+    background-position: center !important;
+  }
 }
 /* Get Messages: sageata de reimprospatare Fluent (ca in Outlook), in locul norului;
    culoarea textului vine prin context-stroke */

@@ -52,6 +52,8 @@ Ce schimbă
 - Bara de sus (căutare, butoanele ferestrei): albastră în Light, aproape neagră în Dark.
 - Căutarea ca în Outlook: lupa în stânga, text mai mare, scurtătura CTRL+K în colțul din dreapta.
 - Butonul Get Messages (lângă New Message) are săgeata de reîmprospătare din Outlook (Icons\refresh.svg, Fluent, MIT) în locul norului; la click face o tură, la hover se înclină puțin (fără animație dacă Windows are animațiile oprite).
+- New Message nu se mai taie („New Mess…”): când panoul de foldere e mai îngust de
+  215 px, butonul rămâne doar cu „+” (container query pe #folderPaneHeaderBar; 2.3).
 - Lista de mesaje (vizualizarea Carduri), ca în New Outlook: rânduri plate cu
   separator fin; citit = expeditor normal, data în culoarea textului;
   necitit = bară albastră în stânga, expeditor îngroșat, subiect și dată albastre;
@@ -86,9 +88,9 @@ Ce schimbă
   ziua selectată din calendar are doar o nuanță discretă, ca în Outlook;
   butoanele principale din Agendă și Setări sunt albastre, nu în culoarea Windows.
 - Logo în colțul din stânga sus: pasărea care îmbrățișează pătratul cu T (generată în
-  Gemini, decupată pe fundal transparent): Icons\thunderbird-t-pasare.png. Logo-urile
-  anterioare, din Figma (Outlook 2024 cu T în loc de O): Icons\thunderbird-t-mare.svg și
-  Icons\thunderbird-t.svg (se schimbă numele în secțiunea 2 din userChrome.css).
+  Gemini, decupată pe fundal transparent): extensie\tema\Icons\thunderbird-t-pasare.png.
+  Logo-urile anterioare, din Figma (Outlook 2024 cu T în loc de O), nu mai sunt în
+  extensie de la 2.3; rămân în istoricul git (thunderbird-t-mare.svg, thunderbird-t.svg).
   Pasărea pornește de la logo-ul Thunderbird (marcă Mozilla): doar pentru uz personal.
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
 
@@ -139,7 +141,7 @@ Când nu e selectat niciun mesaj, panoul de citire arată pagina extensiei:
 ora, data, vremea, prognoza pe 3 zile, câte mesaje cu steluță sunt în Inbox și
 ultimele 3 dintre ele, citite sau nu (click pe unul îl deschide), peste o fotografie de fundal.
 Caseta cu steluțe se reface imediat ce o steluță e pusă sau scoasă (versiunea 2.1,
-evenimentul outlookCards.onFlaggedChanged); în rest, o dată pe minut.
+evenimentul outlookCards.onFlaggedChanged); în rest, o dată la 5 minute.
 La hover (sau focus din tastatură) pe un mesaj din casetă apare în dreapta sus un X
 în cerc, translucid ca și caseta, ca la notificările Apple: scoate steluța mesajului
 (versiunea 2.2, outlookCards.unflagMessage; pe IMAP ajunge și pe server).

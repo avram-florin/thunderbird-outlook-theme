@@ -177,7 +177,7 @@ async function loadMail() {
   } catch (e) {
     $("mail").hidden = true;
     // la pornirea Thunderbird pagina poate fi gata inaintea extensiei: reincercam
-    // la 3 secunde, cel mult un minut (apoi ramane reimprospatarea pe minut)
+    // la 3 secunde, cel mult un minut (apoi ramane reimprospatarea la 5 minute)
     loadMail.tries = (loadMail.tries || 0) + 1;
     if (loadMail.tries <= 20) {
       setTimeout(loadMail, 3000);
@@ -400,7 +400,8 @@ async function main() {
   setInterval(loadWeather, WEATHER_EVERY_MS);
   loadBackground(false);
   loadMail();
-  setInterval(loadMail, 60 * 1000);
+  // stelutele vin pe loc din onFlaggedChanged; intervalul prinde restul (mesaje noi, sterse)
+  setInterval(loadMail, 5 * 60 * 1000);
   // la revenirea pe pagina (dupa "Inchide"), lista e actualizata imediat
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {
