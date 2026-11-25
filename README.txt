@@ -65,6 +65,8 @@ Ce schimbă
 - Calendar, Tasks și Agenda urmează tema aleasă (Light/Dark), nu tema din Windows;
   ziua selectată din calendar are doar o nuanță discretă, ca în Outlook;
   butoanele principale din Agendă și Setări sunt albastre, nu în culoarea Windows.
+- Logo în colțul din stânga sus (Icons	hunderbird-t.svg): logo-ul Outlook 2024,
+  refăcut în Figma de comunitate („Full logo”), cu T în loc de O.
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
 
 Lista de mesaje ca în Outlook (3 rânduri)
@@ -111,7 +113,8 @@ ultimele 3 necitite (click pe unul îl deschide), peste o fotografie de fundal.
 
 Ce nu se poate face
 -------------------
-- Colțul din stânga sus (deasupra barei Spaces) nu se colorează odată cu bara de sus.
+- Colțul din stânga sus (deasupra barei Spaces) nu se colorează odată cu bara de sus;
+  acolo stă logo-ul.
 
 Idei preluate (nu cod) din add-on-ul „Outlook Style 2026” 2.0, care nu se
 instalează pe 161 (strict_max_version 160.*): bara de sus albastră, bara de
