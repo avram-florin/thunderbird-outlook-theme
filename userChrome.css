@@ -600,6 +600,27 @@ browser#messagepane {
   border-end-end-radius: var(--ol-radius) !important;
   overflow: clip !important;
 }
+/* Marginea foii, ca in Outlook: contur fin si umbra discreta dedesubt.
+   Foaia e facuta din mai multe bucati, asa ca fiecare isi pastreaza doar
+   partea de umbra spre exterior (clip-path), fara linii intre bucati. */
+#messageHeader > :not(#headerSubjectSecurityContainer),
+#messageHeader::after,
+#mail-notification-top,
+browser#messagepane,
+#attachmentView {
+  --ol-page-edge: 0 0 0 1px light-dark(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.5));
+  box-shadow: var(--ol-page-edge) !important;
+  clip-path: inset(0 -1px) !important;
+}
+#headerSenderToolbarContainer {
+  clip-path: inset(-1px -1px 0) !important;
+}
+browser#messagepane,
+#attachmentView {
+  box-shadow: var(--ol-page-edge),
+              0 2px 4px light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.5)) !important;
+  clip-path: inset(0 -6px -8px) !important;
+}
 
 /* --- 8. Butoane, campuri, meniuri ------------------------------------------- */
 button,
