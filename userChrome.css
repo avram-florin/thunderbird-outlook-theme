@@ -654,7 +654,8 @@ unified-toolbar global-search-bar .kbd-container kbd {
 }
 #messageHeader > :not(#headerSubjectSecurityContainer) {
   background-color: var(--ol-panel) !important;
-  padding-inline: calc(var(--ol-msg-pad) + var(--ol-msg-indent)) var(--ol-msg-pad) !important;
+  /* dreapta: ultimul buton la ~20px de marginea paginii, ca in Outlook (butonul are ~4px padding propriu) */
+  padding-inline: calc(var(--ol-msg-pad) + var(--ol-msg-indent)) calc(var(--ol-msg-pad) - 4px) !important;
   padding-block: 2px !important;
 }
 #headerSenderToolbarContainer {
