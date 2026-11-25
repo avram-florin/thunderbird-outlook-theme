@@ -65,8 +65,10 @@ Ce schimbă
 - Calendar, Tasks și Agenda urmează tema aleasă (Light/Dark), nu tema din Windows;
   ziua selectată din calendar are doar o nuanță discretă, ca în Outlook;
   butoanele principale din Agendă și Setări sunt albastre, nu în culoarea Windows.
-- Logo în colțul din stânga sus (Icons	hunderbird-t.svg): logo-ul Outlook 2024,
-  refăcut în Figma de comunitate („Full logo”), cu T în loc de O.
+- Logo în colțul din stânga sus: logo-ul Outlook 2024, refăcut în Figma de comunitate
+  („Full logo”), cu T în loc de O. Folosit: Icons	hunderbird-t-mare.svg (pătratul și
+  T-ul mărite, ca să se vadă la 32px; T cu colțuri rotunjite). Varianta apropiată de
+  original: Icons	hunderbird-t.svg (se schimbă numele în secțiunea 2 din userChrome.css).
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
 
 Lista de mesaje ca în Outlook (3 rânduri)
