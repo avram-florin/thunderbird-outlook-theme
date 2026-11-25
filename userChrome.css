@@ -556,7 +556,7 @@ unified-toolbar global-search-bar {
 }
 #messagepanebox {
   background-color: var(--ol-canvas) !important;
-  padding: 0 10px 10px !important;   /* foaia are margini fata de panou */
+  padding: 0 10px 0 !important;   /* foaia are margini laterale; jos se termina odata cu lista */
 }
 #messageHeader {
   background-color: transparent !important;
