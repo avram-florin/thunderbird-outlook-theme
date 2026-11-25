@@ -1,3 +1,5 @@
+/* Doar ferestrele Thunderbird (ce atingea userChrome.css), nu paginile web si mesajele. */
+@-moz-document url-prefix("chrome://"), url-prefix("about:3pane"), url-prefix("about:message") {
 /* Outlook 365 - Dark. Doar culori; geometria este in userChrome.css. */
 :root {
   color-scheme: dark !important;           /* Thunderbird alege varianta inchisa din light-dark() */
@@ -43,3 +45,4 @@
 }
 :root #FormatToolbar > #DecreaseFontSizeButton { background-image: url("Icons/minus-dark.svg") !important; }
 :root #FormatToolbar > #IncreaseFontSizeButton { background-image: url("Icons/plus-dark.svg") !important; }
+}

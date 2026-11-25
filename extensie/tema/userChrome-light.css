@@ -1,3 +1,5 @@
+/* Doar ferestrele Thunderbird (ce atingea userChrome.css), nu paginile web si mesajele. */
+@-moz-document url-prefix("chrome://"), url-prefix("about:3pane"), url-prefix("about:message") {
 /* Outlook 365 - Light. Doar culori; geometria este in userChrome.css. */
 :root {
   color-scheme: light !important;          /* Thunderbird alege varianta deschisa din light-dark() */
@@ -35,4 +37,5 @@
   --ol-info-bg:       #e6f2fa;             /* bare de informare (in locul galbenului) */
   --ol-info-text:     #242424;
   --ol-info-line:     #c7e0f4;
+}
 }

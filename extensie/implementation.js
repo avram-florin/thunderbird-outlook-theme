@@ -797,10 +797,57 @@ function stopFontSize() {
   }
 }
 
+// --- Tema (CSS-ul care era in chrome/ din profil) ------------------------------
+// tema.css (ferestrele) si userContent.css (mesajele, Agenda, Setarile) se
+// incarca drept foi de stil ale utilizatorului, exact ca userChrome.css si
+// userContent.css din profil, dar fara preferinta
+// toolkit.legacyUserProfileCustomizations.stylesheets si fara copiat fisiere.
+// Prin resource:// (nu moz-extension://), ca iconitele sa poata folosi culoarea
+// textului (context-fill), ca la iconitele lui Thunderbird.
+const THEME_HOST = "outlook-theme";
+const THEME_SHEETS = ["tema.css", "userContent.css"];
+
+function styleSheets() {
+  return Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
+}
+
+function resourceHandler() {
+  return Services.io.getProtocolHandler("resource").QueryInterface(Ci.nsIResProtocolHandler);
+}
+
+function themeURIs() {
+  return THEME_SHEETS.map(f => Services.io.newURI(`resource://${THEME_HOST}/${f}`));
+}
+
+function startTheme(rootURI) {
+  try {
+    resourceHandler().setSubstitution(THEME_HOST, Services.io.newURI("tema/", null, rootURI));
+    const sss = styleSheets();
+    for (const uri of themeURIs()) {
+      if (!sss.sheetRegistered(uri, sss.USER_SHEET)) {
+        sss.loadAndRegisterSheet(uri, sss.USER_SHEET);
+      }
+    }
+  } catch (e) {
+    console.error("Outlook Cards: nu pot incarca tema", e);
+  }
+}
+
+function stopTheme() {
+  const sss = styleSheets();
+  for (const uri of themeURIs()) {
+    if (sss.sheetRegistered(uri, sss.USER_SHEET)) {
+      sss.unregisterSheet(uri, sss.USER_SHEET);
+    }
+  }
+  resourceHandler().setSubstitution(THEME_HOST, null);
+}
+
 this.outlookCards = class extends ExtensionAPI {
   // Pornim cat mai devreme (manifest: "events": ["startup"]), inainte de
   // scriptul de fundal, ca adresa paginii de start sa fie cunoscuta din prima.
   onStartup() {
+    startTheme(this.extension.rootURI);
     start(this.extension.baseURI.resolve("home/home.html"));
     startWindowIcons(
       this.extension.baseURI.resolve("icons/app-256.png"),
@@ -834,6 +881,7 @@ this.outlookCards = class extends ExtensionAPI {
       stop();
       stopWindowIcons();
       stopFontSize();
+      stopTheme();
     }
   }
 };

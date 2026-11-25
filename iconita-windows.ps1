@@ -48,7 +48,7 @@ if ($Restore) {
   }
 } else {
   New-Item -ItemType Directory -Force $dir | Out-Null
-  Copy-Item (Join-Path $PSScriptRoot 'Icons\thunderbird-t-pasare.ico') $ico -Force
+  Copy-Item (Join-Path $PSScriptRoot 'extensie\tema\Icons\thunderbird-t-pasare.ico') $ico -Force
   # copia se face o singura data, ca o a doua rulare sa nu retina logo-ul ca "vechi"
   if (-not (Test-Path $backup)) {
     $links | ForEach-Object { [pscustomobject]@{ Path = $_.FullName; Icon = $shell.CreateShortcut($_.FullName).IconLocation } } |

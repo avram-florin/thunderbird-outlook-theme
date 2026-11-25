@@ -1,7 +1,7 @@
 # Thunderbird în stil Outlook 365
 
 Temă pentru **Thunderbird 161** pe Windows 11 care aduce aspectul **New Outlook / Microsoft 365**:
-variantele Light și Dark, plus o extensie proprie, **Outlook Cards**, pentru ce nu se poate face doar din CSS.
+variantele Light și Dark, lista de mesaje cu avatare, pagina de start și bara de formatare. Totul e într-o singură extensie: se instalează dintr-un fișier, fără copiat foldere.
 
 | Light | Dark |
 |---|---|
@@ -16,12 +16,13 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 
 | Fișier | Rol |
 |---|---|
-| `userChrome.css` | punctul de intrare: alege tema (Light/Dark) și conține geometria comună |
-| `userChrome-light.css`, `userChrome-dark.css` | doar paletele de culori |
-| `userContent.css` | corpul mesajelor aliniat cu antetul; pagina de start Thunderbird fără text |
-| `Icons/` | iconițe Fluent din [FluentBird](https://github.com/Deathbyteacup/fluentbird) (MIT, iconițe Microsoft Fluent UI) |
-| `outlook-cards.xpi` | extensia gata de instalat |
-| `extensie/` | sursa extensiei (Experiment API + pagina de start) |
+| `tema-outlook.xpi` | tema gata de instalat (un singur fișier) |
+| `extensie/` | sursa: `implementation.js` (Experiment API), pagina de start (`home/`) și tema (`tema/`) |
+| `extensie/tema/tema.css` | punctul de intrare al temei: Light, Dark peste el când e pornit, apoi geometria |
+| `extensie/tema/userChrome*.css` | geometria (`userChrome.css`) și paletele de culori (`-light`, `-dark`) |
+| `extensie/tema/userContent.css` | corpul mesajelor, Agenda și Setările |
+| `extensie/tema/Icons/` | iconițe Fluent din [FluentBird](https://github.com/Deathbyteacup/fluentbird) (MIT, iconițe Microsoft Fluent UI) și logo-ul |
+| `iconita-windows.cmd` | opțional: logo-ul pe scurtăturile Windows (cere o dată acceptul de administrator) |
 | `README.txt` | instrucțiunile complete, în detaliu |
 
 ## Ce face
@@ -37,10 +38,11 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 
 ## Instalare pe scurt
 
-1. În Config Editor: `toolkit.legacyUserProfileCustomizations.stylesheets` = `true`.
-2. Copiază fișierele `.css` și folderul `Icons` în `%APPDATA%\Thunderbird\Profiles\<profil>\chrome\`.
-3. Add-ons and Themes → rotița → **Install Add-on From File** → `outlook-cards.xpi`.
-4. Repornește Thunderbird.
+1. În Thunderbird: **Add-ons and Themes** → rotița → **Install Add-on From File** → `tema-outlook.xpi` (sau trage fișierul peste fereastra Add-ons).
+2. Tema se aplică după instalare (dacă nu, repornește Thunderbird). Dezinstalarea din Add-ons readuce aspectul Thunderbird.
+3. Opțional, logo-ul pe scurtăturile Windows și în taskbar: dublu clic pe `iconita-windows.cmd`.
+
+Dacă ai folosit versiunea veche (fișierele în `chrome\` din profil), șterge din `chrome\` fișierele `userChrome*.css`, `userContent.css` și folderul `Icons`, ca să nu se încarce tema de două ori.
 
 Tema se schimbă pe loc din comutatorul lună/soare din antetul mesajului (Light/Dark în toată aplicația, fără repornire). Detaliile, selectorii verificați și ce nu se poate face sunt în `README.txt`.
 
@@ -50,4 +52,4 @@ Previzualizarea mesajelor se citește local, din copia offline, fără cereri î
 
 ## Credite
 
-Iconițele din `Icons/` provin din [FluentBird](https://github.com/Deathbyteacup/fluentbird) de Danny King (MIT) și sunt iconițele Fluent UI de la Microsoft (MIT). Licența e în `Icons/LICENSE.txt`.
+Iconițele din `extensie/tema/Icons/` provin din [FluentBird](https://github.com/Deathbyteacup/fluentbird) de Danny King (MIT) și sunt iconițele Fluent UI de la Microsoft (MIT). Licența e în `extensie/tema/Icons/LICENSE.txt`.

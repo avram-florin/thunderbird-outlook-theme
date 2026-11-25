@@ -1,13 +1,10 @@
+/* Doar ferestrele Thunderbird (ce atingea userChrome.css), nu paginile web si mesajele. */
+@-moz-document url-prefix("chrome://"), url-prefix("about:3pane"), url-prefix("about:message") {
 /* ==========================================================================
    Thunderbird 161 - stil Outlook 365 (New Outlook), Windows 11
-   Punct unic de intrare. Tema se schimba din comutatorul luna/soare din antetul
-   mesajului (preferinta Thunderbird mail.dark-reader.enabled), pe loc, fara
-   repornire: Light e baza, Dark se aplica peste ea cand comutatorul e pe
-   intunecat (si corpul mesajelor devine intunecat). @import trebuie sa ramana
-   primele reguli din fisier.
+   Geometria temei. Culorile (Light / Dark) si ordinea de incarcare sunt in
+   tema.css, pe care o incarca extensia.
    ========================================================================== */
-@import url("userChrome-light.css");
-@import url("userChrome-dark.css") -moz-pref("mail.dark-reader.enabled");
 
 /* Selectorii provin din about3Pane.xhtml, messenger.xhtml si aboutMessage.xhtml
    din omni.ja (Thunderbird 161.0) si au fost verificati pe ecran. Culorile vin
@@ -1044,4 +1041,5 @@ notification-message[type="warning"] {
   --color-primary-default: var(--ol-accent) !important;
   --color-primary-hover: color-mix(in srgb, var(--ol-accent) 85%, black) !important;
   --color-primary-pressed: color-mix(in srgb, var(--ol-accent) 75%, black) !important;
+}
 }

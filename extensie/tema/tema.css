@@ -1,0 +1,7 @@
+/* Punctul de intrare al temei, incarcat de extensie (implementation.js) ca foaie
+   de stil a utilizatorului, in locul lui chrome/userChrome.css din profil.
+   Light e baza; Dark se aplica peste ea cand comutatorul luna/soare din antetul
+   mesajului e pe intunecat (preferinta mail.dark-reader.enabled), pe loc. */
+@import url("userChrome-light.css");
+@import url("userChrome-dark.css") -moz-pref("mail.dark-reader.enabled");
+@import url("userChrome.css");

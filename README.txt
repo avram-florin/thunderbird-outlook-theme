@@ -3,22 +3,32 @@ THUNDERBIRD 161 - TEMA OUTLOOK 365 (LIGHT / DARK)
 
 Fișiere
 -------
-  userChrome.css        punctul unic de intrare: alege tema + geometria comună
-  userContent.css       corpul mesajelor (aliniat cu numele) + pagina de start doar cu fundalul
-  userChrome-light.css  paleta Light (doar culori)
-  userChrome-dark.css   paleta Dark (doar culori)
-  Icons\                iconițe Fluent (din FluentBird, MIT; licența în Icons\LICENSE.txt)
+  tema-outlook.xpi      tema completă, într-un singur fișier (de la versiunea 2.0)
+  extensie\             sursa: implementation.js, home\ (pagina de start), tema\
+  extensie\tema\tema.css            punctul de intrare: Light, Dark peste el, apoi geometria
+  extensie\tema\userChrome.css      geometria comună
+  extensie\tema\userChrome-light.css, userChrome-dark.css   paletele (doar culori)
+  extensie\tema\userContent.css     corpul mesajelor, Agenda, Setările, pagina de start
+  extensie\tema\Icons\              iconițe Fluent (FluentBird, MIT; licența în LICENSE.txt) și logo-ul
+  iconita-windows.cmd   opțional: logo-ul pe scurtăturile Windows (cere o dată admin)
   README.txt            acest fișier
 
 Instalare
 ---------
-1. Thunderbird: Setări > General > Config Editor (jos de tot), caută
-   toolkit.legacyUserProfileCustomizations.stylesheets și pune-l pe true.
-   (Pe acest calculator e deja setat.)
-2. Copiază fișierele .css (inclusiv userContent.css) și folderul Icons în folderul "chrome" din profil:
-   %APPDATA%\Thunderbird\Profiles\<profil>\chrome\
-   (aici: ...\Profiles\fngeiywe.default-release\chrome\)
-3. Repornește Thunderbird.
+1. Thunderbird > meniu ≡ > Add-ons and Themes > rotița > Install Add-on From File >
+   tema-outlook.xpi (sau trage fișierul peste fereastra Add-ons) și confirmă „Add”
+   (cere acces complet, ca orice extensie „Experiment”).
+2. Tema se aplică după instalare; dacă nu, repornește Thunderbird.
+Nu mai trebuie copiat nimic în profil și nici preferința
+toolkit.legacyUserProfileCustomizations.stylesheets: extensia încarcă singură CSS-ul,
+ca foi de stil ale utilizatorului (nsIStyleSheetService, prin resource://outlook-theme/),
+la fel cum le încărca Thunderbird din chrome\. CSS-ul ferestrelor e învelit în
+@-moz-document pentru chrome://, about:3pane și about:message, ca să nu atingă
+paginile web și mesajele. Dezactivarea sau dezinstalarea extensiei scoate tema pe loc.
+Trecerea de la versiunea veche (chrome\ din profil): șterge din chrome\ fișierele
+userChrome*.css, userContent.css și folderul Icons, altfel tema se încarcă de două ori.
+Pe acest calculator, conținutul vechi al chrome\ e în
+chrome-backup-2026-11-25\chrome-inainte-de-extensie-2.0 (25.11.2026).
 
 Schimbarea temei
 ----------------
@@ -26,7 +36,7 @@ Din comutatorul lună/soare din dreapta sus a antetului mesajului: tema se schim
 pe loc în toată aplicația, fără repornire, iar corpul mesajelor devine întunecat
 odată cu Dark (comutatorul e cel al Thunderbird, preferința mail.dark-reader.enabled).
 Același lucru: Setări > General > „Dark mode” pentru mesaje.
-În userChrome.css, Light e baza, iar Dark se aplică peste ea doar când preferința e
+În tema.css, Light e baza, iar Dark se aplică peste ea doar când preferința e
 activă (@import ... -moz-pref("mail.dark-reader.enabled")). @import trebuie să rămână
 ÎNAINTEA oricărei alte reguli din fișier; altfel e ignorat.
 Dacă comutatorul nu apare: meniul ⋯ More din antet > Customize > „Show dark mode toggle”.
@@ -86,16 +96,13 @@ Lista de mesaje ca în Outlook (3 rânduri)
 -----------------------------------------
 Doar cu CSS, cardul are 2 rânduri: numele (mai mare) și subiectul cu data în
 dreapta. Rândul 3 (începutul mesajului), avatarul cu inițiale și numele fără
-adresă vin din extensia proprie outlook-cards.xpi (sursa în folderul extensie\):
-  1. Thunderbird > meniu ≡ > Add-ons and Themes > rotița > Install Add-on From File
-  2. Alege outlook-cards.xpi și confirmă „Add” (cere acces complet, ca orice
-     extensie „Experiment”; codul e în extensie\implementation.js).
+adresă vin din codul extensiei (extensie\implementation.js), aceeași tema-outlook.xpi.
 Ce face extensia: completează cardurile din listă. Textul de previzualizare îl
 citește din copia locală a mesajului, cu parserul MIME al Thunderbird, fără
 descărcare din rețea, și îl ține doar în memorie (nu scrie în mesaje sau în
 baza de date). Mesajele care nu sunt păstrate local rămân fără rândul 3.
-Dezactivare: Add-ons and Themes > Extensions > Outlook Cards > dezactivează;
-fără extensie, tema revine singură la 2 rânduri.
+Dezactivare: Add-ons and Themes > Extensions > Tema Outlook pentru Thunderbird >
+dezactivează; atunci dispare toată tema, nu doar cardurile.
 Funcționează în vizualizarea Carduri cu 3 rânduri (meniul ≡ din antetul listei
 > Cards View, implicit în 161).
 Tot din extensie (versiunea 1.2):
@@ -118,7 +125,7 @@ Butonul fixat în taskbar și scurtăturile păstrează iconița scurtăturii. W
 iconița butonului fixat din scurtătura din meniul Start comun (ProgramData), care cere
 drepturi de administrator; o scurtătură a utilizatorului nu ajunge (încercat 25.11.2026).
 Pentru logo pe scurtături: dublu clic pe iconita-windows.cmd (din acest folder). Cere o
-singură dată acceptul de administrator, copiază Icons\thunderbird-t-pasare.ico în
+singură dată acceptul de administrator, copiază extensie\tema\Icons\thunderbird-t-pasare.ico în
 C:\ProgramData\ThunderbirdOutlookTheme și îl pune pe scurtăturile Thunderbird din meniul
 Start, de pe desktop și din taskbar (16-24 px: pătratul cu T; 32-256 px: logo-ul întreg).
 Iconițele vechi rămân în iconite-vechi.json, în același folder; le pune la loc
