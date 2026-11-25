@@ -506,7 +506,12 @@ unified-toolbar global-search-bar {
 }
 /* Expeditorul pe un rand, ca in Outlook: "Nume <adresa>", numele ingrosat */
 #expandedfromBox {
-  font-size: 1.1rem !important;
+  font-size: 1.25rem !important;
+}
+/* To/Cc, data si butoanele: putin mai mari, mai usor de citit */
+#messageHeader,
+#header-view-toolbar .message-header-view-button {
+  font-size: 1.15rem !important;
 }
 #expandedfromBox .recipient-multi-line {
   flex-direction: row !important;
