@@ -781,6 +781,11 @@ notification-message[type="warning"] {
 #msgSubject {
   border-color: var(--ol-border-strong) !important;
 }
+/* From (lista de identitati): la hover devenea intunecat din acelasi motiv */
+#msgIdentity:is(:hover, [open]) {
+  background-color: var(--ol-hover) !important;
+  color: var(--ol-text) !important;
+}
 /* Send: buton albastru plin, ca in Outlook */
 #button-send {
   --toolbarbutton-icon-fill: var(--ol-accent-text) !important;

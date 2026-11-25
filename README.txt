@@ -106,10 +106,17 @@ doar pătratul cu T la 16 px, unde pasărea nu se mai distinge (extensie\icons\a
 și app-32.png). Iconița pusă în profil (chrome\icons\default) nu ajunge, pentru că
 Thunderbird o găsește întâi pe a lui, în folderul aplicației; de aceea o pune extensia,
 direct pe fiecare fereastră. La dezactivarea extensiei revine pasărea.
-Butonul fixat în taskbar și scurtăturile păstrează iconița scurtăturii: click dreapta
-pe scurtătură > Proprietăți > Schimbare pictogramă > Icons\thunderbird-t-pasare.ico
-(16-24 px: pătratul cu T; 32-256 px: logo-ul întreg). Windows 11 ia iconița butonului
-fixat din scurtătura din meniul Start (ProgramData), care cere drepturi de administrator.
+Butonul fixat în taskbar și scurtăturile păstrează iconița scurtăturii. Windows 11 ia
+iconița butonului fixat din scurtătura din meniul Start comun (ProgramData), care cere
+drepturi de administrator; o scurtătură a utilizatorului nu ajunge (încercat 25.11.2026).
+Pentru logo pe scurtături: dublu clic pe iconita-windows.cmd (din acest folder). Cere o
+singură dată acceptul de administrator, copiază Icons\thunderbird-t-pasare.ico în
+C:\ProgramData\ThunderbirdOutlookTheme și îl pune pe scurtăturile Thunderbird din meniul
+Start, de pe desktop și din taskbar (16-24 px: pătratul cu T; 32-256 px: logo-ul întreg).
+Iconițele vechi rămân în iconite-vechi.json, în același folder; le pune la loc
+„iconita-windows.cmd -Restore”. Nu atinge fișierele aplicației. O actualizare Thunderbird
+poate reface scurtătura din meniul Start; atunci se rulează din nou. Dacă taskbar-ul arată
+încă pasărea, ajută o deconectare și reconectare în Windows.
 
 Pagina de start (extensia, versiunea 1.4)
 -----------------------------------------
