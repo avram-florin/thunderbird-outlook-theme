@@ -18,7 +18,7 @@
         "name": "getInboxSummary",
         "type": "function",
         "async": true,
-        "description": "Numarul de mesaje necitite din Inbox-uri si cele mai noi necitite.",
+        "description": "Numarul mesajelor cu steluta din Inbox-uri si cele mai noi dintre ele.",
         "parameters": [
           { "name": "limit", "type": "integer", "minimum": 0, "maximum": 10 }
         ]

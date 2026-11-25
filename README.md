@@ -32,7 +32,7 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 - **Teme Light și Dark** schimbate pe loc din comutatorul lună/soare din antetul mesajului, în toată aplicația (și corpul mesajelor).
 - **Aranjare**: lista, pagina de start și mesajul sunt carduri cu umbră difuză și spații egale de 12px; mesajul începe la aceeași înălțime cu primul rând din listă.
 - **Logo** în colțul din stânga sus (logo-ul Outlook 2024 refăcut în Figma, cu T în loc de O) și același logo ca iconiță a ferestrelor (extensia).
-- **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), mesajele necitite, fundal din Wallhaven (fără cont), Unsplash (cu cheia ta) sau ilustrația Thunderbird.
+- **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), ultimele mesaje cu steluță din Inbox, fundal din Wallhaven (fără cont), Unsplash (cu cheia ta) sau ilustrația Thunderbird.
 
 ## Instalare pe scurt
 

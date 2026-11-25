@@ -617,7 +617,7 @@ function stop() {
   patchedMessageWindows.clear();
 }
 
-/* ---- Pentru pagina de start: necititele din Inbox-uri ---- */
+/* ---- Pentru pagina de start: mesajele cu steluta din Inbox-uri ---- */
 const INBOX_FLAG = 0x00001000; // nsMsgFolderFlags.Inbox
 
 function inboxes() {
@@ -640,15 +640,13 @@ function inboxes() {
   return out;
 }
 
-/** Numarul de necitite si ultimele `limit` mesaje necitite (cele mai noi). */
+/** Numarul mesajelor cu steluta din Inbox-uri si ultimele `limit` dintre ele (cele mai noi). */
 function inboxSummary(limit) {
-  let unread = 0;
   const latest = [];
   for (const folder of inboxes()) {
-    unread += folder.getNumUnread(false);
     try {
       for (const hdr of folder.messages) {
-        if (!hdr.isRead) {
+        if (hdr.isFlagged) {
           latest.push(hdr);
         }
       }
@@ -656,7 +654,7 @@ function inboxSummary(limit) {
   }
   latest.sort((a, b) => b.date - a.date);
   return {
-    unread,
+    flagged: latest.length,
     latest: latest.slice(0, limit).map(hdr => ({
       folderURI: hdr.folder.URI,
       messageKey: hdr.messageKey,

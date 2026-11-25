@@ -124,7 +124,7 @@ html, body {
 #forecast .ficon { font-size: 20px; line-height: 1.2; }
 #forecast .ftemp { font-variant-numeric: tabular-nums; }
 
-/* Mesaje necitite */
+/* Mesaje cu steluta */
 #mail {
   margin: 22px auto 0;
   inline-size: min(440px, calc(100vw - 48px));

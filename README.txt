@@ -106,11 +106,11 @@ La dezactivarea extensiei revine pasărea.
 Butonul fixat în taskbar și scurtăturile păstrează iconița scurtăturii: click dreapta
 pe scurtătură > Proprietăți > Schimbare pictogramă > Icons\thunderbird-t.ico.
 
-Pagina de start (extensia, versiunea 1.2)
+Pagina de start (extensia, versiunea 1.4)
 -----------------------------------------
 Când nu e selectat niciun mesaj, panoul de citire arată pagina extensiei:
-ora, data, vremea, prognoza pe 3 zile, numărul de mesaje necitite din Inbox și
-ultimele 3 necitite (click pe unul îl deschide), peste o fotografie de fundal.
+ora, data, vremea, prognoza pe 3 zile, câte mesaje cu steluță sunt în Inbox și
+ultimele 3 dintre ele, citite sau nu (click pe unul îl deschide), peste o fotografie de fundal.
 - Butonul „✕ Închide” din antetul mesajului deselectează mesajul și readuce pagina.
 - Rotița ⚙ (dreapta jos) deschide setările; click pe numele orașului face la fel:
     Oraș pentru vreme     implicit București; scrii alt oraș și apeși Salvează

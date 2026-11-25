@@ -140,17 +140,17 @@ function span(className, text) {
   return s;
 }
 
-/* ---------- mesaje necitite (din extensie, local) ---------- */
-function unreadLabel(n) {
+/* ---------- mesaje cu steluta (din extensie, local) ---------- */
+function flaggedLabel(n) {
   if (n == 0) {
-    return "Niciun mesaj necitit";
+    return "Niciun mesaj cu steluță";
   }
   if (n == 1) {
-    return "1 mesaj necitit";
+    return "1 mesaj cu steluță";
   }
   // in romana: 2-19 "mesaje", 20+ (si 0 la final de 1xx) "de mesaje"
   const rest = n % 100;
-  return rest >= 1 && rest <= 19 ? `${n} mesaje necitite` : `${n} de mesaje necitite`;
+  return rest >= 1 && rest <= 19 ? `${n} mesaje cu steluță` : `${n} de mesaje cu steluță`;
 }
 
 async function loadMail() {
@@ -159,9 +159,14 @@ async function loadMail() {
     summary = await browser.outlookCards.getInboxSummary(3);
   } catch (e) {
     $("mail").hidden = true;
+    // la pornirea Thunderbird pagina poate fi gata inaintea extensiei: o reincercare curand
+    if (!loadMail.retried) {
+      loadMail.retried = true;
+      setTimeout(loadMail, 5000);
+    }
     return;
   }
-  $("mailCount").textContent = unreadLabel(summary.unread);
+  $("mailCount").textContent = flaggedLabel(summary.flagged);
   const list = summary.latest.map(m => {
     const li = document.createElement("li");
     const b = document.createElement("button");
