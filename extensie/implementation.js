@@ -727,6 +727,76 @@ function stopWindowIcons() {
   }
 }
 
+// --- Marimea fontului ca numar in fereastra de scriere ---------------------
+// Butonul de marime al lui Thunderbird arata doar o iconita. Punem pe el, ca
+// eticheta, marimea textului de la cursor, in puncte. - si + raman butoanele
+// Thunderbird (treptele HTML 1-7), numarul doar urmeaza ce rezulta.
+const SIZE_LISTENER = ID + "-font-size";
+// <font size=1..7> fata de marimea normala (x-small ... xxx-large din CSS)
+const STEP_RATIO = [0.625, 0.8125, 1, 1.125, 1.5, 2, 3];
+
+function hookComposeWindow(cwin) {
+  const button = cwin.document.getElementById("AbsoluteFontSizeButton");
+  if (!button) {
+    return;
+  }
+  let editorDoc = null;
+  const update = () => {
+    try {
+      const doc = cwin.GetCurrentEditorElement?.()?.contentDocument;
+      if (!doc?.body) {
+        return;
+      }
+      if (doc !== editorDoc) {
+        editorDoc?.removeEventListener("selectionchange", update);
+        editorDoc = doc;
+        doc.addEventListener("selectionchange", update);
+      }
+      // treapta 1-7 cum o vede Thunderbird (si pentru textul care urmeaza a fi
+      // scris, cand nu e nimic selectat), transformata in puncte fata de
+      // marimea de baza a mesajului (treapta 3)
+      const step = parseInt(cwin.getLegacyFontSize?.()) || 3;
+      const basePx = parseFloat(doc.defaultView.getComputedStyle(doc.body).fontSize);
+      const pt = Math.round(basePx * STEP_RATIO[Math.min(Math.max(step, 1), 7) - 1] * 0.75);
+      if (pt > 0) {
+        button.setAttribute("label", String(pt));
+        button.setAttribute("ol-size", "true");
+      }
+    } catch (e) {
+      console.error("Outlook Cards: marimea fontului", e);
+    }
+  };
+  // dupa -, + sau alegerea din lista, Thunderbird schimba marimea fara selectionchange
+  const later = () => cwin.setTimeout(update, 0);
+  cwin.addEventListener("compose-editor-ready", update);
+  cwin.document.addEventListener("command", later, true);
+  cwin.addEventListener("keyup", later, true);
+  update();
+  cwin.outlookCardsUnhookSize = () => {
+    cwin.removeEventListener("compose-editor-ready", update);
+    cwin.document.removeEventListener("command", later, true);
+    cwin.removeEventListener("keyup", later, true);
+    editorDoc?.removeEventListener("selectionchange", update);
+    button.removeAttribute("label");
+    button.removeAttribute("ol-size");
+    delete cwin.outlookCardsUnhookSize;
+  };
+}
+
+function startFontSize() {
+  ExtensionSupport.registerWindowListener(SIZE_LISTENER, {
+    chromeURLs: ["chrome://messenger/content/messengercompose/messengercompose.xhtml"],
+    onLoadWindow: hookComposeWindow,
+  });
+}
+
+function stopFontSize() {
+  ExtensionSupport.unregisterWindowListener(SIZE_LISTENER);
+  for (const cwin of Services.wm.getEnumerator("msgcompose")) {
+    cwin.outlookCardsUnhookSize?.();
+  }
+}
+
 this.outlookCards = class extends ExtensionAPI {
   // Pornim cat mai devreme (manifest: "events": ["startup"]), inainte de
   // scriptul de fundal, ca adresa paginii de start sa fie cunoscuta din prima.
@@ -736,6 +806,7 @@ this.outlookCards = class extends ExtensionAPI {
       this.extension.baseURI.resolve("icons/app-256.png"),
       this.extension.baseURI.resolve("icons/app-32.png")
     );
+    startFontSize();
   }
 
   getAPI() {
@@ -762,6 +833,7 @@ this.outlookCards = class extends ExtensionAPI {
     if (!isAppShutdown) {
       stop();
       stopWindowIcons();
+      stopFontSize();
     }
   }
 };

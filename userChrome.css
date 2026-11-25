@@ -786,6 +786,130 @@ notification-message[type="warning"] {
   background-color: var(--ol-hover) !important;
   color: var(--ol-text) !important;
 }
+/* Bara de formatare dupa modelul din Figma (Brainly Text Area, Frame 47753):
+   bara si textul formeaza un singur camp cu chenar; paragraful si fontul in
+   casute gri; marimea fontului ca "- marime +" intr-o capsula; fara separatoare;
+   ordinea: B I U, stergere stil, culori, liste, aliniere, indentare, inserare.
+   Culorile: fundalul = patrat cu culoarea aleasa; textul = "A" cu bara colorata
+   dedesubt. Culoarea vine din style="background-color" pus de Thunderbird; la "A"
+   o lasam doar pe banda de jos (ultimul strat, gradientul gol, are clip
+   content-box, iar padding-ul de sus lasa 4px de continut). */
+#FormatToolbar {
+  margin: 6px 8px 0 !important;
+  padding: 4px 6px !important;
+  gap: 2px;
+  align-items: center;
+  background-color: var(--ol-panel) !important;
+  border: 1px solid var(--ol-border-strong) !important;
+  border-bottom-color: var(--ol-border) !important;
+  border-radius: var(--ol-radius-sm) var(--ol-radius-sm) 0 0 !important;
+}
+#FormatToolbar > toolbarseparator { display: none !important; }
+#FormatToolbar > spacer { order: 99; }
+#FormatToolbar > #DecreaseFontSizeButton  { order: 2; }
+#FormatToolbar > #AbsoluteFontSizeButton  { order: 3; }
+#FormatToolbar > #IncreaseFontSizeButton  { order: 4; }
+#FormatToolbar > #boldButton              { order: 5; margin-inline-start: 6px !important; }
+#FormatToolbar > #italicButton            { order: 6; }
+#FormatToolbar > #underlineButton         { order: 7; }
+#FormatToolbar > #removeStylingButton     { order: 8; }
+#FormatToolbar > #color-buttons-container { order: 9; }
+#FormatToolbar > #ulButton                { order: 10; }
+#FormatToolbar > #olButton                { order: 11; }
+#FormatToolbar > #AlignPopupButton        { order: 12; }
+#FormatToolbar > #outdentButton           { order: 13; }
+#FormatToolbar > #indentButton            { order: 14; }
+#FormatToolbar > #InsertPopupButton       { order: 15; }
+#FormatToolbar > #smileButtonMenu         { order: 16; }
+/* capsula de marime: - [marime] + */
+#FormatToolbar > :is(#DecreaseFontSizeButton, #AbsoluteFontSizeButton, #IncreaseFontSizeButton) {
+  margin: 0 !important;
+  border: 1px solid var(--ol-border-strong) !important;
+  border-radius: 0 !important;
+}
+/* minus si plus ca fundal: list-style-image din profil nu se incarca pe aceste butoane */
+#FormatToolbar > :is(#DecreaseFontSizeButton, #IncreaseFontSizeButton) {
+  min-inline-size: 26px !important;
+  background-position: center !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+}
+#FormatToolbar > :is(#DecreaseFontSizeButton, #IncreaseFontSizeButton) > .toolbarbutton-icon {
+  visibility: hidden;
+}
+#FormatToolbar > #DecreaseFontSizeButton {
+  background-image: url("Icons/minus.svg") !important;
+  border-inline-end: none !important;
+  border-radius: 999px 0 0 999px !important;
+  padding-inline-start: 6px !important;
+}
+#FormatToolbar > #AbsoluteFontSizeButton {
+  border-inline: none !important;
+}
+/* marimea ca numar (eticheta pusa de extensia Outlook Cards, 1.6) in locul iconitei */
+#FormatToolbar > #AbsoluteFontSizeButton[ol-size] {
+  min-inline-size: 30px !important;
+  justify-content: center;
+}
+#FormatToolbar > #AbsoluteFontSizeButton[ol-size] > :is(.toolbarbutton-icon, .toolbarbutton-menu-dropmarker) {
+  display: none !important;
+}
+#FormatToolbar > #AbsoluteFontSizeButton[ol-size] > .toolbarbutton-text {
+  display: flex !important;
+  flex: 1;
+  justify-content: center;
+  margin: 0 !important;
+  font-variant-numeric: tabular-nums;
+}
+#FormatToolbar > #IncreaseFontSizeButton {
+  background-image: url("Icons/plus.svg") !important;
+  border-inline-start: none !important;
+  border-radius: 0 999px 999px 0 !important;
+  padding-inline-end: 6px !important;
+}
+#FormatToolbar > :is(#ParagraphSelect, #FontFaceSelect) {
+  appearance: none !important;
+  background-color: var(--ol-border) !important;
+  border: none !important;
+  border-radius: var(--ol-radius-sm) !important;
+  padding: 3px 8px !important;
+  margin-inline-end: 6px !important;
+}
+#FormatToolbar > :is(#ParagraphSelect, #FontFaceSelect):hover {
+  background-color: var(--ol-border-strong) !important;
+}
+#ColorButtons {
+  display: flex !important;
+  gap: 2px;
+}
+#ColorButtons > #TextColorButton {
+  order: 1;
+  inline-size: 20px !important;
+  block-size: 20px !important;
+  margin: 0 3px !important;
+  padding: 15px 2px 1px !important;
+  border: none !important;
+  border-radius: 2px;
+  background-repeat: no-repeat !important;
+  background-position: top center !important;
+  background-size: 16px 16px, auto !important;
+  background-clip: border-box, content-box !important;
+}
+#ColorButtons > #TextColorButton {
+  background-image: url("Icons/text-color.svg"), linear-gradient(transparent, transparent) !important;
+}
+#ColorButtons > #BackgroundColorButton {
+  order: 0;
+  inline-size: 14px !important;
+  block-size: 14px !important;
+  margin: 3px 5px !important;
+  padding: 0 !important;
+  border: 1px solid var(--ol-border-strong) !important;
+  border-radius: 3px;
+}
+#ColorButtons > .color-button:not([disabled]):hover {
+  box-shadow: 0 0 0 3px var(--ol-hover);
+}
 /* Send: buton albastru plin, ca in Outlook */
 #button-send {
   --toolbarbutton-icon-fill: var(--ol-accent-text) !important;
@@ -804,6 +928,16 @@ notification-message[type="warning"] {
 #messageEditor {
   border: 1px solid var(--ol-border-strong) !important;
   border-radius: var(--ol-radius-sm) !important;
+}
+/* cand bara de formatare e vizibila, textul continua campul ei (fara chenar sus) */
+#FormatToolbox:not([collapsed="true"]):has(#FormatToolbar:not([collapsed="true"])) ~ #messageArea,
+#FormatToolbox:has(#FormatToolbar:not([collapsed="true"])) ~ * #messageArea {
+  padding-top: 0 !important;
+}
+#FormatToolbox:has(#FormatToolbar:not([collapsed="true"])) ~ #messageArea #messageEditor,
+#FormatToolbox:has(#FormatToolbar:not([collapsed="true"])) ~ * #messageEditor {
+  border-top: none !important;
+  border-radius: 0 0 var(--ol-radius-sm) var(--ol-radius-sm) !important;
 }
 
 /* Subiectul mesajelor citite: greutate normala, ca in Outlook (necititele raman ingrosate) */

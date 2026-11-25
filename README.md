@@ -31,7 +31,8 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 - **Panoul de citire**: mesajul ca o foaie separată (subiectul pe fundalul ferestrei, antetul și conținutul pe o pagină cu colțuri rotunjite), avatarul lângă expeditor, butoane plate, buton „✕ Închide”.
 - **Teme Light și Dark** schimbate pe loc din comutatorul lună/soare din antetul mesajului, în toată aplicația (și corpul mesajelor).
 - **Aranjare**: lista, pagina de start și mesajul sunt carduri cu umbră difuză și spații egale de 12px; mesajul începe la aceeași înălțime cu primul rând din listă.
-- **Logo** în colțul din stânga sus (logo-ul Outlook 2024 refăcut în Figma, cu T în loc de O) și același logo ca iconiță a ferestrelor (extensia).
+- **Logo** în colțul din stânga sus (pasărea Thunderbird care îmbrățișează pătratul cu T), același logo ca iconiță a ferestrelor (extensia) și pe scurtăturile Windows, cu `iconita-windows.cmd` (cere o dată acceptul de administrator).
+- **Fereastra de scriere**: câmpurile în culorile temei și bara de formatare după modelul Brainly Text Area din Figma, cu mărimea fontului ca număr („− 13 +”, extensia).
 - **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), ultimele mesaje cu steluță din Inbox, fundal din Wallhaven (fără cont), Unsplash (cu cheia ta) sau ilustrația Thunderbird.
 
 ## Instalare pe scurt

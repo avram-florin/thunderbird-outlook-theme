@@ -36,3 +36,10 @@
   --ol-info-text:     #e0e0e0;
   --ol-info-line:     #2f4256;
 }
+
+/* Bara de formatare: "A" cu contur alb (culoarea e scrisa in SVG) */
+:root #ColorButtons > #TextColorButton {
+  background-image: url("Icons/text-color-dark.svg"), linear-gradient(transparent, transparent) !important;
+}
+:root #FormatToolbar > #DecreaseFontSizeButton { background-image: url("Icons/minus-dark.svg") !important; }
+:root #FormatToolbar > #IncreaseFontSizeButton { background-image: url("Icons/plus-dark.svg") !important; }

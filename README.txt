@@ -51,7 +51,14 @@ Ce schimbă
   necitite albastru fără fundal.
 - Bara galbenă (conținut extern blocat, spam etc.) devine bara de informare
   bleu din Outlook.
-- Fereastra de scriere: buton Send albastru, corpul mesajului încadrat pe fond gri.
+- Fereastra de scriere: buton Send albastru, corpul mesajului încadrat pe fond gri;
+  To, Cc, Subject și From în culorile temei (nu mai urmează tema întunecată a Windows).
+- Bara de formatare după modelul Brainly Text Area din Figma (Frame 47753): bara și
+  textul într-un singur câmp cu chenar, paragraful și fontul în căsuțe gri, mărimea
+  ca număr în capsula „− 13 +”, culoarea de fundal ca pătrat, culoarea textului ca
+  „A” cu bara culorii dedesubt, fără separatoare. Numărul îl pune extensia (1.6):
+  treapta Thunderbird (1-7) de la cursor, în puncte față de mărimea de bază; − și +
+  rămân treptele Thunderbird (cam 8 · 10 · 13 · 14 · 19 · 26 · 39).
 - Mesajul deschis apare ca o „foaie” separată, ca în Outlook: subiectul stă pe
   fundalul ferestrei, iar antetul, notificările și conținutul formează o pagină
   cu margini și colțuri rotunjite, umbră difuză de jur împrejur.
@@ -168,7 +175,9 @@ Selectori (verificați în Thunderbird 161.0, din omni.ja, și pe ecran)
   Bara de stare         #status-bar
   Bare de avertizare    notification-message[type="warning"] (--message-bar-*)
   Fereastra de scriere  #compose-toolbar-menubar2, #composeToolbar2, #button-send,
-                        #messageArea, #messageEditor
+                        #messageArea, #messageEditor, .address-container, #msgSubject,
+                        #msgIdentity, #FormatToolbar, #ColorButtons,
+                        #AbsoluteFontSizeButton[ol-size] (pus de extensie)
 Nu mai există în 161: arborii XUL (::-moz-tree-row) pentru foldere și mesaje.
 
 Dezinstalare / revenire
