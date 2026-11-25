@@ -601,19 +601,24 @@ browser#messagepane {
   overflow: clip !important;
 }
 /* Marginea foii, ca in Outlook: contur fin si umbra discreta dedesubt.
-   Foaia e facuta din mai multe bucati, asa ca fiecare isi pastreaza doar
-   partea de umbra spre exterior (clip-path), fara linii intre bucati. */
+   Foaia e facuta din mai multe bucati: antetul primeste doar linii laterale
+   (umbre decalate, fara clip-path, care ar taia avatarul ce iese din rand),
+   iar continutul si atasamentele umbra de jos, taiata la partea de sus. */
 #messageHeader > :not(#headerSubjectSecurityContainer),
 #messageHeader::after,
 #mail-notification-top,
 browser#messagepane,
 #attachmentView {
-  --ol-page-edge: 0 0 0 1px light-dark(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.5));
+  --ol-edge-color: light-dark(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.5));
+  --ol-page-edge: -1px 0 0 var(--ol-edge-color), 1px 0 0 var(--ol-edge-color);
   box-shadow: var(--ol-page-edge) !important;
-  clip-path: inset(0 -1px) !important;
 }
 #headerSenderToolbarContainer {
-  clip-path: inset(-1px -1px 0) !important;
+  box-shadow: var(--ol-page-edge), 0 -1px 0 var(--ol-edge-color) !important;
+}
+/* Thunderbird traseaza o linie sub zona de notificari; in foaia Outlook nu e. */
+#mail-notification-top {
+  border-block-end: none !important;
 }
 browser#messagepane,
 #attachmentView {
