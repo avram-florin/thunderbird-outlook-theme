@@ -52,7 +52,7 @@ Ce schimbă
 - Fereastra de scriere: buton Send albastru, corpul mesajului încadrat pe fond gri.
 - Mesajul deschis apare ca o „foaie” separată, ca în Outlook: subiectul stă pe
   fundalul ferestrei, iar antetul, notificările și conținutul formează o pagină
-  cu margini și colțuri rotunjite, contur fin și umbră discretă dedesubt.
+  cu margini și colțuri rotunjite, umbră difuză de jur împrejur.
 - Panoul de citire ca în Outlook: subiectul ca titlu sus; avatarul (40px, cu
   inițiale și culoare din extensie) în stânga expeditorului; To/Cc aliniate după
   el; butoane plate cu iconițe albastre; corpul mesajului începe în dreptul

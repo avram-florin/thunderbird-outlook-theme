@@ -600,31 +600,31 @@ browser#messagepane {
   border-end-end-radius: var(--ol-radius) !important;
   overflow: clip !important;
 }
-/* Marginea foii, ca in Outlook: contur fin si umbra discreta dedesubt.
-   Foaia e facuta din mai multe bucati: antetul primeste doar linii laterale
-   (umbre decalate, fara clip-path, care ar taia avatarul ce iese din rand),
-   iar continutul si atasamentele umbra de jos, taiata la partea de sus. */
+/* Marginea foii, ca in Outlook: umbra difuza de jur imprejur, care urmeaza
+   colturile rotunjite. Foaia e facuta din mai multe bucati; fiecare bucata e
+   pictata peste cea de dinainte, deci acopera umbra care cade in jos din ea.
+   Taiem doar umbra care urca (clip-path sus 0); jos lasam loc mare, ca
+   avatarul care iese din primul rand sa nu fie taiat. */
 #messageHeader > :not(#headerSubjectSecurityContainer),
 #messageHeader::after,
 #mail-notification-top,
 browser#messagepane,
 #attachmentView {
-  --ol-edge-color: light-dark(rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.5));
-  --ol-page-edge: -1px 0 0 var(--ol-edge-color), 1px 0 0 var(--ol-edge-color);
-  box-shadow: var(--ol-page-edge) !important;
+  box-shadow: 0 0 2px light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.6)),
+              0 0 6px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.4)) !important;
+  clip-path: inset(0 -12px -200px) !important;
 }
-#headerSenderToolbarContainer {
-  box-shadow: var(--ol-page-edge), 0 -1px 0 var(--ol-edge-color) !important;
+/* primul rand nu e taiat deloc (umbra lui in jos o acopera randul urmator);
+   avatarul iese din rand, deci il ridicam peste randurile urmatoare */
+#messageHeader > #headerSenderToolbarContainer:not(#headerSubjectSecurityContainer) {
+  clip-path: none !important;
+}
+#expandedfromBox .recipient-avatar {
+  z-index: 1 !important;
 }
 /* Thunderbird traseaza o linie sub zona de notificari; in foaia Outlook nu e. */
 #mail-notification-top {
   border-block-end: none !important;
-}
-browser#messagepane,
-#attachmentView {
-  box-shadow: var(--ol-page-edge),
-              0 2px 4px light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.5)) !important;
-  clip-path: inset(0 -6px -8px) !important;
 }
 
 /* --- 8. Butoane, campuri, meniuri ------------------------------------------- */
