@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Outlook Cards (previzualizare și avatare)",
+  "version": "1.2.0",
+  "description": "Lista de mesaje și panoul de citire ca în New Outlook: avatar cu inițiale, previzualizare, buton de închidere a mesajului și o pagină de start cu ora, data și vremea.",
+  "author": "Florin Avram",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "outlook-cards@lexicon.local",
+      "strict_min_version": "140.0"
+    }
+  },
+  "permissions": [
+    "storage",
+    "https://api.open-meteo.com/*",
+    "https://geocoding-api.open-meteo.com/*",
+    "https://api.unsplash.com/*",
+    "https://wallhaven.cc/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "experiment_apis": {
+    "outlookCards": {
+      "schema": "schema.json",
+      "parent": {
+        "scopes": [
+          "addon_parent"
+        ],
+        "events": [
+          "startup"
+        ],
+        "paths": [
+          [
+            "outlookCards"
+          ]
+        ],
+        "script": "implementation.js"
+      }
+    }
+  }
+}

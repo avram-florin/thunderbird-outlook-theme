@@ -1,0 +1,143 @@
+THUNDERBIRD 161 - TEMA OUTLOOK 365 (LIGHT / DARK)
+=================================================
+
+Fișiere
+-------
+  userChrome.css        punctul unic de intrare: alege tema + geometria comună
+  userContent.css       corpul mesajelor (aliniat cu numele) + pagina de start doar cu fundalul
+  userChrome-light.css  paleta Light (doar culori)
+  userChrome-dark.css   paleta Dark (doar culori)
+  README.txt            acest fișier
+
+Instalare
+---------
+1. Thunderbird: Setări > General > Config Editor (jos de tot), caută
+   toolkit.legacyUserProfileCustomizations.stylesheets și pune-l pe true.
+   (Pe acest calculator e deja setat.)
+2. Copiază fișierele .css (inclusiv userContent.css) în folderul "chrome" din profil:
+   %APPDATA%\Thunderbird\Profiles\<profil>\chrome\
+   (aici: ...\Profiles\fngeiywe.default-release\chrome\)
+3. Repornește Thunderbird.
+
+Schimbarea temei
+----------------
+Deschide userChrome.css. Primele linii active sunt:
+
+    /* @import url("userChrome-light.css"); */
+    @import url("userChrome-dark.css");
+
+Lasă activă (fără /* */) doar linia temei dorite, salvează, repornește
+Thunderbird. @import trebuie să rămână ÎNAINTEA oricărei alte reguli din
+fișier; altfel e ignorat (aceasta era cauza pentru care temele vechi nu se
+aplicau).
+
+Ce schimbă
+----------
+- Culorile Thunderbird sunt suprascrise prin variabilele lui interne
+  (--layout-background-*, --selected-item-color, --tree-card-*, --list-container-*),
+  deci și dialogurile, meniurile și fereastra de scriere urmează tema.
+- Accentul e albastrul Microsoft în loc de culoarea de accent Windows.
+- Panourile listă și citire sunt suprafețe rotunjite pe fundal comun, ca în New Outlook.
+- Bara de sus (căutare, butoanele ferestrei): albastră în Light, aproape neagră în Dark.
+- Lista de mesaje (vizualizarea Carduri), ca în New Outlook: rânduri plate cu
+  separator fin; citit = expeditor normal, data în culoarea textului;
+  necitit = bară albastră în stânga, expeditor îngroșat, subiect și dată albastre;
+  selectat = chenar albastru subțire (Dark) / fundal albastru deschis (Light),
+  care rămâne la fel și la hover.
+- Foldere: text puțin mai mare, selecție gri rotunjită și îngroșată, contor
+  necitite albastru fără fundal.
+- Bara galbenă (conținut extern blocat, spam etc.) devine bara de informare
+  bleu din Outlook.
+- Fereastra de scriere: buton Send albastru, corpul mesajului încadrat pe fond gri.
+- Panoul de citire ca în Outlook: subiectul ca titlu sus; avatarul (40px, cu
+  inițiale și culoare din extensie) în stânga expeditorului; To/Cc aliniate după
+  el; butoane plate cu iconițe albastre; corpul mesajului începe în dreptul
+  numelui (userContent.css). Expeditorul pe un rând: „Nume<adresă>”, numele
+  îngroșat. Ca în Outlook, antetul nu arată Reply to, List-ID și iconițele de
+  agendă de lângă adrese; Reply to și List-ID se văd în More > View Source,
+  „adaugă în agendă” e în meniul de la click pe adresă.
+- Pagina de start Thunderbird (când nu e selectat niciun mesaj): rămâne doar
+  ilustrația de fundal; textul, Donate și cardurile sunt ascunse (userContent.css).
+- Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
+
+Lista de mesaje ca în Outlook (3 rânduri)
+-----------------------------------------
+Doar cu CSS, cardul are 2 rânduri: numele (mai mare) și subiectul cu data în
+dreapta. Rândul 3 (începutul mesajului), avatarul cu inițiale și numele fără
+adresă vin din extensia proprie outlook-cards.xpi (sursa în folderul extensie\):
+  1. Thunderbird > meniu ≡ > Add-ons and Themes > rotița > Install Add-on From File
+  2. Alege outlook-cards.xpi și confirmă „Add” (cere acces complet, ca orice
+     extensie „Experiment”; codul e în extensie\implementation.js).
+Ce face extensia: completează cardurile din listă. Textul de previzualizare îl
+citește din copia locală a mesajului, cu parserul MIME al Thunderbird, fără
+descărcare din rețea, și îl ține doar în memorie (nu scrie în mesaje sau în
+baza de date). Mesajele care nu sunt păstrate local rămân fără rândul 3.
+Dezactivare: Add-ons and Themes > Extensions > Outlook Cards > dezactivează;
+fără extensie, tema revine singură la 2 rânduri.
+Funcționează în vizualizarea Carduri cu 3 rânduri (meniul ≡ din antetul listei
+> Cards View, implicit în 161).
+Tot din extensie (versiunea 1.2):
+- Data scurtă, cu ora în format de 24 de ore: azi „13:07”, ieri „Ieri 13:07”,
+  ultimele 6 zile „mar. 13:07”, anul acesta „17 nov.”, mai vechi „17.11.2025”.
+  Data completă apare în tooltip.
+- Butoane la hover pe fiecare mesaj, ca în Outlook: citit/necitit, arhivează,
+  șterge (mută în Deleted/Trash; Ctrl+Z anulează). Acționează pe acel mesaj fără
+  să-l deschidă și fără să-l marcheze citit.
+
+Pagina de start (extensia, versiunea 1.2)
+-----------------------------------------
+Când nu e selectat niciun mesaj, panoul de citire arată pagina extensiei:
+ora, data, vremea, prognoza pe 3 zile, numărul de mesaje necitite din Inbox și
+ultimele 3 necitite (click pe unul îl deschide), peste o fotografie de fundal.
+- Butonul „✕ Închide” din antetul mesajului deselectează mesajul și readuce pagina.
+- Rotița ⚙ (dreapta jos) deschide setările; click pe numele orașului face la fel:
+    Oraș pentru vreme     implicit București; scrii alt oraș și apeși Salvează
+    Fundal                Ilustrația Thunderbird / Wallhaven (fără cont, doar SFW) /
+                          Unsplash (cere „Access Key”: unsplash.com/developers >
+                          New Application; cheia se lipește aici)
+    Tema fotografiilor    cuvinte în engleză, ex. mountains, nature, city night
+    Fotografie nouă       schimbă imediat fotografia (altfel se schimbă o dată pe zi)
+- Cereri în rețea, făcute direct din Thunderbird: Open-Meteo (coordonatele orașului),
+  Wallhaven sau Unsplash (tema aleasă). Setările stau în extensie (storage.local).
+- Extensia setează preferința mailnews.start_page.url spre pagina ei; la dezactivare
+  o readuce la valoarea dinainte.
+
+Ce nu se poate face
+-------------------
+- Colțul din stânga sus (deasupra barei Spaces) nu se colorează odată cu bara de sus.
+
+Idei preluate (nu cod) din add-on-ul „Outlook Style 2026” 2.0, care nu se
+instalează pe 161 (strict_max_version 160.*): bara de sus albastră, bara de
+informare bleu, butonul Send albastru și corpul încadrat în fereastra de scriere.
+
+Selectori (verificați în Thunderbird 161.0, din omni.ja, și pe ecran)
+--------------------------------------------------------------------
+  Bara de instrumente   unified-toolbar, #unifiedToolbarContainer, #unifiedToolbar
+  Bara de taburi        #tabs-toolbar, .tabmail-tab
+  Bara Spaces           #spacesToolbar, .spaces-toolbar-button
+  Panoul de foldere     #folderPane, #folderPaneHeaderBar, #folderTree li > .container
+  Lista de mesaje       #threadPane, #threadTree (tree-view)
+  Antetul listei        #threadPaneHeaderBar, #quick-filter-bar
+  Elemente din listă    #threadTree .card-layout .card-container (Carduri),
+                        #threadTree tr (Tabel); stări: .selected, [data-properties~="unread"]
+  Panoul de citire      #messagePane, browser#messageBrowser; în interior
+                        (aboutMessage.xhtml): #messagepanebox, #messageHeader
+  Separatoare           #folderPaneSplitter, #messagePaneSplitter
+  Bara de stare         #status-bar
+  Bare de avertizare    notification-message[type="warning"] (--message-bar-*)
+  Fereastra de scriere  #compose-toolbar-menubar2, #composeToolbar2, #button-send,
+                        #messageArea, #messageEditor
+Nu mai există în 161: arborii XUL (::-moz-tree-row) pentru foldere și mesaje.
+
+Dezinstalare / revenire
+-----------------------
+Șterge sau redenumește userChrome.css și repornește Thunderbird.
+Copia fișierelor anterioare: ...\fngeiywe.default-release\chrome-backup-2026-11-25\
+
+Note
+----
+- userChrome.css nu e suportat oficial; o versiune nouă de Thunderbird poate
+  schimba selectorii. Dacă ceva nu se mai aplică, pune temporar un fundal roșu
+  pe selectorul respectiv ca să vezi dacă se mai potrivește.
+- Vizualizarea Tabel a listei de mesaje primește culorile, dar a fost verificată
+  pe ecran doar vizualizarea Carduri (cea folosită acum).

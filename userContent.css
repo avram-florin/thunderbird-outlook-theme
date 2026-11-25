@@ -1,0 +1,19 @@
+/* Thunderbird 161 - stil Outlook 365.
+   Pagina de start (cand nu e selectat niciun mesaj): ramane doar ilustratia de
+   fundal (pusa pe body); continutul paginii (main#start-page) e ascuns.
+   Selectori verificati pe start.thunderbird.net, 25.11.2026. */
+@-moz-document domain("start.thunderbird.net") {
+  #start-page {
+    visibility: hidden !important;
+  }
+}
+
+/* Corpul mesajelor afisate.
+   Se aplica doar documentelor de mesaj (imap:, mailbox:, news:), nu site-urilor.
+   Textul incepe in dreptul numelui expeditorului din antet, ca in New Outlook:
+   20px marginea antetului + 52px avatarul si spatiul = 72px; body are deja 8px. */
+@-moz-document url-prefix("imap:"), url-prefix("mailbox:"), url-prefix("news:") {
+  body {
+    padding-inline: 64px 12px !important;
+  }
+}

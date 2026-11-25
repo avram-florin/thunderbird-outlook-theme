@@ -1,0 +1,37 @@
+/* Outlook 365 - Dark. Doar culori; geometria este in userChrome.css. */
+:root {
+  color-scheme: dark !important;           /* Thunderbird alege varianta inchisa din light-dark() */
+
+  --ol-canvas:        #141414;             /* fundalul ferestrei, intre panouri */
+  --ol-toolbar:       #141414;             /* bara de sus, Spaces, bara de stare */
+  --ol-nav:           #141414;             /* panoul de foldere */
+  --ol-panel:         #292929;             /* lista de mesaje, panoul de citire */
+  --ol-panel-alt:     #242424;             /* antete, zone secundare */
+  --ol-border:        #3d3d3d;
+  --ol-border-strong: #4d4d4d;
+  --ol-text:          #ffffff;
+  --ol-text-2:        #e0e0e0;
+  --ol-muted:         #adadad;
+  --ol-accent:        #2886de;             /* buton principal */
+  --ol-accent-text:   #ffffff;
+  --ol-accent-fg:     #479ef5;             /* text/indicatori albastri */
+  --ol-hover:         #333333;
+  --ol-nav-hover:     #262626;
+  --ol-selected:      #2b2b2b;             /* selectie mesaj: fara umplere, doar chenar */
+  --ol-selected-outline: #479ef5;          /* chenarul mesajului selectat */
+  --ol-row-sep:       #1c1c1c;             /* separator intre mesaje, mai inchis */
+  --ol-selected-nav:  #383838;             /* selectie folder */
+  --ol-badge-bg:      #1f3a57;
+  --ol-badge-text:    #96c6fa;
+  --ol-field:         #1f1f1f;
+  --ol-scroll:        #5c5c5c;
+  --ol-shadow:        0 0 2px rgba(0,0,0,.30), 0 1px 3px rgba(0,0,0,.35);
+
+  --ol-header:        #0a0a0a;             /* bara de sus */
+  --ol-header-text:   #ffffff;
+  --ol-header-field:  #292929;             /* campul de cautare de pe bara de sus */
+  --ol-header-field-text: #ffffff;
+  --ol-info-bg:       #1f2a36;             /* bare de informare (in locul galbenului) */
+  --ol-info-text:     #e0e0e0;
+  --ol-info-line:     #2f4256;
+}

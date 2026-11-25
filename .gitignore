@@ -1,0 +1,10 @@
+# Arhiva locala (contine si capturile personale)
+thunderbird-outlook-theme.zip
+
+# Capturi cu mesaje reale: raman doar local; in repo intra numai capturi/demo/
+capturi/*.jpg
+
+# Diverse
+*.tmp
+.DS_Store
+Thumbs.db

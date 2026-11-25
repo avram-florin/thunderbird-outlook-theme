@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start</title>
+  <link rel="stylesheet" href="home.css">
+  <script src="home.js" defer></script>
+</head>
+<body>
+  <div id="bg" aria-hidden="true"></div>
+
+  <main id="widget" aria-live="polite">
+    <div id="time">--:--</div>
+    <div id="date"></div>
+    <div id="weather">
+      <span id="wicon" aria-hidden="true"></span>
+      <span id="wtemp"></span>
+      <span id="wdesc"></span>
+    </div>
+    <div id="wmeta">
+      <button id="city" type="button" title="Schimbă orașul">București</button>
+      <span id="wrange"></span>
+    </div>
+    <ul id="forecast" aria-label="Prognoza pe 3 zile"></ul>
+
+    <section id="mail" hidden aria-labelledby="mailCount">
+      <h2 id="mailCount"></h2>
+      <ul id="mailList"></ul>
+    </section>
+  </main>
+
+  <button id="settingsBtn" type="button" title="Setări fundal" aria-label="Setări fundal" aria-expanded="false">&#9881;</button>
+
+  <form id="settings" hidden>
+    <h2>Setări fundal</h2>
+    <label for="cityInput">Oraș pentru vreme</label>
+    <input id="cityInput" autocomplete="off" placeholder="ex. București">
+    <p id="cityMsg" class="msg" role="status"></p>
+
+    <label for="bgSource">Fundal</label>
+    <select id="bgSource">
+      <option value="thunderbird">Ilustrația Thunderbird</option>
+      <option value="wallhaven">Wallhaven (fără cont, doar imagini SFW)</option>
+      <option value="unsplash">Unsplash (cu cheia ta)</option>
+    </select>
+    <div id="unsplashKeyRow">
+      <label for="unsplashKey">Unsplash Access Key</label>
+      <input id="unsplashKey" autocomplete="off" spellcheck="false" placeholder="lipește cheia de pe unsplash.com/developers">
+    </div>
+    <label for="unsplashTopic">Tema fotografiilor <span class="hint">(în engleză)</span></label>
+    <input id="unsplashTopic" autocomplete="off" placeholder="ex. mountains, nature, city night">
+    <p id="photoMsg" class="msg" role="status"></p>
+
+    <div class="row">
+      <button type="submit" class="primary">Salvează</button>
+      <button type="button" id="newPhoto">Fotografie nouă</button>
+      <button type="button" id="closeSettings">Închide</button>
+    </div>
+  </form>
+
+  <p id="credit"></p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "namespace": "outlookCards",
+    "functions": [
+      {
+        "name": "init",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "homeURL",
+            "type": "string",
+            "description": "Adresa paginii de start a extensiei (home/home.html)."
+          }
+        ]
+      },
+      {
+        "name": "getInboxSummary",
+        "type": "function",
+        "async": true,
+        "description": "Numarul de mesaje necitite din Inbox-uri si cele mai noi necitite.",
+        "parameters": [
+          { "name": "limit", "type": "integer", "minimum": 0, "maximum": 10 }
+        ]
+      },
+      {
+        "name": "openMessage",
+        "type": "function",
+        "async": true,
+        "description": "Deschide mesajul in fila de mail.",
+        "parameters": [
+          { "name": "folderURI", "type": "string" },
+          { "name": "messageKey", "type": "integer" }
+        ]
+      }
+    ]
+  }
+]

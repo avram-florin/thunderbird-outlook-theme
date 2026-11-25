@@ -1,0 +1,37 @@
+/* Outlook 365 - Light. Doar culori; geometria este in userChrome.css. */
+:root {
+  color-scheme: light !important;          /* Thunderbird alege varianta deschisa din light-dark() */
+
+  --ol-canvas:        #f0f0f0;             /* fundalul ferestrei, intre panouri */
+  --ol-toolbar:       #f0f0f0;             /* bara de sus, Spaces, bara de stare */
+  --ol-nav:           #f0f0f0;             /* panoul de foldere */
+  --ol-panel:         #ffffff;             /* lista de mesaje, panoul de citire */
+  --ol-panel-alt:     #fafafa;             /* antete, zone secundare */
+  --ol-border:        #e0e0e0;
+  --ol-border-strong: #d1d1d1;
+  --ol-text:          #242424;
+  --ol-text-2:        #424242;
+  --ol-muted:         #616161;
+  --ol-accent:        #0f6cbd;             /* albastrul Microsoft (brand Fluent) */
+  --ol-accent-text:   #ffffff;
+  --ol-accent-fg:     #0f6cbd;             /* text/indicatori albastri */
+  --ol-hover:         #f5f5f5;
+  --ol-nav-hover:     #e6e6e6;
+  --ol-selected:      #cfe4fa;             /* selectie mesaj */
+  --ol-selected-outline: transparent;      /* in Light selectia e umpluta, fara chenar */
+  --ol-row-sep:       #e0e0e0;             /* separator intre mesaje */
+  --ol-selected-nav:  #dcdcdc;             /* selectie folder */
+  --ol-badge-bg:      #cfe4fa;
+  --ol-badge-text:    #0f548c;
+  --ol-field:         #ffffff;
+  --ol-scroll:        #c4c4c4;
+  --ol-shadow:        0 0 2px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.10);
+
+  --ol-header:        #0f6cbd;             /* bara de sus, albastra ca in Outlook */
+  --ol-header-text:   #ffffff;
+  --ol-header-field:  #ffffff;             /* campul de cautare de pe bara albastra */
+  --ol-header-field-text: #242424;
+  --ol-info-bg:       #e6f2fa;             /* bare de informare (in locul galbenului) */
+  --ol-info-text:     #242424;
+  --ol-info-line:     #c7e0f4;
+}

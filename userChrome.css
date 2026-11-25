@@ -1,0 +1,602 @@
+/* ==========================================================================
+   Thunderbird 161 - stil Outlook 365 (New Outlook), Windows 11
+   Punct unic de intrare. Pentru a schimba tema, modifica DOAR linia de mai jos
+   si reporneste Thunderbird. @import trebuie sa ramana prima regula din fisier.
+   ========================================================================== */
+/* @import url("userChrome-light.css"); */
+@import url("userChrome-dark.css");
+
+/* Selectorii provin din about3Pane.xhtml, messenger.xhtml si aboutMessage.xhtml
+   din omni.ja (Thunderbird 161.0) si au fost verificati pe ecran. Culorile vin
+   din variabilele --ol-* ale temei; aici e doar geometria, comuna ambelor teme. */
+
+/* --- 1. Variabilele Thunderbird mapate pe paleta Outlook --------------------
+   Thunderbird 161 isi coloreaza interfata din variabile CSS; suprascriindu-le
+   se schimba coerent si dialogurile, meniurile si fereastra de scriere. */
+:root {
+  --ol-font: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --ol-radius: 8px;
+  --ol-radius-sm: 4px;
+  --ol-gap: 8px;
+
+  --layout-background-0: var(--ol-panel) !important;
+  --layout-background-1: var(--ol-panel) !important;
+  --layout-background-2: var(--ol-hover) !important;
+  --layout-background-3: var(--ol-border) !important;
+  --layout-background-4: var(--ol-border-strong) !important;
+  --layout-color-0: var(--ol-text) !important;
+  --layout-color-1: var(--ol-text) !important;
+  --layout-color-2: var(--ol-text-2) !important;
+  --layout-color-3: var(--ol-muted) !important;
+  --layout-border-0: var(--ol-border) !important;
+  --layout-border-1: var(--ol-border-strong) !important;
+  --layout-border-2: var(--ol-border-strong) !important;
+
+  /* Accentul vine implicit din culoarea Windows; il fixam pe albastrul Microsoft. */
+  --selected-item-color: var(--ol-accent) !important;
+  --selected-item-text-color: var(--ol-accent-text) !important;
+  --focus-outline-color: var(--ol-accent-fg) !important;
+  --link-color: var(--ol-accent-fg) !important;
+  --new-folder-color: var(--ol-accent-fg) !important;
+  --button-border-radius: var(--ol-radius-sm) !important;
+
+  --sidebar-background: var(--ol-nav) !important;
+  --sidebar-color: var(--ol-text) !important;
+  --sidebar-border: var(--ol-border) !important;
+  --toolbar-background-color: var(--ol-toolbar) !important;
+  --toolbar-field-background-color: var(--ol-field) !important;
+  --toolbar-field-border-color: var(--ol-border-strong) !important;
+  --search-bar-background: var(--ol-field) !important;
+  --search-bar-focus-background: var(--ol-field) !important;
+  --search-bar-border-color: var(--ol-border-strong) !important;
+  --spaces-bg-color: var(--ol-toolbar) !important;
+  --spaces-bg-image: none !important;
+  --tabs-toolbar-background-color: var(--ol-toolbar) !important;
+  --tabs-toolbar-box-shadow: none !important;
+  --chrome-content-separator-color: var(--ol-border) !important;
+
+  /* Lista de foldere */
+  --list-container-background-hover: var(--ol-nav-hover) !important;
+  --list-container-border-hover: transparent !important;
+  --list-container-background-selected: var(--ol-selected-nav) !important;
+  --list-container-background-selected-current: var(--ol-selected-nav) !important;
+  --list-container-background-selected-focused: var(--ol-selected-nav) !important;
+  --list-container-background-selected-current-focused: var(--ol-selected-nav) !important;
+  --list-container-border-selected: transparent !important;
+  --list-container-border-selected-current: transparent !important;
+  --list-container-border-selected-focused: transparent !important;
+  --list-container-border-selected-current-focused: transparent !important;
+  --folderpane-unread-count-background: transparent !important;
+  --folderpane-unread-count-text: var(--ol-accent-fg) !important;
+  --folderpane-unread-new-count-background: transparent !important;
+  --folderpane-total-count-background: transparent !important;
+  --folderpane-total-count-text: var(--ol-muted) !important;
+
+  /* Lista de mesaje: vizualizarea Carduri */
+  --tree-view-bg: var(--ol-panel) !important;
+  --tree-view-color: var(--ol-text) !important;
+  --tree-pane-background: var(--ol-panel) !important;
+  --tree-card-background: var(--ol-panel) !important;
+  --tree-card-border: transparent !important;
+  --tree-card-border-hover: transparent !important;
+  --tree-card-border-focus: transparent !important;
+  --tree-card-border-selected: transparent !important;
+  --tree-card-border-selected-unfocused: transparent !important;
+  --tree-card-background-current: var(--ol-hover) !important;
+  --tree-card-background-selected: var(--ol-selected) !important;
+  --tree-card-background-selected-current: var(--ol-selected) !important;
+  --tree-card-background-current-unfocused: var(--ol-panel) !important;
+  --tree-card-background-selected-unfocused: var(--ol-selected) !important;
+  --tree-card-background-selected-current-unfocused: var(--ol-selected) !important;
+  --tree-card-background-selected-current-unfocused-hover: var(--ol-selected) !important;
+  --new-subject-color: var(--ol-accent-fg) !important;
+  --new-color: var(--ol-accent-fg) !important;
+  --unread-color: var(--ol-text) !important;
+
+  /* Lista de mesaje: vizualizarea Tabel */
+  --listbox-hover: var(--ol-hover) !important;
+  --listbox-selected-bg: var(--ol-selected) !important;
+  --listbox-focused-selected-bg: var(--ol-selected) !important;
+  --listbox-selected-color: var(--ol-text) !important;
+  --listbox-focused-selected-color: var(--ol-text) !important;
+  --tree-view-header-hover-bg: var(--ol-hover) !important;
+
+  font-family: var(--ol-font) !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ol-scroll) transparent;
+}
+
+/* --- 2. Bara de sus, taburi, Spaces, bara de stare ------------------------- */
+#navigation-toolbox,
+unified-toolbar,
+#unifiedToolbarContainer,
+#tabs-toolbar,
+#status-bar {
+  background-color: var(--ol-toolbar) !important;
+  color: var(--ol-text) !important;
+}
+unified-toolbar { border-block-end: none !important; }
+
+/* Bara de sus (cu cautarea si butoanele ferestrei) ca bara albastra din Outlook */
+unified-toolbar,
+#unifiedToolbarContainer {
+  background-color: var(--ol-header) !important;
+  color: var(--ol-header-text) !important;
+  --toolbar-text-color: var(--ol-header-text) !important;
+  --search-bar-background: var(--ol-header-field) !important;
+  --search-bar-focus-background: var(--ol-header-field) !important;
+  --search-bar-color: var(--ol-header-field-text) !important;
+  --search-bar-border-color: transparent !important;
+}
+unified-toolbar .search-bar,
+unified-toolbar global-search-bar {
+  color: var(--ol-header-field-text) !important;
+}
+#tabs-toolbar { box-shadow: none !important; }
+#status-bar {
+  border-block-start: none !important;
+  color: var(--ol-muted) !important;
+}
+#unifiedToolbar .button:is(.toolbar-button, .unified-toolbar-button) {
+  border-radius: var(--ol-radius-sm) !important;
+}
+#spacesToolbar {
+  border-inline-end: none !important;
+}
+.spaces-toolbar-button {
+  border-radius: var(--ol-radius-sm) !important;
+}
+
+/* Fila activa: suprafata alba/gri ca un panou, cu linia de accent albastra */
+.tabmail-tab .tab-background[selected] {
+  background-color: var(--ol-panel) !important;
+  border-radius: var(--ol-radius-sm) var(--ol-radius-sm) 0 0 !important;
+}
+.tabmail-tab .tab-line[selected] {
+  background-color: var(--ol-accent-fg) !important;
+}
+
+/* --- 3. Cele trei panouri (about:3pane) ------------------------------------
+   Ca in New Outlook: panourile sunt suprafete rotunjite pe un fundal comun. */
+#paneLayout {
+  background-color: var(--ol-canvas) !important;
+}
+#folderPane,
+#folderPaneHeaderBar {
+  background-color: var(--ol-nav) !important;
+}
+#threadPane,
+#messagePane,
+#accountCentralBrowser {
+  margin: 0 var(--ol-gap) var(--ol-gap) 0 !important;
+  border-radius: var(--ol-radius) !important;
+  background-color: var(--ol-panel) !important;
+  box-shadow: var(--ol-shadow) !important;
+  overflow: hidden !important;
+}
+/* Separatoarele au o zona de prindere mai lata decat spatiul ocupat si stau
+   peste panouri (z-index 1): raman transparente ca sa nu acopere marginile. */
+#folderPaneSplitter,
+#messagePaneSplitter {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+/* --- 4. Panoul de foldere ---------------------------------------------------
+   Ca in New Outlook: text putin mai mare, selectie gri rotunjita, ingrosata. */
+#folderTree li > .container {
+  border-radius: 6px !important;
+  margin-inline: 6px !important;
+  /* randuri putin mai inalte, ca pasul din Outlook (masurat) */
+  padding-block: 1px !important;
+}
+/* iconite 18px, ca in Outlook (Thunderbird: 16px) */
+#folderTree li > .container > .icon {
+  inline-size: 18px !important;
+  block-size: 18px !important;
+}
+/* ~14px la fontul de interfata de 12px: marimea din Outlook (masurata) */
+#folderTree li > .container > .name {
+  font-size: 1.17rem !important;
+}
+#folderTree li.selected > .container {
+  font-weight: 600 !important;
+}
+#folderTree li.unread > .container > .name {
+  font-weight: 600 !important;
+}
+/* Contorul de necitite: aceeasi marime ca numele folderului, ca in Outlook */
+#folderTree .unread-count {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  padding-inline: 4px !important;
+  min-inline-size: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* --- 5. Antetul listei de mesaje ------------------------------------------- */
+#threadPaneHeaderBar {
+  background-color: var(--ol-panel) !important;
+  border-block-end: 1px solid var(--ol-row-sep) !important;
+}
+#threadPaneFolderName {
+  font-weight: 600 !important;
+}
+#quick-filter-bar {
+  background-color: var(--ol-panel-alt) !important;
+  border-block-end: 1px solid var(--ol-border) !important;
+}
+
+/* --- 6. Elementele din lista de mesaje -------------------------------------
+   Vizualizarea Carduri, ca lista din New Outlook:
+   citit = expeditor normal, data in culoarea textului;
+   necitit = bara albastra in stanga, expeditor ingrosat, subiect si data albastre;
+   selectat = chenar albastru subtire (Dark) sau fundal albastru deschis (Light). */
+#threadTree[rows="thread-card"] {
+  padding-block: 0 !important;
+}
+#threadTree .card-layout > td {
+  padding: 0 !important;
+}
+#threadTree .card-container {
+  border: none !important;
+  border-block-end: 1px solid var(--ol-row-sep) !important;
+  border-radius: 0 !important;
+  padding-inline-start: 8px !important;
+  box-shadow: none !important;
+  /* bara verticala din stanga (necitit), desenata ca fundal */
+  background-size: 4px 100% !important;
+  background-repeat: no-repeat !important;
+}
+#threadTree .card-container .sender {
+  color: var(--ol-text) !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+}
+#threadTree .card-container .subject {
+  color: var(--ol-text) !important;
+}
+#threadTree .card-container .date {
+  color: var(--ol-text) !important;
+}
+/* Necitit */
+#threadTree .card-layout[data-properties~="unread"] .card-container {
+  background-image: linear-gradient(var(--ol-accent-fg), var(--ol-accent-fg)) !important;
+}
+#threadTree .card-layout[data-properties~="unread"] .card-container .sender {
+  font-weight: 700 !important;
+}
+#threadTree .card-layout[data-properties~="unread"] .card-container :is(.subject, .date) {
+  color: var(--ol-accent-fg) !important;
+  font-weight: 700 !important;
+}
+/* Selectat: ramane la fel si la hover, ca in Outlook */
+#threadTree .card-layout.selected .card-container {
+  outline: 1px solid var(--ol-selected-outline) !important;
+  outline-offset: -1px !important;
+}
+#threadTree .card-layout.selected:hover {
+  --tree-card-background: var(--ol-selected) !important;
+}
+
+/* Asezarea din Outlook: rand 1 = expeditorul, mai mare (iconitele in dreapta);
+   rand 2 = subiectul, cu data in dreapta. Randurile originale devin
+   "display: contents", iar elementele lor se aseaza intr-o grila comuna.
+   Nimic nu e ascuns. Randurile de grupare (dummy) raman neatinse.
+   Coloane: [fir/twisty] [text] [3 stari: raspuns/redirect/forward] [iconite] [meniu] */
+#threadTree .card-layout:not([data-properties~="dummy"]) .card-container {
+  align-content: center !important;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) .thread-card-column:not(.read-status-column) {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto auto auto !important;
+  align-items: center !important;
+  column-gap: 4px !important;
+  row-gap: 0 !important;
+  padding-block: 0 !important;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) :is(.thread-card-row, .thread-card-dynamic-row) {
+  display: contents !important;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) .account-indicator { grid-area: 1 / 1 !important; }
+#threadTree .card-layout:not([data-properties~="dummy"]) .sender            { grid-area: 1 / 2 !important; }
+#threadTree .card-layout:not([data-properties~="dummy"]) .state.replied     { grid-area: 1 / 3 !important; }
+#threadTree .card-layout:not([data-properties~="dummy"]) .state.redirected  { grid-area: 1 / 4 !important; }
+#threadTree .card-layout:not([data-properties~="dummy"]) .state.forwarded   { grid-area: 1 / 5 !important; }
+#threadTree .card-layout:not([data-properties~="dummy"]) .thread-card-icon-info { grid-area: 1 / 6 !important; margin: 0 !important; }
+#threadTree .card-layout:not([data-properties~="dummy"]) .tree-button-more  { grid-area: 1 / 7 !important; }
+/* butonul de conversatie ("1 reply") sta pe randul 2, inaintea datei */
+#threadTree .card-layout:not([data-properties~="dummy"]) .thread-card-button { grid-area: 2 / 3 !important; }
+#threadTree .card-layout:not([data-properties~="dummy"]) .thread-card-subject-container {
+  grid-area: 2 / 2 !important;
+  padding-inline-start: 0 !important;
+  min-inline-size: 0 !important;
+  overflow: hidden !important;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) .date {
+  grid-area: 2 / 4 / 2 / 8 !important;
+  justify-self: end !important;
+  padding-inline-start: 12px !important;
+}
+
+/* Cu extensia "Outlook Cards" (clasa ol-cards pe about:3pane):
+   avatar cu initiale in stanga si randul 3 = inceputul mesajului. */
+.ol-cards #threadTree .card-layout:not([data-properties~="dummy"]) .card-container {
+  grid-template-columns: auto auto minmax(0, 1fr) !important;
+  align-items: center !important;
+}
+.ol-cards #threadTree .ol-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 30px;
+  block-size: 30px;
+  /* stanga 8px padding + 10px = 18px; dreapta = coloana punctului de necitit (16px) */
+  margin-inline: 10px 0;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--ol-avatar-color, var(--ol-accent));
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  user-select: none;
+}
+.ol-cards #threadTree .ol-preview {
+  grid-area: 3 / 2 / 3 / 8;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ol-muted);
+  font-size: 1.08rem; /* masurat: ca in Outlook */
+  line-height: 1.43; /* interlinia masurata in Outlook */
+  font-weight: 400;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) .sender {
+  font-size: 1.17rem !important; /* masurat: ca in Outlook */
+  line-height: 1.43 !important; /* interlinia masurata in Outlook */
+  padding-inline-start: 0 !important;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) :is(.subject, .date) {
+  font-size: 1.08rem !important; /* masurat: ca in Outlook */
+  opacity: 1 !important;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) .subject {
+  display: block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  padding-inline-start: 0 !important;
+}
+
+/* Butoane la hover (extensia): citit/necitit, arhiveaza, sterge - ca in Outlook.
+   Stau peste randul 1, la stanga stelei, si apar doar la hover/focus. */
+.ol-cards #threadTree .ol-actions {
+  position: absolute;
+  inset-block-start: 1px;
+  inset-inline-end: 52px;
+  display: none;
+  gap: 2px;
+  padding: 1px;
+  border-radius: var(--ol-radius-sm);
+  background-color: var(--tree-card-background);
+  z-index: 2;
+}
+.ol-cards #threadTree .card-layout:is(:hover, :focus-within) .ol-actions {
+  display: flex;
+}
+.ol-cards #threadTree .ol-act {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 22px;
+  block-size: 22px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: var(--ol-radius-sm);
+  background: transparent;
+  color: var(--ol-text);
+  cursor: pointer;
+}
+.ol-cards #threadTree .ol-act:hover {
+  background-color: color-mix(in srgb, var(--ol-text) 12%, transparent);
+  color: var(--ol-accent-fg);
+}
+.ol-cards #threadTree .ol-act::before {
+  display: block;
+  inline-size: 16px;
+  block-size: 16px;
+  -moz-context-properties: fill, stroke;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+}
+.ol-cards #threadTree .ol-act-read::before { content: var(--icon-mail); }
+.ol-cards #threadTree .ol-act-read.is-read::before { content: var(--icon-unread); }
+.ol-cards #threadTree .ol-act-archive::before { content: var(--icon-archive); }
+.ol-cards #threadTree .ol-act-delete::before { content: var(--icon-trash); }
+
+/* Vizualizarea Tabel */
+#threadTree tr.selected {
+  box-shadow: inset 3px 0 0 var(--ol-accent) !important;
+}
+#threadTree tr[data-properties~="unread"] .subjectcol-column {
+  color: var(--ol-accent-fg) !important;
+}
+
+/* --- 7. Panoul de citire (aboutMessage.xhtml) ------------------------------
+   Asezarea din New Outlook: subiectul ca titlu sus; dedesubt avatarul (40px)
+   in stanga si, aliniate dupa el, expeditorul, To/Cc si corpul mesajului;
+   butoane plate in dreapta. Nu se ascunde niciun rand de antet.
+   Corpul e-mailului e continutul expeditorului si ramane neatins. */
+:root {
+  --ol-msg-pad: 20px;          /* marginea din stanga/dreapta a antetului */
+  --ol-msg-avatar: 40px;
+  --ol-msg-indent: 52px;       /* avatar + spatiu; aici incep numele si corpul */
+}
+#messagepanebox,
+#messageHeader {
+  background-color: var(--ol-panel) !important;
+  color: var(--ol-text) !important;
+}
+#messageHeader {
+  padding: 16px var(--ol-msg-pad) 12px !important;
+  row-gap: 4px !important;
+  border-block-end: 1px solid var(--ol-row-sep) !important;
+}
+/* Subiectul: primul, mare, fara retragere */
+#headerSubjectSecurityContainer {
+  order: -1 !important;
+  margin-block-end: 12px !important;
+}
+#expandedsubjectBox {
+  font-size: 1.55rem !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+}
+/* Restul antetului se aliniaza dupa avatar */
+#messageHeader > :not(#headerSubjectSecurityContainer) {
+  padding-inline-start: var(--ol-msg-indent) !important;
+}
+#headerSenderToolbarContainer {
+  position: relative !important;
+}
+#expandedfromBox .recipient-avatar {
+  position: absolute !important;
+  inset-inline-start: 0 !important;
+  inset-block-start: 0 !important;
+  inline-size: var(--ol-msg-avatar) !important;
+  block-size: var(--ol-msg-avatar) !important;
+  margin: 0 !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+/* Cu extensia Outlook Cards: initiale + aceeasi culoare ca in lista */
+.ol-msg #expandedfromBox .recipient-avatar:not(.has-avatar) {
+  background-color: var(--ol-avatar-color, var(--ol-accent)) !important;
+  color: #ffffff !important;
+}
+/* Expeditorul pe un rand, ca in Outlook: "Nume <adresa>", numele ingrosat */
+#expandedfromBox {
+  font-size: 1.1rem !important;
+}
+#expandedfromBox .recipient-multi-line {
+  flex-direction: row !important;
+  align-items: baseline !important;
+  gap: 0 !important;
+}
+#expandedfromBox .recipient-multi-line-name {
+  font-size: 100% !important;
+  font-weight: 600 !important;
+}
+#expandedfromBox .recipient-multi-line-address {
+  font-weight: 400 !important;
+  opacity: 1 !important;
+}
+#expandedfromBox .recipient-multi-line-name:not(:empty) + .recipient-multi-line-address::before {
+  content: "<";
+}
+#expandedfromBox .recipient-multi-line-name:not(:empty) + .recipient-multi-line-address::after {
+  content: ">";
+}
+/* To / Cc: mai discrete */
+#messageHeader .message-header-row:not(#headerSubjectSecurityContainer) {
+  color: var(--ol-text-2) !important;
+}
+/* Outlook nu arata Reply-To si List-ID in antet (raman in View > Headers > All
+   si in sursa mesajului). */
+#expandedreply-toRow,
+#expandedlist-id {
+  display: none !important;
+}
+/* Iconitele "adauga in agenda" de langa adrese nu apar, ca in Outlook; aceeasi
+   functie e primul rand din meniul de la click pe adresa. */
+#messageHeader .recipient-address-book-button {
+  display: none !important;
+}
+/* Butoane plate, iconite albastre, ca in Outlook */
+#messageHeader {
+  --toolbarbutton-header-bordercolor: transparent;
+  --toolbarbutton-active-bordercolor: transparent;
+}
+#header-view-toolbar .message-header-view-button,
+#header-view-toolbar .message-header-view-button > :is(.toolbarbutton-menubutton-button, .toolbarbutton-menubutton-dropmarker) {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: var(--ol-radius-sm) !important;
+}
+#header-view-toolbar .message-header-view-button {
+  stroke: var(--ol-accent-fg) !important;
+  fill: color-mix(in srgb, var(--ol-accent-fg) 20%, transparent) !important;
+}
+#header-view-toolbar .message-header-view-button:not([disabled]):hover,
+#header-view-toolbar .message-header-view-button > :is(.toolbarbutton-menubutton-button, .toolbarbutton-menubutton-dropmarker):hover {
+  background-color: var(--ol-hover) !important;
+}
+/* Butonul "Inchide" adaugat de extensie: deselecteaza mesajul, arata pagina de start */
+#olCloseMessageButton {
+  list-style-image: var(--icon-close) !important;
+}
+#header-view-toolbar toolbarseparator {
+  opacity: 0.4 !important;
+}
+/* Corpul mesajului se aliniaza cu numele expeditorului din userContent.css
+   (padding in documentul mesajului), ca fundalul mesajului sa ramana unitar. */
+
+/* --- 8. Butoane, campuri, meniuri ------------------------------------------- */
+button,
+toolbarbutton {
+  border-radius: var(--ol-radius-sm);
+}
+menupopup,
+panel {
+  --panel-border-radius: var(--ol-radius) !important;
+}
+
+/* --- 9. Bare de avertizare (continut extern blocat, spam, memento-uri) ------
+   Galbenul Thunderbird devine bara de informare discreta din Outlook. Culorile
+   sunt variabile citite in Shadow DOM-ul barei (moz-message-bar.css). */
+notification-message[type="warning"] {
+  --message-bar-background-color: var(--ol-info-bg) !important;
+  --message-bar-text-color: var(--ol-info-text) !important;
+  --message-bar-icon-background-color: var(--ol-info-bg) !important;
+  --icon-color-warning: var(--ol-accent-fg) !important;
+  box-shadow: 0 1px 0 var(--ol-info-line) !important;
+}
+
+/* --- 10. Fereastra de scriere (messengercompose.xhtml) ----------------------- */
+#compose-toolbar-menubar2,
+#composeToolbar2 {
+  background-color: var(--ol-toolbar) !important;
+}
+/* Send: buton albastru plin, ca in Outlook */
+#button-send {
+  --toolbarbutton-icon-fill: var(--ol-accent-text) !important;
+  --toolbarbutton-background-color-hover: color-mix(in srgb, var(--ol-accent) 85%, black) !important;
+  --toolbarbutton-background-color-active: color-mix(in srgb, var(--ol-accent) 75%, black) !important;
+  color: var(--ol-accent-text) !important;
+  background-color: var(--ol-accent) !important;
+  border-color: var(--ol-accent) !important;
+  padding-inline: 10px !important;
+}
+/* Corpul mesajului: chenar fin pe un fundal gri, ca in Outlook */
+#messageArea {
+  background-color: var(--ol-canvas) !important;
+  padding: 6px 8px 8px !important;
+}
+#messageEditor {
+  border: 1px solid var(--ol-border-strong) !important;
+  border-radius: var(--ol-radius-sm) !important;
+}
+
+/* Subiectul mesajelor citite: greutate normala, ca in Outlook (necititele raman ingrosate) */
+#threadTree .card-layout:not([data-properties~="unread"]):not([data-properties~="dummy"]) .subject {
+  font-weight: 400 !important;
+}
+#threadTree .card-layout:not([data-properties~="dummy"]) :is(.subject, .date) {
+  line-height: 1.43 !important; /* interlinia masurata in Outlook */
+}
