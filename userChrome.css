@@ -600,3 +600,51 @@ notification-message[type="warning"] {
 #threadTree .card-layout:not([data-properties~="dummy"]) :is(.subject, .date) {
   line-height: 1.43 !important; /* interlinia masurata in Outlook */
 }
+
+/* --- 11. Iconite Fluent (ca in Outlook) --------------------------------------
+   Iconitele din chrome/Icons/ provin din FluentBird (MIT) si sunt iconitele
+   Fluent UI ale Microsoft (MIT); vezi Icons/LICENSE.txt. Se aplica prin
+   mask-image, deci culoarea vine din background-color. */
+
+/* Foldere: iconitele de contur ale Thunderbird, monocrome in culoarea textului,
+   ca in Outlook (iconitele Fluent pline nu seamana cu cele din Outlook).
+   Folderele colorate de utilizator (--icon-color in style) raman colorate. */
+#folderTree li > .container > .icon:not([style*="--icon-color"]) {
+  --icon-color: var(--ol-text-2) !important;
+  fill: transparent !important;
+}
+
+/* Bara din stanga (Spaces): iconitele colorate ale aplicatiilor din Outlook */
+#mailButton img, #addressBookButton img, #calendarButton img,
+#tasksButton img, #chatButton img, #settingsButton img {
+  visibility: hidden !important;
+}
+#mailButton, #addressBookButton, #calendarButton,
+#tasksButton, #chatButton, #settingsButton {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 22px 22px !important;
+}
+#mailButton { background-image: url("Icons/mail-col.svg") !important; }
+#addressBookButton { background-image: url("Icons/contact-col.svg") !important; }
+#calendarButton { background-image: url("Icons/calendar-col.svg") !important; background-size: 18px 18px !important; }
+#tasksButton { background-image: url("Icons/tasks-col.svg") !important; }
+#chatButton { background-image: url("Icons/chat-col.svg") !important; }
+#settingsButton { background-image: url("Icons/settings.svg") !important; }
+
+/* Antetul mesajului: Reply mov, Forward albastru, ca in Outlook. Archive, Spam si
+   Delete pastreaza iconitele de contur Thunderbird (cele Fluent sunt pline). */
+#header-view-toolbar :is(#hdrReplyButton, #hdrReplyToSenderButton, #hdrReplyAllButton,
+  #hdrReplyListButton, #hdrForwardButton, #otherActionsButton) .toolbarbutton-icon {
+  list-style-image: none !important;
+  mask-repeat: no-repeat !important;
+  mask-position: center !important;
+  mask-size: 16px 16px !important;
+  inline-size: 16px !important;
+  block-size: 16px !important;
+}
+#header-view-toolbar :is(#hdrReplyButton, #hdrReplyToSenderButton) .toolbarbutton-icon { mask-image: url("Icons/reply.svg") !important; background-color: #b566bf !important; }
+#header-view-toolbar #hdrReplyAllButton .toolbarbutton-icon { mask-image: url("Icons/reply-all.svg") !important; background-color: #b566bf !important; }
+#header-view-toolbar #hdrReplyListButton .toolbarbutton-icon { mask-image: url("Icons/list-reply.svg") !important; background-color: #1e8bcd !important; }
+#header-view-toolbar #hdrForwardButton .toolbarbutton-icon { mask-image: url("Icons/forward.svg") !important; background-color: #1e8bcd !important; }
+#header-view-toolbar #otherActionsButton .toolbarbutton-icon { mask-image: url("Icons/more.svg") !important; background-color: var(--ol-text-2) !important; }

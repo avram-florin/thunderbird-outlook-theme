@@ -7,6 +7,7 @@ Fișiere
   userContent.css       corpul mesajelor (aliniat cu numele) + pagina de start doar cu fundalul
   userChrome-light.css  paleta Light (doar culori)
   userChrome-dark.css   paleta Dark (doar culori)
+  Icons\                iconițe Fluent (din FluentBird, MIT; licența în Icons\LICENSE.txt)
   README.txt            acest fișier
 
 Instalare
@@ -14,7 +15,7 @@ Instalare
 1. Thunderbird: Setări > General > Config Editor (jos de tot), caută
    toolkit.legacyUserProfileCustomizations.stylesheets și pune-l pe true.
    (Pe acest calculator e deja setat.)
-2. Copiază fișierele .css (inclusiv userContent.css) în folderul "chrome" din profil:
+2. Copiază fișierele .css (inclusiv userContent.css) și folderul Icons în folderul "chrome" din profil:
    %APPDATA%\Thunderbird\Profiles\<profil>\chrome\
    (aici: ...\Profiles\fngeiywe.default-release\chrome\)
 3. Repornește Thunderbird.
@@ -109,6 +110,13 @@ Ce nu se poate face
 Idei preluate (nu cod) din add-on-ul „Outlook Style 2026” 2.0, care nu se
 instalează pe 161 (strict_max_version 160.*): bara de sus albastră, bara de
 informare bleu, butonul Send albastru și corpul încadrat în fereastra de scriere.
+
+Din FluentBird (https://github.com/Deathbyteacup/fluentbird, licență MIT, iconițe
+Fluent UI de la Microsoft, MIT): iconițele colorate din bara din stânga (Mail,
+Contacte, Calendar, Tasks, Chat, Setări) și iconițele Reply/Forward/More din
+antetul mesajului (secțiunea 11 din userChrome.css). Iconițele lor de foldere
+sunt pline, iar Outlook folosește contur, așa că pentru foldere am păstrat
+iconițele Thunderbird, monocrome, în culoarea textului.
 
 Selectori (verificați în Thunderbird 161.0, din omni.ja, și pe ecran)
 --------------------------------------------------------------------
