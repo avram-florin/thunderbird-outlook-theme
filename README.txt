@@ -103,7 +103,7 @@ nu e fixat) primesc logo-ul temei în loc de pasăre. Iconița pusă în profil
 în folderul aplicației; de aceea o pune extensia, direct pe fiecare fereastră.
 La dezactivarea extensiei revine pasărea.
 Butonul fixat în taskbar și scurtăturile păstrează iconița scurtăturii: click dreapta
-pe scurtătură > Proprietăți > Schimbare pictogramă > Icons	hunderbird-t.ico.
+pe scurtătură > Proprietăți > Schimbare pictogramă > Icons\thunderbird-t.ico.
 
 Pagina de start (extensia, versiunea 1.2)
 -----------------------------------------
