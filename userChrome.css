@@ -665,7 +665,7 @@ unified-toolbar global-search-bar .kbd-container kbd {
 }
 #expandedfromBox .recipient-avatar {
   inset-inline-start: var(--ol-msg-pad) !important;
-  inset-block-start: 16px !important;
+  inset-block-start: 18px !important;
 }
 /* continuarea foii sub ultimul rand de antet */
 #messageHeader::after {
@@ -703,6 +703,9 @@ browser#messagepane,
    avatarul iese din rand, deci il ridicam peste randurile urmatoare */
 #messageHeader > #headerSenderToolbarContainer:not(#headerSubjectSecurityContainer) {
   clip-path: none !important;
+  /* numele si butoanele la ~28px de marginea de sus a paginii, ca in Outlook
+     (regula generala de mai sus pune padding-block: 2px si castiga la specificitate) */
+  padding-block-start: 12px !important;
 }
 #expandedfromBox .recipient-avatar {
   z-index: 1 !important;
