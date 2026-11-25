@@ -667,11 +667,71 @@ function inboxSummary(limit) {
   };
 }
 
+/* ---- Iconita ferestrelor (Windows): logo-ul temei in loc de pasarea Thunderbird ----
+   Iconita din profil (chrome/icons/default) nu ajunge: Thunderbird o gaseste
+   intai pe a lui, in folderul aplicatiei. O setam direct pe fiecare fereastra,
+   cu nsIWindowsUIUtils; la dezactivare revine iconita din thunderbird.exe.
+   shortcut: butonul fixat in taskbar pastreaza iconita scurtaturii; se schimba
+   doar din Proprietati > Schimbare pictograma pe scurtatura. */
+const ICON_LISTENER = ID + "-icon";
+let windowIcon = null;
+
+function loadWindowIcon(url) {
+  const { NetUtil } = ChromeUtils.importESModule("resource://gre/modules/NetUtil.sys.mjs");
+  const stream = NetUtil.newChannel({ uri: url, loadUsingSystemPrincipal: true }).open();
+  const bytes = NetUtil.readInputStreamToString(stream, stream.available());
+  stream.close();
+  const tools = Cc["@mozilla.org/image/tools;1"].getService(Ci.imgITools);
+  return tools.decodeImageFromBuffer(bytes, bytes.length, "image/png");
+}
+
+function windowsUI() {
+  return "nsIWindowsUIUtils" in Ci
+    ? Cc["@mozilla.org/windows-ui-utils;1"]?.getService(Ci.nsIWindowsUIUtils)
+    : null;
+}
+
+function setIcon(win) {
+  try {
+    windowsUI()?.setWindowIcon(win, windowIcon, windowIcon);
+  } catch (e) {
+    console.error("Outlook Cards: iconita ferestrei", e);
+  }
+}
+
+function startWindowIcons(url) {
+  if (windowIcon || !windowsUI()) {
+    return;
+  }
+  try {
+    windowIcon = loadWindowIcon(url);
+  } catch (e) {
+    console.error("Outlook Cards: nu pot citi iconita", e);
+    return;
+  }
+  ExtensionSupport.registerWindowListener(ICON_LISTENER, { onLoadWindow: setIcon });
+}
+
+function stopWindowIcons() {
+  if (!windowIcon) {
+    return;
+  }
+  windowIcon = null;
+  ExtensionSupport.unregisterWindowListener(ICON_LISTENER);
+  const exe = Services.dirsvc.get("XREExeF", Ci.nsIFile).path;
+  for (const win of Services.wm.getEnumerator(null)) {
+    try {
+      windowsUI().setWindowIconFromExe(win, exe, 0);
+    } catch (e) {}
+  }
+}
+
 this.outlookCards = class extends ExtensionAPI {
   // Pornim cat mai devreme (manifest: "events": ["startup"]), inainte de
   // scriptul de fundal, ca adresa paginii de start sa fie cunoscuta din prima.
   onStartup() {
     start(this.extension.baseURI.resolve("home/home.html"));
+    startWindowIcons(this.extension.baseURI.resolve("icons/app-256.png"));
   }
 
   getAPI() {
@@ -697,6 +757,7 @@ this.outlookCards = class extends ExtensionAPI {
   onShutdown(isAppShutdown) {
     if (!isAppShutdown) {
       stop();
+      stopWindowIcons();
     }
   }
 };

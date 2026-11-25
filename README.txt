@@ -95,6 +95,16 @@ Tot din extensie (versiunea 1.2):
   șterge (mută în Deleted/Trash; Ctrl+Z anulează). Acționează pe acel mesaj fără
   să-l deschidă și fără să-l marcheze citit.
 
+Iconița aplicației (extensia, versiunea 1.3)
+-------------------------------------------
+Ferestrele Thunderbird (Alt+Tab, bara de titlu, butonul din taskbar când Thunderbird
+nu e fixat) primesc logo-ul temei în loc de pasăre. Iconița pusă în profil
+(chrome\icons\default) nu ajunge, pentru că Thunderbird o găsește întâi pe a lui,
+în folderul aplicației; de aceea o pune extensia, direct pe fiecare fereastră.
+La dezactivarea extensiei revine pasărea.
+Butonul fixat în taskbar și scurtăturile păstrează iconița scurtăturii: click dreapta
+pe scurtătură > Proprietăți > Schimbare pictogramă > Icons	hunderbird-t.ico.
+
 Pagina de start (extensia, versiunea 1.2)
 -----------------------------------------
 Când nu e selectat niciun mesaj, panoul de citire arată pagina extensiei:
