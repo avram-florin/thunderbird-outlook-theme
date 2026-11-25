@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Tema Outlook pentru Thunderbird",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Thunderbird în stilul New Outlook: tema Light/Dark, lista de mesaje cu avatare și previzualizare, panoul de citire ca o foaie, pagina de start cu ora, vremea și mesajele cu steluță, bara de formatare și logo-ul.",
   "author": "Florin Avram",
   "browser_specific_settings": {

@@ -32,6 +32,16 @@
         ]
       },
       {
+        "name": "unflagMessage",
+        "type": "function",
+        "async": true,
+        "description": "Scoate steluta mesajului (din caseta paginii de start).",
+        "parameters": [
+          { "name": "folderURI", "type": "string" },
+          { "name": "messageKey", "type": "integer" }
+        ]
+      },
+      {
         "name": "openMessage",
         "type": "function",
         "async": true,

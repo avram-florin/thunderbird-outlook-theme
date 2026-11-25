@@ -140,6 +140,11 @@ ora, data, vremea, prognoza pe 3 zile, câte mesaje cu steluță sunt în Inbox 
 ultimele 3 dintre ele, citite sau nu (click pe unul îl deschide), peste o fotografie de fundal.
 Caseta cu steluțe se reface imediat ce o steluță e pusă sau scoasă (versiunea 2.1,
 evenimentul outlookCards.onFlaggedChanged); în rest, o dată pe minut.
+La hover (sau focus din tastatură) pe un mesaj din casetă apare în dreapta sus un X
+în cerc, translucid ca și caseta, ca la notificările Apple: scoate steluța mesajului
+(versiunea 2.2, outlookCards.unflagMessage; pe IMAP ajunge și pe server).
+La pornire, dacă pagina e gata înaintea extensiei, caseta reîncearcă la 3 secunde,
+cel mult un minut.
 - Butonul „✕ Închide” din antetul mesajului deselectează mesajul și readuce pagina.
 - Rotița ⚙ (dreapta jos) deschide setările; click pe numele orașului face la fel:
     Oraș pentru vreme     implicit București; scrii alt oraș și apeși Salvează

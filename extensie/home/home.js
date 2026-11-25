@@ -153,19 +153,39 @@ function flaggedLabel(n) {
   return rest >= 1 && rest <= 19 ? `${n} mesaje cu steluță` : `${n} de mesaje cu steluță`;
 }
 
+// steluta pusa sau scoasa: caseta se reface imediat (o data pentru mai multe
+// schimbari la rand). Abonarea se face dupa primul raspuns al extensiei, ca sa
+// nu se piarda cand pagina porneste inaintea ei.
+let flagTimer = 0;
+function watchFlags() {
+  if (watchFlags.done) {
+    return;
+  }
+  try {
+    browser.outlookCards.onFlaggedChanged.addListener(() => {
+      clearTimeout(flagTimer);
+      flagTimer = setTimeout(loadMail, 300);
+    });
+    watchFlags.done = true;
+  } catch (e) {}
+}
+
 async function loadMail() {
   let summary;
   try {
     summary = await browser.outlookCards.getInboxSummary(3);
   } catch (e) {
     $("mail").hidden = true;
-    // la pornirea Thunderbird pagina poate fi gata inaintea extensiei: o reincercare curand
-    if (!loadMail.retried) {
-      loadMail.retried = true;
-      setTimeout(loadMail, 5000);
+    // la pornirea Thunderbird pagina poate fi gata inaintea extensiei: reincercam
+    // la 3 secunde, cel mult un minut (apoi ramane reimprospatarea pe minut)
+    loadMail.tries = (loadMail.tries || 0) + 1;
+    if (loadMail.tries <= 20) {
+      setTimeout(loadMail, 3000);
     }
     return;
   }
+  loadMail.tries = 0;
+  watchFlags();
   $("mailCount").textContent = flaggedLabel(summary.flagged);
   const list = summary.latest.map(m => {
     const li = document.createElement("li");
@@ -174,7 +194,17 @@ async function loadMail() {
     b.title = "Deschide mesajul";
     b.append(span("mfrom", m.from), span("mdate", m.date), span("msubj", m.subject));
     b.addEventListener("click", () => browser.outlookCards.openMessage(m.folderURI, m.messageKey));
-    li.append(b);
+    // x in cerc, ca la notificarile Apple: scoate steluta (caseta se reface din onFlaggedChanged)
+    const x = document.createElement("button");
+    x.type = "button";
+    x.className = "munstar";
+    x.title = "Scoate steluța";
+    x.setAttribute("aria-label", `Scoate steluța: ${m.subject || m.from}`);
+    x.addEventListener("click", () => {
+      li.classList.add("leaving");
+      browser.outlookCards.unflagMessage(m.folderURI, m.messageKey).catch(loadMail);
+    });
+    li.append(b, x);
     return li;
   });
   $("mailList").replaceChildren(...list);
@@ -371,12 +401,6 @@ async function main() {
   loadBackground(false);
   loadMail();
   setInterval(loadMail, 60 * 1000);
-  // steluta pusa sau scoasa: caseta se reface imediat (o data pentru mai multe schimbari la rand)
-  let flagTimer = 0;
-  browser.outlookCards.onFlaggedChanged?.addListener(() => {
-    clearTimeout(flagTimer);
-    flagTimer = setTimeout(loadMail, 300);
-  });
   // la revenirea pe pagina (dupa "Inchide"), lista e actualizata imediat
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) {

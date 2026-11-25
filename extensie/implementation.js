@@ -887,6 +887,13 @@ this.outlookCards = class extends ExtensionAPI {
         async getInboxSummary(limit) {
           return inboxSummary(Math.max(0, Math.min(limit || 3, 10)));
         },
+        async unflagMessage(folderURI, messageKey) {
+          const folder = MailServices.folderLookup.getFolderForURL(folderURI);
+          const hdr = folder?.msgDatabase.getMsgHdrForKey(messageKey);
+          if (hdr?.isFlagged) {
+            folder.markMessagesFlagged([hdr], false);
+          }
+        },
         async openMessage(folderURI, messageKey) {
           const folder = MailServices.folderLookup.getFolderForURL(folderURI);
           const hdr = folder?.msgDatabase.getMsgHdrForKey(messageKey);
