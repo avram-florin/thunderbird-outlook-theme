@@ -547,6 +547,60 @@ unified-toolbar global-search-bar {
 /* Corpul mesajului se aliniaza cu numele expeditorului din userContent.css
    (padding in documentul mesajului), ca fundalul mesajului sa ramana unitar. */
 
+/* "Foaia" mesajului, ca in Outlook: subiectul sta pe fundalul ferestrei, iar
+   antetul (fara subiect), notificarile si continutul formeaza o pagina separata,
+   cu colturile de sus rotunjite. Fundalul panoului = fundalul comun (--ol-canvas). */
+#messagePane {
+  background-color: var(--ol-canvas) !important;
+  box-shadow: none !important;
+}
+#messagepanebox {
+  background-color: var(--ol-canvas) !important;
+  padding: 0 10px 10px !important;   /* foaia are margini fata de panou */
+}
+#messageHeader {
+  background-color: transparent !important;
+  padding: 0 !important;
+  row-gap: 0 !important;
+  border-block-end: none !important;
+}
+#headerSubjectSecurityContainer {
+  padding: 12px 6px 12px !important;
+  margin: 0 !important;
+}
+#messageHeader > :not(#headerSubjectSecurityContainer) {
+  background-color: var(--ol-panel) !important;
+  padding-inline: calc(var(--ol-msg-pad) + var(--ol-msg-indent)) var(--ol-msg-pad) !important;
+  padding-block: 2px !important;
+}
+#headerSenderToolbarContainer {
+  padding-block-start: 16px !important;
+  border-start-start-radius: var(--ol-radius) !important;
+  border-start-end-radius: var(--ol-radius) !important;
+}
+#expandedfromBox .recipient-avatar {
+  inset-inline-start: var(--ol-msg-pad) !important;
+  inset-block-start: 16px !important;
+}
+/* continuarea foii sub ultimul rand de antet */
+#messageHeader::after {
+  content: "";
+  display: block;
+  block-size: 12px;
+  background-color: var(--ol-panel);
+}
+#mail-notification-top,
+#attachmentView,
+browser#messagepane {
+  background-color: var(--ol-panel) !important;
+}
+/* colturile de jos ale foii */
+browser#messagepane {
+  border-end-start-radius: var(--ol-radius) !important;
+  border-end-end-radius: var(--ol-radius) !important;
+  overflow: clip !important;
+}
+
 /* --- 8. Butoane, campuri, meniuri ------------------------------------------- */
 button,
 toolbarbutton {

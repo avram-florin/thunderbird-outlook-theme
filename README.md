@@ -26,7 +26,7 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 
 - **Interfața**: bara de sus albastră, iconițele colorate ale aplicațiilor în bara din stânga, iconițe de foldere monocrome, panouri rotunjite, accent albastru Microsoft, foldere și fonturi la mărimile din Outlook (măsurate pe ecran).
 - **Lista de mesaje** (extensia): avatar cu inițiale, numele expeditorului, subiectul cu dată scurtă în format de 24 de ore, primul rând din mesaj. Butoane la hover pentru citit/necitit, arhivează și șterge.
-- **Panoul de citire**: subiectul ca titlu, avatarul lângă expeditor, butoane plate, buton „✕ Închide”.
+- **Panoul de citire**: mesajul ca o foaie separată (subiectul pe fundalul ferestrei, antetul și conținutul pe o pagină cu colțuri rotunjite), avatarul lângă expeditor, butoane plate, buton „✕ Închide”.
 - **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), mesajele necitite, fundal din Wallhaven (fără cont), Unsplash (cu cheia ta) sau ilustrația Thunderbird.
 
 ## Instalare pe scurt
