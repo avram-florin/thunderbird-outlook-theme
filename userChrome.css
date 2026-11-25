@@ -175,9 +175,9 @@ unified-toolbar global-search-bar {
   box-shadow: var(--ol-shadow) !important;
   overflow: hidden !important;
 }
-/* Lista are acelasi spatiu sus ca cardul de start si foaia mesajului. */
+/* Lista are acelasi spatiu sus si jos ca cardul de start si foaia mesajului. */
 #threadPane {
-  margin-block-start: var(--ol-pane-gap) !important;
+  margin-block: var(--ol-pane-gap) !important;
 }
 /* Separatoarele au o zona de prindere mai lata decat spatiul ocupat si stau
    peste panouri (z-index 1): raman transparente ca sa nu acopere marginile. */
@@ -569,12 +569,12 @@ unified-toolbar global-search-bar {
 }
 #messagepanebox {
   background-color: var(--ol-canvas) !important;
-  padding: 0 calc(var(--ol-pane-gap) - var(--ol-gap)) var(--ol-gap) !important;
+  padding: 0 calc(var(--ol-pane-gap) - var(--ol-gap)) var(--ol-pane-gap) !important;
 }
 /* Pagina de start si rezumatul la selectie multipla: carduri rotunjite, cu
    umbra foii mesajului, stransa in cei 4px de margine. */
 #messagePane > browser:is(#webBrowser, #multiMessageBrowser) {
-  margin: var(--ol-pane-gap) calc(var(--ol-pane-gap) - var(--ol-gap)) var(--ol-gap) !important;
+  margin: var(--ol-pane-gap) calc(var(--ol-pane-gap) - var(--ol-gap)) !important;
   box-shadow: 0 0 2px light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.6)),
               0 0 4px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.4)) !important;
   border-radius: var(--ol-radius) !important;
