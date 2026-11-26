@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "ThunderLook",
+  "name": "__MSG_extName__",
+  "default_locale": "en",
   "version": "3.2.0",
-  "description": "Thunderbird în stilul New Outlook: Light/Dark, carduri, pagina de start. Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by, sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity.",
+  "description": "__MSG_extDescription__",
   "author": "Florin Avram",
   "browser_specific_settings": {
     "gecko": {

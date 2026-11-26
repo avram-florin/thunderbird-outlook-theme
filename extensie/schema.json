@@ -23,12 +23,34 @@
         ]
       },
       {
+        "name": "setLanguage",
+        "type": "function",
+        "async": true,
+        "description": "Limba textelor din lista de mesaje si din antet: auto, ro sau en.",
+        "parameters": [
+          {
+            "name": "choice",
+            "type": "string",
+            "enum": [
+              "auto",
+              "ro",
+              "en"
+            ]
+          }
+        ]
+      },
+      {
         "name": "getInboxSummary",
         "type": "function",
         "async": true,
         "description": "Numarul mesajelor cu steluta din Inbox-uri si cele mai noi dintre ele.",
         "parameters": [
-          { "name": "limit", "type": "integer", "minimum": 0, "maximum": 10 }
+          {
+            "name": "limit",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10
+          }
         ]
       },
       {
@@ -37,8 +59,14 @@
         "async": true,
         "description": "Scoate steluta mesajului (din caseta paginii de start).",
         "parameters": [
-          { "name": "folderURI", "type": "string" },
-          { "name": "messageKey", "type": "integer" }
+          {
+            "name": "folderURI",
+            "type": "string"
+          },
+          {
+            "name": "messageKey",
+            "type": "integer"
+          }
         ]
       },
       {
@@ -47,8 +75,14 @@
         "async": true,
         "description": "Deschide mesajul in fila de mail.",
         "parameters": [
-          { "name": "folderURI", "type": "string" },
-          { "name": "messageKey", "type": "integer" }
+          {
+            "name": "folderURI",
+            "type": "string"
+          },
+          {
+            "name": "messageKey",
+            "type": "integer"
+          }
         ]
       }
     ]

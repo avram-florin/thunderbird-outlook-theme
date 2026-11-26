@@ -1,0 +1,240 @@
+{
+  "extName": {
+    "message": "ThunderLook"
+  },
+  "extDescription": {
+    "message": "Thunderbird in the New Outlook style: Light/Dark, message cards, start page. Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by, sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity."
+  },
+  "pageTitle": {
+    "message": "Start"
+  },
+  "changeCity": {
+    "message": "Change city"
+  },
+  "forecast3": {
+    "message": "3-day forecast"
+  },
+  "bgSettings": {
+    "message": "Background settings"
+  },
+  "cityLabel": {
+    "message": "City for weather"
+  },
+  "cityPlaceholder": {
+    "message": "e.g. London"
+  },
+  "bgLabel": {
+    "message": "Background"
+  },
+  "bgThunderbird": {
+    "message": "Thunderbird illustration"
+  },
+  "bgWallhaven": {
+    "message": "Wallhaven (no account, SFW images only)"
+  },
+  "topicLabel": {
+    "message": "Photo theme"
+  },
+  "topicHint": {
+    "message": "(in English)"
+  },
+  "topicPlaceholder": {
+    "message": "e.g. mountains, nature, city night"
+  },
+  "langLabel": {
+    "message": "Language"
+  },
+  "langAuto": {
+    "message": "Automatic (Thunderbird language)"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "newPhoto": {
+    "message": "New photo"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "weatherUnavailable": {
+    "message": "weather is not available right now"
+  },
+  "weatherRange": {
+    "message": "high $1$° · low $2$°",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      }
+    }
+  },
+  "flaggedNone": {
+    "message": "No starred messages"
+  },
+  "flaggedOne": {
+    "message": "1 starred message"
+  },
+  "flaggedFew": {
+    "message": "$1$ starred messages",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "flaggedMany": {
+    "message": "$1$ starred messages",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "openMessage": {
+    "message": "Open message"
+  },
+  "unstar": {
+    "message": "Remove star"
+  },
+  "unstarNamed": {
+    "message": "Remove star: $1$",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tooManyRequests": {
+    "message": "too many requests, try again in a minute"
+  },
+  "noImage": {
+    "message": "no image for this theme"
+  },
+  "photoError": {
+    "message": "Wallhaven: $1$. Keeping the previous background.",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "photoCredit": {
+    "message": "Background: "
+  },
+  "searchingCity": {
+    "message": "Looking up the city…"
+  },
+  "cityNotFound": {
+    "message": "City not found. Try another name."
+  },
+  "citySearchFailed": {
+    "message": "The search failed (no internet?)."
+  },
+  "yesterday": {
+    "message": "Yesterday"
+  },
+  "archive": {
+    "message": "Archive"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "markUnread": {
+    "message": "Mark as unread"
+  },
+  "markRead": {
+    "message": "Mark as read"
+  },
+  "closeMessage": {
+    "message": "Close"
+  },
+  "closeMessageTip": {
+    "message": "Close the message and show the start page"
+  },
+  "wmo0": {
+    "message": "Clear sky"
+  },
+  "wmo1": {
+    "message": "Mainly clear"
+  },
+  "wmo2": {
+    "message": "Partly cloudy"
+  },
+  "wmo3": {
+    "message": "Overcast"
+  },
+  "wmo45": {
+    "message": "Fog"
+  },
+  "wmo48": {
+    "message": "Rime fog"
+  },
+  "wmo51": {
+    "message": "Light drizzle"
+  },
+  "wmo53": {
+    "message": "Drizzle"
+  },
+  "wmo55": {
+    "message": "Dense drizzle"
+  },
+  "wmo56": {
+    "message": "Freezing drizzle"
+  },
+  "wmo57": {
+    "message": "Freezing drizzle"
+  },
+  "wmo61": {
+    "message": "Light rain"
+  },
+  "wmo63": {
+    "message": "Rain"
+  },
+  "wmo65": {
+    "message": "Heavy rain"
+  },
+  "wmo66": {
+    "message": "Freezing rain"
+  },
+  "wmo67": {
+    "message": "Freezing rain"
+  },
+  "wmo71": {
+    "message": "Light snow"
+  },
+  "wmo73": {
+    "message": "Snow"
+  },
+  "wmo75": {
+    "message": "Heavy snow"
+  },
+  "wmo77": {
+    "message": "Snow grains"
+  },
+  "wmo80": {
+    "message": "Light showers"
+  },
+  "wmo81": {
+    "message": "Showers"
+  },
+  "wmo82": {
+    "message": "Heavy showers"
+  },
+  "wmo85": {
+    "message": "Snow showers"
+  },
+  "wmo86": {
+    "message": "Snow showers"
+  },
+  "wmo95": {
+    "message": "Thunderstorm"
+  },
+  "wmo96": {
+    "message": "Thunderstorm with hail"
+  },
+  "wmo99": {
+    "message": "Thunderstorm with hail"
+  }
+}

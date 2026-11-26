@@ -160,6 +160,8 @@ cel mult un minut.
                           Unsplash a fost scos în 3.2
     Tema fotografiilor    cuvinte în engleză, ex. mountains, nature, city night
     Fotografie nouă       schimbă imediat fotografia (altfel se schimbă o dată pe zi)
+    Limba                 Automat (limba Thunderbird) / Română / English (de la 3.2;
+                          lista de mesaje trece pe noua limbă după o repornire)
 - Cereri în rețea, făcute direct din Thunderbird: Open-Meteo (coordonatele orașului),
   Wallhaven (tema aleasă), doar dacă e ales ca fundal. Setările stau în extensie (storage.local).
 - Extensia setează preferința mailnews.start_page.url spre pagina ei; la dezactivare

@@ -33,11 +33,52 @@ const { ExtensionCommon } = ChromeUtils.importESModule(
   "resource://gre/modules/ExtensionCommon.sys.mjs"
 );
 
+/* ---- Limba: textele vin din _locales prin extensie (ro, en; altfel en) ---- */
+let localize = key => key;
+let messages = null; // limba aleasa in pagina de start (ro/en); null = limba Thunderbird
+let dateLocale = null;
+function L(key) {
+  return messages?.[key]?.message || localize(key) || key;
+}
+
+// "auto": limba Thunderbird (ro daca e romana, altfel en); "ro" / "en": aleasa de utilizator
+function setLanguage(baseURI, choice) {
+  const appRo = Services.locale.appLocaleAsBCP47.startsWith("ro");
+  const code = choice == "ro" || choice == "en" ? choice : appRo ? "ro" : "en";
+  try {
+    const { NetUtil } = ChromeUtils.importESModule("resource://gre/modules/NetUtil.sys.mjs");
+    const stream = NetUtil.newChannel({
+      uri: baseURI.resolve(`_locales/${code}/messages.json`),
+      loadUsingSystemPrincipal: true,
+    }).open();
+    const text = NetUtil.readInputStreamToString(stream, stream.available(), { charset: "UTF-8" });
+    stream.close();
+    messages = JSON.parse(text);
+  } catch (e) {
+    console.error("ThunderLook: limba", e);
+    messages = null;
+  }
+  dateLocale = code == "ro" ? "ro-RO" : appRo ? "en" : Services.locale.appLocaleAsBCP47;
+  dateFmts = null;
+}
+
 /* ---- Data scurta, ca in Outlook, cu ora in format de 24 de ore ----
-   azi: "13:07"; ieri: "Ieri 13:07"; ultimele 6 zile: "mar. 13:07";
-   anul acesta: "17 nov."; mai vechi: "17.11.2025". */
-const WEEKDAYS = ["dum.", "lun.", "mar.", "mie.", "joi", "vin.", "sâm."];
-const MONTHS = ["ian.", "feb.", "mar.", "apr.", "mai", "iun.", "iul.", "aug.", "sept.", "oct.", "nov.", "dec."];
+   in romana: azi "13:07"; ieri "Ieri 13:07"; ultimele 6 zile "mar. 13:07";
+   anul acesta "17 nov."; mai vechi "17.11.2025". Zilele si lunile vin din Intl,
+   in limba Thunderbird. */
+let dateFmts = null;
+function fmts() {
+  if (!dateFmts) {
+    const loc = dateLocale || Services.locale.appLocaleAsBCP47;
+    dateFmts = {
+      weekday: new Intl.DateTimeFormat(loc, { weekday: "short" }),
+      dayMonth: new Intl.DateTimeFormat(loc, { day: "numeric", month: "short" }),
+      numeric: new Intl.DateTimeFormat(loc, { day: "2-digit", month: "2-digit", year: "numeric" }),
+      full: new Intl.DateTimeFormat(loc, { day: "numeric", month: "short", year: "numeric" }),
+    };
+  }
+  return dateFmts;
+}
 
 function pad2(n) {
   return String(n).padStart(2, "0");
@@ -51,21 +92,21 @@ function shortDate(date, now = new Date()) {
     return time;
   }
   if (days == 1) {
-    return `Ieri ${time}`;
+    return `${L("yesterday")} ${time}`;
   }
   if (days < 7) {
-    return `${WEEKDAYS[date.getDay()]} ${time}`;
+    return `${fmts().weekday.format(date)} ${time}`;
   }
   if (date.getFullYear() == now.getFullYear()) {
-    return `${date.getDate()} ${MONTHS[date.getMonth()]}`;
+    return fmts().dayMonth.format(date);
   }
-  return `${pad2(date.getDate())}.${pad2(date.getMonth() + 1)}.${date.getFullYear()}`;
+  return fmts().numeric.format(date);
 }
 
 function fullDate(date) {
   return (
-    `${WEEKDAYS[date.getDay()]} ${date.getDate()} ${MONTHS[date.getMonth()]} ` +
-    `${date.getFullYear()}, ${pad2(date.getHours())}:${pad2(date.getMinutes())}`
+    `${fmts().weekday.format(date)} ${fmts().full.format(date)}, ` +
+    `${pad2(date.getHours())}:${pad2(date.getMinutes())}`
   );
 }
 
@@ -283,8 +324,8 @@ function patch3Pane(win) {
       bar.className = "ol-actions";
       for (const [action, title] of [
         ["read", ""],
-        ["archive", "Arhivează"],
-        ["delete", "Șterge"],
+        ["archive", L("archive")],
+        ["delete", L("delete")],
       ]) {
         const b = doc.createElement("button");
         b.type = "button";
@@ -304,7 +345,7 @@ function patch3Pane(win) {
     }
     bar.__olHdr = hdr;
     const readBtn = bar.querySelector(".ol-act-read");
-    readBtn.title = hdr.isRead ? "Marchează ca necitit" : "Marchează ca citit";
+    readBtn.title = L(hdr.isRead ? "markUnread" : "markRead");
     readBtn.classList.toggle("is-read", hdr.isRead);
   }
 
@@ -469,8 +510,8 @@ function addCloseButton(mwin) {
   const button = mdoc.createXULElement("toolbarbutton");
   button.id = "olCloseMessageButton";
   button.className = "toolbarbutton-1 message-header-view-button";
-  button.setAttribute("label", "Închide");
-  button.setAttribute("tooltiptext", "Închide mesajul și arată pagina de start");
+  button.setAttribute("label", L("closeMessage"));
+  button.setAttribute("tooltiptext", L("closeMessageTip"));
   button.addEventListener("command", () => {
     try {
       w3.threadTree.selectedIndex = -1;
@@ -850,6 +891,7 @@ this.outlookCards = class extends ExtensionAPI {
   // Pornim cat mai devreme (manifest: "events": ["startup"]), inainte de
   // scriptul de fundal, ca adresa paginii de start sa fie cunoscuta din prima.
   onStartup() {
+    localize = key => this.extension.localizeMessage(key);
     startTheme(this.extension.rootURI);
     start(this.extension.baseURI.resolve("home/home.html"));
     startWindowIcons(
@@ -883,6 +925,9 @@ this.outlookCards = class extends ExtensionAPI {
         }).api(),
         async init(url) {
           start(url);
+        },
+        async setLanguage(choice) {
+          setLanguage(context.extension.baseURI, choice);
         },
         async getInboxSummary(limit) {
           return inboxSummary(Math.max(0, Math.min(limit || 3, 10)));

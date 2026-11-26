@@ -36,6 +36,8 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 - **Fereastra de scriere**: câmpurile în culorile temei și bara de formatare după modelul Brainly Text Area din Figma, cu mărimea fontului ca număr („− 13 +”, extensia).
 - **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), ultimele mesaje cu steluță din Inbox, fundal din Wallhaven (fără cont) sau ilustrația Thunderbird.
 
+- **Limba**: română și engleză (`extensie/_locales`). Implicit urmează limba Thunderbird; din setările paginii de start se poate alege Română sau English. Textul listării pentru addons.thunderbird.net e în `docs/listare-amo.md`.
+
 ## Instalare pe scurt
 
 1. În Thunderbird: **Add-ons and Themes** → rotița → **Install Add-on From File** → `thunderlook.xpi` (sau trage fișierul peste fereastra Add-ons).

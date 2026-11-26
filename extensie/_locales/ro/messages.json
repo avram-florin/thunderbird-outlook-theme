@@ -1,0 +1,240 @@
+{
+  "extName": {
+    "message": "ThunderLook"
+  },
+  "extDescription": {
+    "message": "Thunderbird în stilul New Outlook: Light/Dark, carduri, pagina de start. Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by, sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity."
+  },
+  "pageTitle": {
+    "message": "Start"
+  },
+  "changeCity": {
+    "message": "Schimbă orașul"
+  },
+  "forecast3": {
+    "message": "Prognoza pe 3 zile"
+  },
+  "bgSettings": {
+    "message": "Setări fundal"
+  },
+  "cityLabel": {
+    "message": "Oraș pentru vreme"
+  },
+  "cityPlaceholder": {
+    "message": "ex. București"
+  },
+  "bgLabel": {
+    "message": "Fundal"
+  },
+  "bgThunderbird": {
+    "message": "Ilustrația Thunderbird"
+  },
+  "bgWallhaven": {
+    "message": "Wallhaven (fără cont, doar imagini SFW)"
+  },
+  "topicLabel": {
+    "message": "Tema fotografiilor"
+  },
+  "topicHint": {
+    "message": "(în engleză)"
+  },
+  "topicPlaceholder": {
+    "message": "ex. mountains, nature, city night"
+  },
+  "langLabel": {
+    "message": "Limba"
+  },
+  "langAuto": {
+    "message": "Automat (limba Thunderbird)"
+  },
+  "save": {
+    "message": "Salvează"
+  },
+  "newPhoto": {
+    "message": "Fotografie nouă"
+  },
+  "close": {
+    "message": "Închide"
+  },
+  "weatherUnavailable": {
+    "message": "vremea nu e disponibilă acum"
+  },
+  "weatherRange": {
+    "message": "max $1$° · min $2$°",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      },
+      "2": {
+        "content": "$2"
+      }
+    }
+  },
+  "flaggedNone": {
+    "message": "Niciun mesaj cu steluță"
+  },
+  "flaggedOne": {
+    "message": "1 mesaj cu steluță"
+  },
+  "flaggedFew": {
+    "message": "$1$ mesaje cu steluță",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "flaggedMany": {
+    "message": "$1$ de mesaje cu steluță",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "openMessage": {
+    "message": "Deschide mesajul"
+  },
+  "unstar": {
+    "message": "Scoate steluța"
+  },
+  "unstarNamed": {
+    "message": "Scoate steluța: $1$",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "tooManyRequests": {
+    "message": "prea multe cereri, încearcă peste un minut"
+  },
+  "noImage": {
+    "message": "nicio imagine pentru această temă"
+  },
+  "photoError": {
+    "message": "Wallhaven: $1$. Rămâne fundalul anterior.",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "photoCredit": {
+    "message": "Fundal: "
+  },
+  "searchingCity": {
+    "message": "Caut orașul…"
+  },
+  "cityNotFound": {
+    "message": "Nu am găsit orașul. Încearcă alt nume."
+  },
+  "citySearchFailed": {
+    "message": "Căutarea nu a mers (fără internet?)."
+  },
+  "yesterday": {
+    "message": "Ieri"
+  },
+  "archive": {
+    "message": "Arhivează"
+  },
+  "delete": {
+    "message": "Șterge"
+  },
+  "markUnread": {
+    "message": "Marchează ca necitit"
+  },
+  "markRead": {
+    "message": "Marchează ca citit"
+  },
+  "closeMessage": {
+    "message": "Închide"
+  },
+  "closeMessageTip": {
+    "message": "Închide mesajul și arată pagina de start"
+  },
+  "wmo0": {
+    "message": "Senin"
+  },
+  "wmo1": {
+    "message": "Predominant senin"
+  },
+  "wmo2": {
+    "message": "Parțial noros"
+  },
+  "wmo3": {
+    "message": "Înnorat"
+  },
+  "wmo45": {
+    "message": "Ceață"
+  },
+  "wmo48": {
+    "message": "Ceață cu chiciură"
+  },
+  "wmo51": {
+    "message": "Burniță slabă"
+  },
+  "wmo53": {
+    "message": "Burniță"
+  },
+  "wmo55": {
+    "message": "Burniță densă"
+  },
+  "wmo56": {
+    "message": "Burniță înghețată"
+  },
+  "wmo57": {
+    "message": "Burniță înghețată"
+  },
+  "wmo61": {
+    "message": "Ploaie slabă"
+  },
+  "wmo63": {
+    "message": "Ploaie"
+  },
+  "wmo65": {
+    "message": "Ploaie puternică"
+  },
+  "wmo66": {
+    "message": "Ploaie înghețată"
+  },
+  "wmo67": {
+    "message": "Ploaie înghețată"
+  },
+  "wmo71": {
+    "message": "Ninsoare slabă"
+  },
+  "wmo73": {
+    "message": "Ninsoare"
+  },
+  "wmo75": {
+    "message": "Ninsoare abundentă"
+  },
+  "wmo77": {
+    "message": "Fulgi de zăpadă"
+  },
+  "wmo80": {
+    "message": "Averse slabe"
+  },
+  "wmo81": {
+    "message": "Averse"
+  },
+  "wmo82": {
+    "message": "Averse puternice"
+  },
+  "wmo85": {
+    "message": "Averse de ninsoare"
+  },
+  "wmo86": {
+    "message": "Averse de ninsoare"
+  },
+  "wmo95": {
+    "message": "Furtună"
+  },
+  "wmo96": {
+    "message": "Furtună cu grindină"
+  },
+  "wmo99": {
+    "message": "Furtună cu grindină"
+  }
+}
