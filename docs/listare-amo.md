@@ -37,8 +37,8 @@ Settings are stored locally in the add-on.
 
 **Why "full access" (Experiment API).** Thunderbird's regular extension APIs cannot restyle the message list or add the
 start page, so ThunderLook uses an Experiment API. It only changes the look of Thunderbird windows and reads message
-headers to show them; it does not modify your messages, folders or accounts, except for removing a star when you click
-the × on the start page.
+headers to show them; it does not modify your messages, folders or accounts, except for the actions you click (read/unread, archive,
+delete, remove a star).
 
 Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by, sponsored by, or otherwise
 affiliated with Mozilla.org or any other Mozilla entity. Outlook is a trademark of Microsoft Corporation; ThunderLook is
