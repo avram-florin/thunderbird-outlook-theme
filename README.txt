@@ -19,6 +19,8 @@ Instalare
    thunderlook.xpi (sau trage fișierul peste fereastra Add-ons) și confirmă „Add”
    (cere acces complet, ca orice extensie „Experiment”).
 2. Tema se aplică după instalare; dacă nu, repornește Thunderbird.
+3. De la 3.2, ID-ul e thunderlook@lexicon-software.ro (înainte outlook-cards@lexicon.local).
+   Versiunea veche se scoate întâi din Add-ons; orașul și fundalul se aleg din nou.
 Nu mai trebuie copiat nimic în profil și nici preferința
 toolkit.legacyUserProfileCustomizations.stylesheets: extensia încarcă singură CSS-ul,
 ca foi de stil ale utilizatorului (nsIStyleSheetService, prin resource://outlook-theme/),
@@ -154,13 +156,12 @@ cel mult un minut.
 - Butonul „✕ Închide” din antetul mesajului deselectează mesajul și readuce pagina.
 - Rotița ⚙ (dreapta jos) deschide setările; click pe numele orașului face la fel:
     Oraș pentru vreme     implicit București; scrii alt oraș și apeși Salvează
-    Fundal                Ilustrația Thunderbird / Wallhaven (fără cont, doar SFW) /
-                          Unsplash (cere „Access Key”: unsplash.com/developers >
-                          New Application; cheia se lipește aici)
+    Fundal                Ilustrația Thunderbird / Wallhaven (fără cont, doar SFW);
+                          Unsplash a fost scos în 3.2
     Tema fotografiilor    cuvinte în engleză, ex. mountains, nature, city night
     Fotografie nouă       schimbă imediat fotografia (altfel se schimbă o dată pe zi)
 - Cereri în rețea, făcute direct din Thunderbird: Open-Meteo (coordonatele orașului),
-  Wallhaven sau Unsplash (tema aleasă). Setările stau în extensie (storage.local).
+  Wallhaven (tema aleasă), doar dacă e ales ca fundal. Setările stau în extensie (storage.local).
 - Extensia setează preferința mailnews.start_page.url spre pagina ei; la dezactivare
   o readuce la valoarea dinainte.
 

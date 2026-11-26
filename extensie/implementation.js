@@ -69,7 +69,7 @@ function fullDate(date) {
   );
 }
 
-const ID = "outlook-cards";
+const ID = "thunderlook";
 // Pasul randurilor din Outlook / Thunderbird, masurat pe ecran (134 / 149 px).
 const ROW_SCALE = 0.9;
 // Paleta de avatare din Fluent (Outlook)

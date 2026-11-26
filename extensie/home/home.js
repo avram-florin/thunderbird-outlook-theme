@@ -1,11 +1,10 @@
 /* Pagina de start ThunderLook: ora, data, vremea (Open-Meteo) si,
- * optional, o fotografie de fundal de pe Unsplash (cu cheia utilizatorului).
+ * optional, o imagine de fundal de pe Wallhaven.
  * Setarile stau in browser.storage.local al extensiei. */
 "use strict";
 
 const DEFAULT_CITY = { name: "București", lat: 44.43, lon: 26.1 };
 const WEATHER_EVERY_MS = 30 * 60 * 1000;
-const UTM = "utm_source=outlook_cards_thunderbird&utm_medium=referral";
 
 // Codurile WMO folosite de Open-Meteo -> [descriere, pictograma zi, pictograma noapte]
 const WMO = {
@@ -226,9 +225,11 @@ async function findCity(name) {
   return { name: hit.name, lat: hit.latitude, lon: hit.longitude, country: hit.country };
 }
 
-/* ---------- fundal: ilustratia Thunderbird, Wallhaven sau Unsplash ---------- */
+/* ---------- fundal: ilustratia Thunderbird sau Wallhaven ---------- */
 const DEFAULT_SOURCE = "wallhaven";
 const DEFAULT_TOPIC = "landscape";
+// cheia din storage a ramas "unsplashTopic" din versiunile cu Unsplash, ca tema aleasa sa nu se piarda
+const TOPIC_KEY = "unsplashTopic";
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
@@ -245,16 +246,7 @@ function showPhoto(photo) {
   }
   bg.style.backgroundImage = `url("${photo.url}")`;
   bg.style.backgroundPosition = "center";
-  if (photo.source == "unsplash") {
-    credit.replaceChildren(
-      "Foto: ",
-      link(`${photo.userLink}?${UTM}`, photo.userName),
-      " pe ",
-      link(`https://unsplash.com/?${UTM}`, "Unsplash")
-    );
-  } else {
-    credit.replaceChildren("Fundal: ", link(photo.pageLink, "Wallhaven"));
-  }
+  credit.replaceChildren("Fundal: ", link(photo.pageLink, "Wallhaven"));
 }
 
 async function fetchWallhaven(topic) {
@@ -291,36 +283,16 @@ function link(href, text) {
   return a;
 }
 
-async function fetchUnsplash(key, topic) {
-  const params = new URLSearchParams({ orientation: "landscape", content_filter: "high" });
-  if (topic) {
-    params.set("query", topic);
-  }
-  const headers = { Authorization: `Client-ID ${key}`, "Accept-Version": "v1" };
-  const res = await fetch(`https://api.unsplash.com/photos/random?${params}`, { headers });
-  if (!res.ok) {
-    throw new Error(res.status == 401 ? "cheie invalidă" : `HTTP ${res.status}`);
-  }
-  const p = await res.json();
-  // Regula Unsplash: se anunta "descarcarea" cand fotografia e folosita.
-  fetch(p.links.download_location, { headers }).catch(() => {});
-  const width = Math.round(screen.width * (window.devicePixelRatio || 1));
-  return {
-    source: "unsplash",
-    url: `${p.urls.raw}&w=${width}&q=80&fm=jpg&fit=max`,
-    userName: p.user.name,
-    userLink: p.user.links.html,
-  };
+// cine alesese Unsplash (scos in 3.2) trece pe sursa implicita
+async function getSource() {
+  const source = await store.get("bgSource", DEFAULT_SOURCE);
+  return source == "thunderbird" ? source : DEFAULT_SOURCE;
 }
 
 async function loadBackground(force) {
-  const source = await store.get("bgSource", DEFAULT_SOURCE);
-  const topic = await store.get("unsplashTopic", DEFAULT_TOPIC);
-  const key = await store.get("unsplashKey", "");
-  if (source == "thunderbird" || (source == "unsplash" && !key)) {
-    if (source == "unsplash") {
-      $("photoMsg").textContent = "Unsplash: lipsește cheia. Arăt ilustrația Thunderbird.";
-    }
+  const source = await getSource();
+  const topic = await store.get(TOPIC_KEY, DEFAULT_TOPIC);
+  if (source == "thunderbird") {
     showPhoto(null);
     return;
   }
@@ -330,13 +302,12 @@ async function loadBackground(force) {
     !photo || photo.day != todayKey() || photo.topic != topic || photo.source != source;
   if (force || stale) {
     try {
-      const fresh = source == "unsplash" ? await fetchUnsplash(key, topic) : await fetchWallhaven(topic);
+      const fresh = await fetchWallhaven(topic);
       photo = { ...fresh, day: todayKey(), topic };
       await store.set("bgPhoto", photo);
       $("photoMsg").textContent = "";
     } catch (e) {
-      const name = source == "unsplash" ? "Unsplash" : "Wallhaven";
-      $("photoMsg").textContent = `${name}: ${e.message}. Rămâne fundalul anterior.`;
+      $("photoMsg").textContent = `Wallhaven: ${e.message}. Rămâne fundalul anterior.`;
       if (photo?.source != source) {
         photo = null;
       }
@@ -355,16 +326,10 @@ function toggleSettings(open) {
   }
 }
 
-function syncKeyRow() {
-  $("unsplashKeyRow").hidden = $("bgSource").value != "unsplash";
-}
-
 async function fillSettings() {
   $("cityInput").value = city.name;
-  $("bgSource").value = await store.get("bgSource", DEFAULT_SOURCE);
-  $("unsplashKey").value = await store.get("unsplashKey", "");
-  $("unsplashTopic").value = await store.get("unsplashTopic", DEFAULT_TOPIC);
-  syncKeyRow();
+  $("bgSource").value = await getSource();
+  $("photoTopic").value = await store.get(TOPIC_KEY, DEFAULT_TOPIC);
 }
 
 async function saveSettings(event) {
@@ -387,8 +352,7 @@ async function saveSettings(event) {
     }
   }
   await store.set("bgSource", $("bgSource").value);
-  await store.set("unsplashKey", $("unsplashKey").value.trim());
-  await store.set("unsplashTopic", $("unsplashTopic").value.trim() || DEFAULT_TOPIC);
+  await store.set(TOPIC_KEY, $("photoTopic").value.trim() || DEFAULT_TOPIC);
   await loadBackground(false);
 }
 
@@ -399,6 +363,8 @@ async function main() {
   loadWeather();
   setInterval(loadWeather, WEATHER_EVERY_MS);
   loadBackground(false);
+  // cheia Unsplash salvata de versiunile vechi nu mai e folosita
+  browser.storage.local.remove("unsplashKey").catch(() => {});
   loadMail();
   // stelutele vin pe loc din onFlaggedChanged; intervalul prinde restul (mesaje noi, sterse)
   setInterval(loadMail, 5 * 60 * 1000);
@@ -418,7 +384,6 @@ async function main() {
     toggleSettings(true);
   });
   $("closeSettings").addEventListener("click", () => toggleSettings(false));
-  $("bgSource").addEventListener("change", syncKeyRow);
   $("settings").addEventListener("submit", saveSettings);
   $("newPhoto").addEventListener("click", () => loadBackground(true));
   document.addEventListener("keydown", e => {

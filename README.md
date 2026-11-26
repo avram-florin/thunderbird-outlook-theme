@@ -34,13 +34,14 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 - **Aranjare**: lista, pagina de start și mesajul sunt carduri cu umbră difuză și spații egale de 12px; mesajul începe la aceeași înălțime cu primul rând din listă.
 - **Logo** în colțul din stânga sus (pătratul cu T și un plic abia sugerat, cu flăcări albastre), același logo ca iconiță a ferestrelor (extensia) și pe scurtăturile Windows, cu `iconita-windows.cmd` (cere o dată acceptul de administrator).
 - **Fereastra de scriere**: câmpurile în culorile temei și bara de formatare după modelul Brainly Text Area din Figma, cu mărimea fontului ca număr („− 13 +”, extensia).
-- **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), ultimele mesaje cu steluță din Inbox, fundal din Wallhaven (fără cont), Unsplash (cu cheia ta) sau ilustrația Thunderbird.
+- **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), ultimele mesaje cu steluță din Inbox, fundal din Wallhaven (fără cont) sau ilustrația Thunderbird.
 
 ## Instalare pe scurt
 
 1. În Thunderbird: **Add-ons and Themes** → rotița → **Install Add-on From File** → `thunderlook.xpi` (sau trage fișierul peste fereastra Add-ons).
 2. Tema se aplică după instalare (dacă nu, repornește Thunderbird). Dezinstalarea din Add-ons readuce aspectul Thunderbird.
-3. Opțional, logo-ul pe scurtăturile Windows și în taskbar: dublu clic pe `iconita-windows.cmd`.
+3. Dacă aveai o versiune până la 3.1 (ID-ul vechi `outlook-cards@lexicon.local`), scoate-o întâi din Add-ons: de la 3.2 ID-ul e `thunderlook@lexicon-software.ro`, iar Thunderbird le vede ca extensii diferite. Orașul și sursa fundalului se aleg din nou.
+4. Opțional, logo-ul pe scurtăturile Windows și în taskbar: dublu clic pe `iconita-windows.cmd`.
 
 Dacă ai folosit versiunea veche (fișierele în `chrome\` din profil), șterge din `chrome\` fișierele `userChrome*.css`, `userContent.css` și folderul `Icons`, ca să nu se încarce tema de două ori.
 
@@ -48,7 +49,7 @@ Tema se schimbă pe loc din comutatorul lună/soare din antetul mesajului (Light
 
 ## Confidențialitate
 
-Previzualizarea mesajelor se citește local, din copia offline, fără cereri în rețea, și stă doar în memorie. Pagina de start face cereri doar către Open-Meteo (coordonatele orașului) și, dacă le alegi, către Wallhaven sau Unsplash (tema fotografiilor).
+Previzualizarea mesajelor se citește local, din copia offline, fără cereri în rețea, și stă doar în memorie. Pagina de start face cereri doar către Open-Meteo (coordonatele orașului) și, dacă îl alegi, către Wallhaven (tema fotografiilor).
 
 ## Credite
 
