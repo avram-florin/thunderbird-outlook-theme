@@ -281,9 +281,22 @@ function todayKey() {
   return new Date().toISOString().slice(0, 10);
 }
 
+// doar adrese https de la Wallhaven: URL-ul ajunge in CSS (url("...")) si intr-un link
+function wallhavenURL(u) {
+  try {
+    const url = new URL(u);
+    return url.protocol == "https:" && /(^|\.)wallhaven\.cc$/.test(url.hostname) && !/["'()\s\\]/.test(u);
+  } catch (e) {
+    return false;
+  }
+}
+
 function showPhoto(photo) {
   const bg = $("bg");
   const credit = $("credit");
+  if (photo && !(wallhavenURL(photo.url) && wallhavenURL(photo.pageLink))) {
+    photo = null;
+  }
   if (!photo) {
     bg.style.removeProperty("background-image");
     bg.style.removeProperty("background-position");

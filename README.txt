@@ -163,7 +163,7 @@ cel mult un minut.
     Limba                 Automat (limba Thunderbird) / Română / English (de la 3.2;
                           lista de mesaje trece pe noua limbă după o repornire)
 - Cereri în rețea, făcute direct din Thunderbird: Open-Meteo (coordonatele orașului),
-  Wallhaven (tema aleasă), doar dacă e ales ca fundal. Setările stau în extensie (storage.local).
+  Wallhaven (tema aleasă), fundalul implicit; ilustrația Thunderbird nu face cereri. Setările stau în extensie (storage.local).
 - Extensia setează preferința mailnews.start_page.url spre pagina ei; la dezactivare
   o readuce la valoarea dinainte.
 

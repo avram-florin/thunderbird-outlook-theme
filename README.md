@@ -51,7 +51,7 @@ Tema se schimbă pe loc din comutatorul lună/soare din antetul mesajului (Light
 
 ## Confidențialitate
 
-Previzualizarea mesajelor se citește local, din copia offline, fără cereri în rețea, și stă doar în memorie. Pagina de start face cereri doar către Open-Meteo (coordonatele orașului) și, dacă îl alegi, către Wallhaven (tema fotografiilor).
+Previzualizarea mesajelor se citește local, din copia offline, fără cereri în rețea, și stă doar în memorie. Pagina de start face cereri doar către Open-Meteo (coordonatele orașului) și către Wallhaven (tema fotografiilor), fundalul implicit; cu ilustrația Thunderbird ca fundal nu se face nicio cerere către Wallhaven.
 
 ## Credite
 
