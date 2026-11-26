@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ThunderLook",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Thunderbird în stilul New Outlook: Light/Dark, carduri, pagina de start. Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by, sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity.",
   "author": "Florin Avram",
   "browser_specific_settings": {

@@ -175,8 +175,8 @@ unified-toolbar global-search-bar .kbd-container kbd {
 #spacesToolbar {
   border-inline-end: none !important;
 }
-/* Logo-ul din coltul din stanga sus: pasarea care imbratiseaza patratul cu T
-   (generat in Gemini, decupat pe fundal transparent): Icons/thunderbird-t-pasare.png.
+/* Logo-ul din coltul din stanga sus: patratul cu T si plicul, cu flacari albastre
+   (generat in Gemini, decupat pe fundal transparent; de la 3.1): Icons/thunderbird-t-pasare.png.
    Logo-urile anterioare, din Figma (Outlook 2024 cu T), sunt in istoricul git
    (thunderbird-t-mare.svg, thunderbird-t.svg), scoase din extensie la 2.3. */
 #spacesToolbar::before {

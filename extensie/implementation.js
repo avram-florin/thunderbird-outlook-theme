@@ -676,7 +676,7 @@ function inboxSummary(limit) {
    doar din Proprietati > Schimbare pictograma pe scurtatura. */
 const ICON_LISTENER = ID + "-icon";
 let windowIcon = null;
-let windowIconSmall = null; // 16 px: doar patratul cu T, pasarea nu se distinge la marimea asta
+let windowIconSmall = null; // 16 px: doar patratul cu T, flacarile nu se disting la marimea asta
 
 function loadWindowIcon(url) {
   const { NetUtil } = ChromeUtils.importESModule("resource://gre/modules/NetUtil.sys.mjs");

@@ -87,12 +87,13 @@ Ce schimbă
 - Calendar, Tasks și Agenda urmează tema aleasă (Light/Dark), nu tema din Windows;
   ziua selectată din calendar are doar o nuanță discretă, ca în Outlook;
   butoanele principale din Agendă și Setări sunt albastre, nu în culoarea Windows.
-- Logo în colțul din stânga sus: pasărea care îmbrățișează pătratul cu T (generată în
-  Gemini, decupată pe fundal transparent): extensie\tema\Icons\thunderbird-t-pasare.png.
+- Logo în colțul din stânga sus: pătratul cu T, un plic abia sugerat în fundal și flăcări
+  albastre (generat în Gemini, decupat pe fundal transparent; de la 3.1):
+  extensie\tema\Icons\thunderbird-t-pasare.png (numele fișierului a rămas din versiunile vechi).
   Logo-urile anterioare, din Figma (Outlook 2024 cu T în loc de O), nu mai sunt în
   extensie de la 2.3; rămân în istoricul git (thunderbird-t-mare.svg, thunderbird-t.svg).
-  Pasărea pornește de la logo-ul Thunderbird: doar pentru uz personal. Mozilla nu permite
-  logo-ul la publicare; trebuie înlocuit înainte (docs\mozilla-trademark-raspuns-2026-11.md).
+  Logo-ul cu pasăre (până la 3.0) pornea de la logo-ul Thunderbird și Mozilla nu l-a permis
+  la publicare (docs\mozilla-trademark-raspuns-2026-11.md); de aceea a fost înlocuit.
   Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by,
   sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity.
 - Scrollbar subțire. Conținutul e-mailurilor nu e modificat (doar retras spre dreapta).
@@ -121,8 +122,8 @@ Tot din extensie (versiunea 1.2):
 Iconița aplicației (extensia, versiunea 1.5)
 -------------------------------------------
 Ferestrele Thunderbird (Alt+Tab, bara de titlu, butonul din taskbar când Thunderbird
-nu e fixat) primesc logo-ul temei în loc de pasăre: logo-ul întreg la mărimi mari,
-doar pătratul cu T la 16 px, unde pasărea nu se mai distinge (extensie\icons\app-256.png
+nu e fixat) primesc logo-ul temei în loc de pasărea Thunderbird: logo-ul întreg la mărimi mari,
+doar pătratul cu T la 16 și 32 px, unde flăcările nu se mai disting (extensie\icons\app-256.png
 și app-32.png). Iconița pusă în profil (chrome\icons\default) nu ajunge, pentru că
 Thunderbird o găsește întâi pe a lui, în folderul aplicației; de aceea o pune extensia,
 direct pe fiecare fereastră. La dezactivarea extensiei revine pasărea.

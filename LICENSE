@@ -24,12 +24,12 @@ SOFTWARE.
 Not covered by this license
 ---------------------------------------------------------------------------
 
-- The logo files: extensie/tema/Icons/thunderbird-t-pasare.png,
+- The ThunderLook logo files: extensie/tema/Icons/thunderbird-t-pasare.png,
   extensie/tema/Icons/thunderbird-t-pasare.ico, extensie/icons/app-256.png,
-  extensie/icons/app-32.png and capturi/demo/logo.png. The bird is derived
-  from the Thunderbird logo (a trademark of the Mozilla Foundation / MZLA
-  Technologies); these files are for personal use only and are not
-  licensed for redistribution.
+  extensie/icons/app-32.png and capturi/demo/logo.png. All rights reserved;
+  they are not licensed under the MIT License. Versions up to 3.0 used a
+  bird derived from the Thunderbird logo; it was replaced in 3.1 and is not
+  licensed for any use.
 - The Fluent icons in extensie/tema/Icons/ come from FluentBird and
   Microsoft Fluent UI System Icons, both under the MIT License of their own
   authors; see extensie/tema/Icons/LICENSE.txt.

@@ -10,7 +10,7 @@ variantele Light și Dark, lista de mesaje cu avatare, pagina de start și bara 
 
 Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`).
 
-<img src="capturi/demo/logo.png" width="96" alt="Logo-ul temei: pasărea care îmbrățișează pătratul cu T"> Logo-ul din colțul din stânga sus și iconița ferestrelor (doar pentru uz personal: pasărea pornește de la logo-ul Thunderbird).
+<img src="capturi/demo/logo.png" width="96" alt="Logo-ul ThunderLook: pătratul cu T și plicul, cu flăcări albastre"> Logo-ul din colțul din stânga sus și iconița ferestrelor: pătratul cu T, cu un plic abia sugerat în fundal și flăcări albastre.
 
 ## Ce conține
 
@@ -32,7 +32,7 @@ Capturile sunt făcute într-un profil demo, cu mesaje inventate (`example.com`)
 - **Panoul de citire**: mesajul ca o foaie separată (subiectul pe fundalul ferestrei, antetul și conținutul pe o pagină cu colțuri rotunjite), avatarul lângă expeditor, butoane plate, buton „✕ Închide”.
 - **Teme Light și Dark** schimbate pe loc din comutatorul lună/soare din antetul mesajului, în toată aplicația (și corpul mesajelor).
 - **Aranjare**: lista, pagina de start și mesajul sunt carduri cu umbră difuză și spații egale de 12px; mesajul începe la aceeași înălțime cu primul rând din listă.
-- **Logo** în colțul din stânga sus (pasărea Thunderbird care îmbrățișează pătratul cu T), același logo ca iconiță a ferestrelor (extensia) și pe scurtăturile Windows, cu `iconita-windows.cmd` (cere o dată acceptul de administrator).
+- **Logo** în colțul din stânga sus (pătratul cu T și un plic abia sugerat, cu flăcări albastre), același logo ca iconiță a ferestrelor (extensia) și pe scurtăturile Windows, cu `iconita-windows.cmd` (cere o dată acceptul de administrator).
 - **Fereastra de scriere**: câmpurile în culorile temei și bara de formatare după modelul Brainly Text Area din Figma, cu mărimea fontului ca număr („− 13 +”, extensia).
 - **Pagina de start** (extensia): ora, data, vremea și prognoza pe 3 zile (Open-Meteo), ultimele mesaje cu steluță din Inbox, fundal din Wallhaven (fără cont), Unsplash (cu cheia ta) sau ilustrația Thunderbird.
 
@@ -56,7 +56,7 @@ Iconițele din `extensie/tema/Icons/` provin din [FluentBird](https://github.com
 
 ## Licență
 
-Codul (CSS, extensia, scripturile) e sub licența MIT, în `LICENSE`. Logo-ul (pasărea cu pătratul cu T) nu e inclus: pornește de la logo-ul Thunderbird și e doar pentru uz personal. „Outlook” e marcă Microsoft.
+Codul (CSS, extensia, scripturile) e sub licența MIT, în `LICENSE`. Logo-ul nu e inclus în licența MIT. Din 3.1, logo-ul are flăcări în loc de pasăre, după răspunsul Mozilla; logo-ul vechi cu pasăre a fost scos. „Outlook” e marcă Microsoft.
 
 Thunderbird is a trademark of mozilla.org. ThunderLook is not part of, endorsed by, sponsored by, or otherwise affiliated with Mozilla.org or any other Mozilla entity. ThunderLook is not affiliated with or endorsed by Microsoft either.
 
