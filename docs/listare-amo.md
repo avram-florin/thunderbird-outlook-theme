@@ -99,6 +99,10 @@ How to test: install, restart Thunderbird if the theme is not applied, select no
 (gear button at bottom right for settings, including language). Toggle Light/Dark with the moon/sun switch in the
 message header. No account or credentials are needed.
 
+The "sensitiveDataUpload" permission is requested because the reviewer guide asks for it when an add-on sends
+data to hardcoded third-party servers (Open-Meteo, Wallhaven); the linter reports it as unknown. We can remove it if
+you prefer.
+
 **Categories:** Appearance / Message Reading
 **License:** MIT (code). The ThunderLook logo is not covered by the MIT License.
 
