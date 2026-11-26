@@ -64,6 +64,20 @@ are stored locally in the add-on's storage and are removed when the add-on is re
 **Screenshots:** `capturi/demo/*.jpg` (English, for the listing) and `capturi/demo/ro/*.jpg` (Romanian), all from a
 demo profile with made-up messages.
 
+**Version notes (3.2.0):**
+
+First public release.
+
+- New Outlook style for Thunderbird: Light and Dark themes that follow Thunderbird's own toggle.
+- Message list as cards: avatar with initials, sender, subject, first line of the message, short date; hover buttons
+  for read/unread, archive and delete.
+- Reading pane as a sheet, with a "Close" button that brings back the start page.
+- Start page: clock, date, weather with a 3-day forecast (Open-Meteo), latest starred messages (remove a star with the
+  ×), daily background from Wallhaven or the Thunderbird illustration.
+- Restyled compose window and formatting toolbar; font size shown as a number.
+- Calendar, Tasks and Address Book follow the theme.
+- English and Romanian; language selectable on the start page.
+
 **Support site / Homepage:** https://github.com/avram-florin/thunderbird-outlook-theme (issues welcome there)
 
 **Notes to Reviewers (ATN field, only reviewers see it):**
