@@ -64,6 +64,41 @@ are stored locally in the add-on's storage and are removed when the add-on is re
 **Screenshots:** `capturi/demo/*.jpg` (English, for the listing) and `capturi/demo/ro/*.jpg` (Romanian), all from a
 demo profile with made-up messages.
 
+**Support site / Homepage:** https://github.com/avram-florin/thunderbird-outlook-theme (issues welcome there)
+
+**Notes to Reviewers (ATN field, only reviewers see it):**
+
+ThunderLook restyles Thunderbird (Outlook-like look) and adds a start page. No build step: all files are
+hand-written and unminified, so the source in the XPI is the source. The full repository is public at
+https://github.com/avram-florin/thunderbird-outlook-theme.
+
+Why an Experiment: the built-in MailExtension APIs cannot restyle the main window (no stylesheet API for chrome
+documents), change the message list rows, or replace the message-pane start page. Everything that the regular APIs
+can do (storage, network requests from the start page, the start page itself) uses them.
+
+What the Experiment (implementation.js, namespace `outlookCards`) does:
+- Registers the theme stylesheets (`tema/`) with nsIStyleSheetService through a resource:// substitution; both are
+  removed in onShutdown.
+- Message list: wraps `thread-card.fillRow`, `threadPane.densityChange` and `messagePane.displayWebPage` in
+  about:3pane to add an avatar with initials, a one-line preview and hover buttons (read/unread, archive, delete).
+  The originals are kept and restored when the add-on is disabled or removed (unpatch3Pane).
+- Previews are read only from the local offline copy (`MsgHdrToMimeMessage` with allowDownload = false); nothing is
+  downloaded or sent anywhere.
+- Sets `mailnews.start_page.url` to the add-on's start page and restores the previous value on shutdown.
+- Sets the Windows window icon with nsIWindowsUIUtils (Windows only), restored on shutdown.
+- Shows the font size as a number in the compose formatting toolbar.
+- API for the start page: `getInboxSummary` (count and latest starred messages in Inboxes), `openMessage`,
+  `unflagMessage` (only when the user clicks the × on a starred message), `onFlaggedChanged`, `setLanguage`, `init`.
+  It does not change messages, folders or accounts in any other way.
+
+Network: only the start page (home/home.js) makes requests, over HTTPS, to api.open-meteo.com and
+geocoding-api.open-meteo.com (weather for the chosen city) and wallhaven.cc (background image; can be turned off by
+choosing the Thunderbird illustration). Wallhaven image URLs are validated before use. No remote code is loaded.
+
+How to test: install, restart Thunderbird if the theme is not applied, select no message to see the start page
+(gear button at bottom right for settings, including language). Toggle Light/Dark with the moon/sun switch in the
+message header. No account or credentials are needed.
+
 **Categories:** Appearance / Message Reading
 **License:** MIT (code). The ThunderLook logo is not covered by the MIT License.
 

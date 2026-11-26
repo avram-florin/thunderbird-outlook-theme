@@ -5,6 +5,7 @@
   "version": "3.2.0",
   "description": "__MSG_extDescription__",
   "author": "Florin Avram",
+  "homepage_url": "https://github.com/avram-florin/thunderbird-outlook-theme",
   "icons": {
     "32": "icons/icon-32.png",
     "48": "icons/icon-48.png",
