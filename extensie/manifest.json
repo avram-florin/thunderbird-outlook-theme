@@ -16,7 +16,8 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "thunderlook@lexicon-software.ro",
-      "strict_min_version": "140.0"
+      "strict_min_version": "140.0",
+      "strict_max_version": "161.*"
     }
   },
   "permissions": [
